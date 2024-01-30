@@ -17,7 +17,7 @@ export default function Footer() {
             unvergessliches Genusserlebnis schaffen. Probieren Sie unsere Besten
             und überzeugen Sie sich selbst!
           </div>
-          <div className="relative max-h-auto mt-10 mx-auto w-full h-[160px] border-t border-orange-600 items-center ">
+          <div className="relative max-h-auto mt-10 mx-auto w-full h-[160px] border-t border-orange-600 items-center " id="contact">
             <div className="flex justify-between mt-12 items-center">
               <Link href="/">
                 <Image

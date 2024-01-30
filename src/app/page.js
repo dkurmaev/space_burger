@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <Hero />
       <HomeMenu />
-      <section className="text-center my-16">
+      <section className="text-center my-16" id="our__story">
         <SectionHeaders subHeader={"Our story"} mainHeader={"Über Uns"} />
         <AboutVideo />
       </section>

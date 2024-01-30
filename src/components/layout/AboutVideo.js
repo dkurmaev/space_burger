@@ -21,7 +21,7 @@ export default function AboutVideo() {
 
   return (
       <section>
-        <div className="mx-auto  text-gray-200 video">
+        <div className="mx-auto  text-gray-200 video" >
           <div className="video-info">
             <div className="text-gray-300 text-center video-title">
               Im Jahr 2023 eröffneten wir unseren familiären Burger-Anhänger in
