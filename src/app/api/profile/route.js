@@ -1,9 +1,9 @@
 // В файле, из которого вы отправили свой код
 import mongoose from "mongoose";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route"; // Добавьте эту строку для импорта authOptions
 import { User } from "@/models/User";
 import { UserInfo } from "@/models/UserInfo";
+import authOptions from "@/libs/authOptions";
 
 export async function PUT(req) {
   mongoose.connect(process.env.MONGO_URL);
