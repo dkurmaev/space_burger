@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <>
-      <section className="grid place-items-center">
+      <section className="grid place-items-center mt-8">
         <div className="container flex flex-col items-center">
           <div className="text-center mt-2 text-gray-400 footer-info">
             <span>DIE BESTEN BURGER IN DER STADT</span>
@@ -33,7 +33,7 @@ export default function Footer() {
                    <Link href={"https://www.google.com/maps/place/Schönfelder+Weg+28-31,+16321+Bernau+bei+Berlin"}
                     target="_blank"
                     rel="noopener noreferrer">
-                   <h3 className="text-primary text-xl">Adresse: </h3>
+                   <h3 className="text-primary text-base">Adresse: </h3>
                     
                   </Link>  
                     <ul>Schönfelder Weg 28 - 31 </ul>
@@ -41,13 +41,13 @@ export default function Footer() {
                   
                 </div>
                 <div>
-                  <h3 className="text-primary text-xl">Öffnungszeiten: </h3>
+                  <h3 className="text-primary text-base">Öffnungszeiten: </h3>
                   <ul>11:00 - 22.00 MO - SA </ul>
                   <ul>12:00 - 22:00 SO </ul>
                 </div>
                 <div>
                   <Link href={"/"}>
-                    <h3 className="text-primary text-xl">Kontakt: </h3>
+                    <h3 className="text-primary text-base">Kontakt: </h3>
                   </Link>
                   <ul>+49 (0) 176-22-99-77-56 </ul>
                   <ul>+49 (0) 176-22-99-77-56 </ul>

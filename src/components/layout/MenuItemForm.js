@@ -83,8 +83,11 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
               const { floatValue } = values;
               setBasePrice(floatValue);
             }}
+
             thousandSeparator={true}
             prefix={"€"}
+            decimalScale={2}
+            fixedDecimalScale={true}
           />
           <MenuItemPriseProps
             name={"Extras"}

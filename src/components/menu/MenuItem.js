@@ -26,7 +26,7 @@ export default function MenuItem({
                   py-2
                   text-sm
                   w-full
-                  hover:bg-orange-600">Einlegen für {basePrice}€
+                  hover:bg-orange-600">Einlegen für <span className="text-red-800 font-bold font-semibold">{basePrice.toFixed(2)}€</span>
                 <Right /></button>
         </div>
     );

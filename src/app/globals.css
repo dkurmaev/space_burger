@@ -142,7 +142,7 @@ button[type="avatar"],
 
 button[type="beenden"],
 .beenden {
-    @apply text-gray-600 border-my_blue hover:bg-my_blue mt-4 ;    
+    @apply text-gray-600 hover:bg-gray-500 mt-4 ;
     box-shadow: 0 1px 5px 0 #764F22;
 }
 

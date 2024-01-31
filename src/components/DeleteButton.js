@@ -8,7 +8,7 @@ export default function DeleteButton({ label, onDelete }) {
       <div className="fixed bg-black/80 inset-0 flex items-center h-full justify-center">
         <div className="bg-bg rounded-lg p-4 relative">
           <span
-            className="absolute   top-0 right-2 text-white cursor-pointer"
+            className="absolute top-0 right-2 text-white cursor-pointer"
             onClick={() => setShowConfirm(false)}
           >
             &times;
@@ -39,7 +39,7 @@ export default function DeleteButton({ label, onDelete }) {
 
   return (
     <button
-      className="flex justify-center my-auto text-sm items-center"
+      className="flex justify-center my-auto ml-20 text-sm items-center"
       type="remove"
       onClick={() => setShowConfirm(true)}
     >
