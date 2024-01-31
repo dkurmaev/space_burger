@@ -8,8 +8,8 @@ body {
 
 body::after {
     content: "";
-    background: url(../img/snow.gif);
-    opacity: 0.1;
+    background: url(../img/stars.gif);
+    opacity: 0.5;
     position: fixed;
     top: 0;
     right: 0;
@@ -43,7 +43,7 @@ section.hero {
 }  */
 
 .card {
-    @apply bg-gray-100 bg-opacity-10 shadow-md transition-transform transform translate-x-0;
+    @apply bg-gray-100 bg-opacity-5 shadow-md transition-transform transform translate-x-0;
 }
 
 .video {

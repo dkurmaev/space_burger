@@ -1,5 +1,4 @@
 import clientPromise from "@/libs/mongoConnect";
-import {UserInfo} from "@/models/UserInfo";
 import bcrypt from "bcrypt";
 import * as mongoose from "mongoose";
 import {User} from '@/models/User';
@@ -10,7 +9,8 @@ import {MongoDBAdapter} from "@auth/mongodb-adapter"
 
 const adapter = MongoDBAdapter(clientPromise);
 
-export const authOptions = {
+
+const authOptions = {
     secret: process.env.SECRET,
     providers: [
         GoogleProvider({
@@ -63,6 +63,6 @@ export const authOptions = {
     return userInfo.admin;
 }*/
 
-const handler = NextAuth(authOptions);
+const handler = NextAuth(authOptions)
 
-export {handler as GET, handler as POST}
+export {handler as GET, handler as POST, authOptions}

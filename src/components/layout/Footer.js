@@ -6,7 +6,7 @@ export default function Footer() {
     <>
       <section className="grid place-items-center">
         <div className="container flex flex-col items-center">
-          <div className="text-center mt-8 text-gray-400 footer-info">
+          <div className="text-center mt-2 text-gray-400 footer-info">
             <span>DIE BESTEN BURGER IN DER STADT</span>
             <br />
             Unsere besten Burger in der Stadt zeichnen sich durch die höchste
