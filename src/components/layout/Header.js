@@ -23,11 +23,11 @@ export default function Header() {
                 <Logo/>
             </div>
             <nav className="flex items-center mx-auto justify-center gap-8 grow text-gray-400 font-semibold text-lg">
-                {/*<Link href="/"></Link>*/}
+                
                 <Link href={"/"}>
                     <span className=" hover:text-primary ">Home</span>
                 </Link>
-                <Link href={"/"}>
+                <Link href={"/menu"}>
                     <span className=" hover:text-primary">Menü</span>
                 </Link>
                 <Link href={"/"}>
