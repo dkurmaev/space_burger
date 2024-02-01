@@ -14,6 +14,7 @@ module.exports = {
         secondary: "#d9d9d9",
         my_blue: "#3DC8F9",
         my_rot: "#f80404",
+        my_rahme:"#DB8726",
       },
     },
   },

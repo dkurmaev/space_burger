@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
+
 import UserTabs from "@/components/layout/UserTabs";
 import { UseProfile } from "@/components/UseProfile";
 import DeleteButton from "@/components/DeleteButton";
@@ -54,6 +55,7 @@ export default function CategoriesPage() {
       error: "Fehler, Das Feld darf nicht leer sein",
     });
   }
+  
 
   async function handleDeleteClick(_id) {
     const promise = new Promise(async (resolve, reject) => {
@@ -97,6 +99,7 @@ export default function CategoriesPage() {
       </div>
     );
   }
+  
 
   return (
     <section className="mt-16 max-w-2xl mx-auto">

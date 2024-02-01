@@ -66,7 +66,7 @@ export default function MenuItemPriseProps({
                             const { floatValue } = values;
                             handleExtrasChange(null, index, "price", floatValue);
                           }}
-                          displayType={"text"}
+                          
                           thousandSeparator={true}
                           prefix={"€"}
                           decimalScale={2}
