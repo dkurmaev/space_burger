@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
 import toast from "react-hot-toast";
-import Right from "@/components/icons/Right";
+import { FaTimes } from "react-icons/fa";
 import { CartContext } from "@/components/AppContext";
-
+import MenuItemTile from "@/components/menu/MenuItemTile";
+import Image from "next/image";
 
 export default function MenuItem(menuItem) {
   const { image, name, description, basePrice, extras, beilagen, drinks } =
@@ -16,61 +17,50 @@ export default function MenuItem(menuItem) {
     if (extras.length === 0 && beilagen.length === 0 && drinks.length === 0) {
       addToCart(menuItem);
       toast.success("Artikel zum Warenkorb hinzugefügt");
-    }else {
+    } else {
       setShowPopup(true);
-
     }
+  }
+
+  function handleClosePopup() {
+    setShowPopup(false);
   }
 
   return (
     <>
       {showPopup && (
-        <div className="fixed inset-0 bg-bg/80 flex items-center justify-center">
-          <div className=" bg-bg p-4 rounded-lg shadow-md ring ring-my_rahme/20 shadow-my_rahme/50">
-            test
+        <div className="fixed inset-0 bg-black/90 flex items-center justify-center">
+          <div className=" frame__glow rounded-lg  shadow-my_rahme max-w-md p-4">
+            <button
+              onClick={handleClosePopup}
+              style={{ backgroundColor: "transparent", border: "none" }}
+              className=" flex items-baseline justify-end ml-6 text-gray-500 hover:text-my_blue"
+            >
+              <FaTimes />
+            </button>
+            <Image
+              src={image}
+              alt={name}
+              width={530}
+              height={530}
+              style={{ objectFit: "contain" }}
+              className="mx-auto food__image"
+            />
+            <h2 className="text-xl font-bold text-center mb-4 text-gray-200">
+              {name}
+            </h2>
+            <p className="font-bold text-center italic mb-2 ">{description}</p>
+            {extras?.length > 0 && beilagen?.length > 0  && drinks?.length > 0 && (
+              <div className="bg-secondary  rounded-md p-2 ">
+                <h3>Extras</h3>
+                <h3>Beilagen</h3>
+                <h3>Drinks</h3>
+              </div>
+            )}
           </div>
         </div>
       )}
-      <div className="card mt-4 bg-gray-200 p-4 rounded-lg text-center group hover:shadow-xl hover:shadow-white/20 transition-all">
-        <div className="font-semibold my-3 font-bold text-xl ">{name}</div>
-        <div
-          className="text-center mx-auto mt-4"
-          style={{
-            width: "290px",
-            height: "210px",
-            filter: "drop-shadow(2px 2px 60px #5A5A5A)",
-          }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={image} alt="image" className="max-h-auto  block " />
-        </div>
-
-        <p className="text-gray-300 mt-4 text-sm line-clamp-1 italic ">
-          {description}
-        </p>
-        <button
-          type="button"
-          onClick={handleAddToCartButtonClick}
-          className="bg-primary justify-center
-                  items-center
-                  uppercase
-                  gap-4
-                  mt-8
-                  rounded-full
-                  text-white
-                  px-4
-                  py-2
-                  text-sm
-                  w-full
-                  hover:bg-orange-600"
-        >
-          Einlegen für{" "}
-          <span className="text-red-800  font-bold font-semibold">
-            {basePrice.toFixed(2)}€
-          </span>
-          <Right />
-        </button>
-      </div>
+      <MenuItemTile onAddToCart={handleAddToCartButtonClick} {...menuItem} />
     </>
   );
 }

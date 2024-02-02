@@ -13,7 +13,7 @@ export function AppProvider ({children}) {
       if(lokalStorage && lokalStorage.getItem("cart")){
           setCartProducts(JSON.parse(lokalStorage.getItem("cart")));
       }  
-    }, []);
+    }, [lokalStorage]);
 
     function clearCart() {
         setCartProducts([]);

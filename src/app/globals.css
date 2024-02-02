@@ -42,6 +42,16 @@ section.hero {
     top: 275px;
 }  */
 
+.frame__glow {
+    @apply bg-bg;
+    
+    box-shadow: 0 0 10px rgba(219, 135, 38, 0.2),
+            0 0 10px rgba(219, 135, 38, 0.5),
+            0 0 10px rgba(219, 135, 38, 0.5),
+            0 0 10px rgba(219, 135, 38, 0.5);
+    }
+
+
 .card {
     @apply bg-gray-100 bg-opacity-5 shadow-md transition-transform transform translate-x-0;
 }
@@ -52,6 +62,10 @@ section.hero {
 
 video {
     @apply w-full h-auto filter blur-[5px];
+}
+
+.food__image {
+    filter: drop-shadow(0 0 10px rgba(219, 135, 38, 0.5));
 }
 
 
@@ -169,6 +183,12 @@ button[type="cancel"],
 .cancel {
     @apply text-gray-200  hover:bg-my_blue ;
     box-shadow: 0 1px 10px 0 #d3b28d;
+}
+
+button[type="close"],
+.close {
+    @apply text-gray-200 hover:bg-my_blue;
+    
 }
 
 

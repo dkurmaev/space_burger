@@ -22,19 +22,23 @@ export default function Header() {
 
   return (
     <header className="flex items-center ">
-      <div className="flex">
+      <Link href="/">
         <Logo />
-      </div>
+      </Link>
       <nav className="flex items-center mx-auto justify-center gap-8 grow text-gray-400 font-semibold text-lg">
         <Link href={"/"}>
-          <span className=" hover:text-primary ">Home</span>
+          <span className=" hover:text-primary hover:border-b-2 border-primary hover:rounded-full p-2 transition-all duration-300">
+            Home
+          </span>
         </Link>
         <Link href={"/menu"}>
-          <span className=" hover:text-primary">Menü</span>
+          <span className=" hover:text-primary hover:border-b-2 border-primary hover:rounded-full p-2 transition-all duration-300">
+            Menü
+          </span>
         </Link>
         <Link href={"/"}>
           <span
-            className=" hover:text-primary"
+            className=" hover:text-primary hover:border-b-2 border-primary hover:rounded-full p-2 transition-all duration-300"
             onClick={() => scrollToSection("our__story")}
           >
             Über uns
@@ -42,7 +46,7 @@ export default function Header() {
         </Link>
         <Link href={"/"}>
           <span
-            className=" hover:text-primary "
+            className=" hover:text-primary hover:border-b-2 border-primary hover:rounded-full p-2 transition-all duration-300 "
             onClick={() => scrollToSection("contact")}
           >
             Kontakt
@@ -53,7 +57,7 @@ export default function Header() {
         {status === "authenticated" && (
           <>
             <Link
-              className="text-white whitespace-nowrap glow flex  items-center"
+              className="text-white whitespace-nowrap glow flex  items-center hover:text-primary hover:border-b-2 border-primary hover:rounded-full p-2 transition-all duration-300"
               href={"/profile"}
             >
               {`Hi! `}
@@ -61,7 +65,7 @@ export default function Header() {
             </Link>
             <button
               onClick={() => signOut({ callbackUrl: "/" })}
-              className="bg-primary rounded-full text-white px-8 py-2 header-menu__link menu-link"
+              className="bg-primary rounded-full text-white px-8 py-2 header-menu__link menu-link hover:text-white hover:border-b-2 border-white hover:rounded-full p-2 transition-all duration-300"
             >
               Abmelden
             </button>
@@ -71,19 +75,24 @@ export default function Header() {
           <>
             <Link
               href={"/login"}
-              className="bg-my_blue rounded-full text-white px-8 py-2 "
+              className="bg-my_blue rounded-full text-white px-8 py-2 hover:text-primary hover:border-b-2 border-primary hover:rounded-full p-2 transition-all duration-300"
             >
               Anmelden
             </Link>
             <Link
               href={"/register"}
-              className="bg-primary rounded-full text-white px-8 py-2 "
+              className="bg-primary rounded-full text-white px-8 py-2 header-menu__link menu-link hover:text-my_blue hover:border-b-2 border-white hover:rounded-full p-2 transition-all duration-300 "
             >
               Registrieren
             </Link>
           </>
         )}
-        <Link href={"/cart"}>Warenkorb ({cartProducts.length})</Link>
+        <Link
+          className="hover:text-primary hover:border-b-2 border-primary hover:rounded-full p-2 transition-all duration-300"
+          href={"/cart"}
+        >
+          Warenkorb ({cartProducts.length})
+        </Link>
       </nav>
     </header>
   );
