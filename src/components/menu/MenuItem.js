@@ -1,9 +1,10 @@
 import { useContext, useState } from "react";
 import toast from "react-hot-toast";
+import Image from "next/image";
 import { FaTimes } from "react-icons/fa";
 import { CartContext } from "@/components/AppContext";
 import MenuItemTile from "@/components/menu/MenuItemTile";
-import Image from "next/image";
+import CloseButton from "@/components/icons/CloseButton";
 
 export default function MenuItem(menuItem) {
   const { image, name, description, basePrice, extras, beilagen, drinks } =
@@ -36,7 +37,7 @@ export default function MenuItem(menuItem) {
               style={{ backgroundColor: "transparent", border: "none" }}
               className=" flex items-baseline justify-end ml-6 text-gray-500 hover:text-my_blue"
             >
-              <FaTimes />
+              <CloseButton />
             </button>
             <Image
               src={image}
@@ -55,6 +56,9 @@ export default function MenuItem(menuItem) {
                 <h3>Extras</h3>
                 <h3>Beilagen</h3>
                 <h3>Drinks</h3>
+                <label>
+                  <input type="radio" /> {extras.name} {extras.price}
+                </label>
               </div>
             )}
           </div>

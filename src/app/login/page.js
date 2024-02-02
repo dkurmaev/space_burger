@@ -53,7 +53,6 @@ export default function LoginPage() {
           <div className="absolute inset-y-0 right-0 pr-3 flex justify-end items-center">
             <button
               type="button"
-
               onClick={() => setShowPassword(!showPassword)}
               className=" text-my_blue "
             >
@@ -62,8 +61,8 @@ export default function LoginPage() {
           </div>
         </div>
         <button
-          className="hover:shadow-md hover:shadow-white items-center justify-center"
-          disabled={loginInProgress}          
+          className="hover:shadow-md hover:shadow-white text-white bg-primary items-center justify-center"
+          disabled={loginInProgress}
           type="submit"
         >
           Einloggen
