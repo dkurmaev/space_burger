@@ -67,11 +67,7 @@ export default function Footer() {
           &nbsp;als Full-Stack-Entwickler,&nbsp;
           <a href="#" className="text-primary hover:underline">
             Roman Popov &nbsp;
-          </a>
-          und &nbsp;
-          <a href="#" className="text-primary hover:underline">
-            Eduard Frank
-          </a>
+          </a>          
           &nbsp;als QA beteiligt.
         </span>
         Alle Rechte vorbehalten.
