@@ -2,7 +2,7 @@
 import Hero from "@/components/layout/Hero";
 import HomeMenu from "@/components/layout/HomeMenu";
 import SectionHeaders from "@/components/layout/SectionHeaders";
-import AboutVideo from "@/components/layout/AboutVideo";
+/* import AboutVideo from "@/components/layout/AboutVideo"; */
 import Reviews from "@/components/layout/Reviews";
 
 

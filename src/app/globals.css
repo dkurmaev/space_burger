@@ -84,6 +84,11 @@ video {
 
 }
 
+.slick-arrow  {
+    
+    filter: drop-shadow(0 0 25px rgb(226, 151, 65, 0.7));
+}
+
 
 .video-info {
     position: absolute;
