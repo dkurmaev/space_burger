@@ -20,7 +20,7 @@ export default function HomeMenu() {
       <section className="ml-3">
         <div className="text-center">
           <SectionHeaders subHeader={"check out"}
-                          mainHeader={"space bestsellers"}>
+                          mainHeader={"spacebox bestsellers"}>
             
           </SectionHeaders>
         </div>

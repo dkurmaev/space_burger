@@ -11,7 +11,7 @@ export default function Hero() {
         <h1 className="text-2xl font-semibold mt-2 text-center leading-normal">
           SAFTIGSTE&nbsp;
           <br />
-          <span className="text-primary text-6xl">BURGERS </span>
+          <span className="text-primary text-6xl">SPACEBOX BURGERS </span>
           <br />
           IN BERNAU BEI BERLIN
         </h1>

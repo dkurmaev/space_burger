@@ -10,28 +10,28 @@ import { FaStar } from "react-icons/fa";
 const reviews = [
   {
     id: 1,
-    text: "Space Burger hat meine Erwartungen übertroffen! Die Burger sind nicht nur außerirdisch gut, sondern die Möglichkeit der Lieferung macht es noch besser. Perfekt für einen gemütlichen Abend zu Hause mit köstlichen Burgern!",
+    text: `" Space Burger hat meine Erwartungen übertroffen! Die Burger sind nicht nur außerirdisch gut, sondern die Möglichkeit der Lieferung macht es noch besser. Perfekt für einen gemütlichen Abend zu Hause mit köstlichen Burgern!" `,	
     imageUrl: "/img/foto_1_img.png",
     rating: 5,
     signature: "Sara aus Berlin",
   },
   {
     id: 2,
-    text: "Space Burger ist unser Lieblingsort für schnelle Snacks. Die Vielfalt an Burgern und Sandwiches ist beeindruckend, und die Option für die Lieferung macht es besonders bequem. Die Qualität und der Geschmack sind wirklich  außergewöhnlich.",
+    text: `" Space Burger ist unser Lieblingsort für schnelle Snacks. Die Vielfalt an Bürgern und Sandwiches ist beeindruckend, und die Option für die Lieferung macht es besonders bequem. Die Qualität und der Geschmack sind wirklich  außergewöhnlich. " `,
     imageUrl: "/img/foto_2_img.png",
     rating: 4,
     signature: "Monika aus Bernau bei Berlin",
   },
   {
     id: 3,
-    text: "Space Burger hat nicht nur großartiges Essen für Erwachsene, sondern auch eine fantastische Auswahl für Kinder. Das kinderfreundliche Menü und die bunten Verpackungen sind ein Hit bei den Kleinen  Eine tolle Option für Familien!.",
+    text: `" Space Burger hat nicht nur großartiges Essen für Erwachsene, sondern auch eine fantastische Auswahl für Kinder. Das kinderfreundliche Menü und die bunten Verpackungen sind ein Hit bei den Kleinen  Eine tolle Option für Familien!. "`,
     imageUrl: "/img/foto_3_img.png",
     rating: 4,
     signature: "Robert aus Eberswalde",
   },
   {
     id: 4,
-    text: "Wenn Sie Lust auf einen erstklassigen Burger haben, aber keine Lust haben zu kochen, ist Space Burger die ideale Lösung. Die Lieferoption macht es einfach, sich verwöhnen zu lassen. Probieren Sie es unbedingt aus!",
+    text: `" Wenn Sie Lust auf einen erstklassigen Burger haben, aber keine Lust haben zu kochen, ist Space Burger die ideale Lösung. Die Lieferoption macht es einfach, sich verwöhnen zu lassen. Probieren Sie es unbedingt aus!  "`,
     imageUrl: "/img/anonym.png",
     rating: 5,
     signature: "Anonym",
@@ -68,7 +68,7 @@ export default function TestimonialsCarousel() {
                   alt={`Review ${review.id}`}
                 />
               </div>
-              <div className="faq-items grid grid-rows-2 mt-8 text-center">
+              <div className="faq-items grid grid-rows-2 mt-8 text-center text-gray-400 italic">
                 <p>{review.text}</p>
                 <p className="text-sm italic grid justify-end mt-4 text-primary">
                   - {review.signature}
