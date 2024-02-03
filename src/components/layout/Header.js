@@ -93,7 +93,7 @@ export default function Header() {
           href={"/cart"}
         >
           <div className="relative">
-            <Image src="/img/cart.png" width={120} height={94} alt="cart" />
+            <Image src="/img/cart.png" width={100} height={78} alt="cart" />
             <div className="bg-my_blue text-gray-200 rounded-full ml-6 text-sm absolute top-0 right-0 w-5 h-5 flex items-center justify-center">
               {cartProducts.length}
             </div>

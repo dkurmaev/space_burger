@@ -4,6 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import AGBPopup from "@/components/AGBPopup";
+
+
 
 export default function RegisterPage() {
   const [name, setName] = useState("");
@@ -11,9 +14,13 @@ export default function RegisterPage() {
   const [password, setPassword] = useState("");
   const [creatingUser, setCreatingUser] = useState(false);
   const [termsAccepted, setTermsAccepted] = useState(false);
+  const [termsChecked, setTermsChecked] = useState(false);
   const [userCreated, setUserCreated] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(false);
+  const [showTermsPopup, setShowTermsPopup] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
 
   async function handleFormSubmit(event) {
     event.preventDefault();    
@@ -29,6 +36,11 @@ export default function RegisterPage() {
 
     if (!password || password.length < 5) {
       setError("Das Passwort muss mindestens 5 Zeichen lang sein");
+      setCreatingUser(false);
+      return;
+    }
+    if (!termsAccepted) {
+      setShowTermsPopup(true);
       setCreatingUser(false);
       return;
     }
@@ -54,15 +66,32 @@ export default function RegisterPage() {
 
   return (
     <section className="mt-16">
+      {showTermsPopup && (
+        <div>
+          <AGBPopup
+            termsChecked={termsChecked}
+            onAccept={() => {
+              setTermsAccepted(true);
+              setTermsChecked(true);
+              setShowTermsPopup(false);
+            }}
+            onDecline={() => {
+              setTermsAccepted(false);
+              setTermsChecked(false);
+              setShowTermsPopup(false);
+            }}
+          />
+        </div>
+      )}
       <h1 className="text-center text-primary text-5xl font-bold mb-8">
         Register
       </h1>
       {userCreated && (
         <div className="my-4 text-center">
           Benutzer erstellt. <br />
-          Jetzt können Sie sich {""}
+          Jetzt können Sie sich
           <Link className="underline" href={"/login"}>
-            anmelden &raquo;{" "}
+            anmelden &raquo;
           </Link>
         </div>
       )}
@@ -73,6 +102,7 @@ export default function RegisterPage() {
             : "Fehler beim Erstellen des Benutzers. Versuchen Sie es später erneut"}
         </div>
       )}
+
       <form
         className="block max-w-sm mx-auto text-white"
         onSubmit={handleFormSubmit}
@@ -118,17 +148,19 @@ export default function RegisterPage() {
           <input
             className="text-submit"
             type="checkbox"
+            checked={termsChecked}
             required
-            onChange={(event) => setTermsAccepted(event.target.checked)}
+            onChange={(event) => setTermsChecked(event.target.checked)}
           />
           &nbsp;Indem Sie auf&nbsp;
-          <span className="text-primary" href="/#">
-            Registrieren
-          </span>
-          &nbsp; klicken, stimmen Sie unseren&nbsp;
-          <a href="#" className="underline text-rose-800">
+          <span className="text-primary ">Registrieren</span>
+          &nbsp;klicken, stimmen Sie unseren&nbsp;
+          <span
+            onClick={() => setShowTermsPopup(true)}
+            className="underline text-rose-800 cursor-pointer"
+          >
             Allgemeinen Geschäftsbedingungen zu
-          </a>
+          </span>
         </p>
         <button
           className="hover:shadow-md hover:shadow-white text-white bg-primary items-center justify-center"

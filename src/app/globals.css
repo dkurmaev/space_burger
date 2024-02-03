@@ -49,6 +49,7 @@ section.hero {
             0 0 10px rgba(219, 135, 38, 0.5),
             0 0 10px rgba(219, 135, 38, 0.5),
             0 0 10px rgba(219, 135, 38, 0.5);
+           
     }
 
 
@@ -163,7 +164,7 @@ button[type="avatar"],
 button[type="beenden"],
 .beenden {
     @apply text-gray-600 hover:bg-gray-500 mt-4 ;
-    box-shadow: 0 1px 5px 0 #764F22;
+    box-shadow: 0 1px 10px 0 #b8a999;
 }
 
 button[type="save"],
@@ -203,8 +204,17 @@ button[type="close"],
 }
 
 
+.popup {
+    position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color:#1E1E1E;
+        padding: 10px;
+        box-shadow: 0 1px 10px 0 #d3b28d;
+        z-index: 1000;
 
-
+}
 
 .animate-gravitation {
     animation: gravitation 2.5s linear infinite alternate;

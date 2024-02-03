@@ -30,7 +30,7 @@ export default function MenuItem(menuItem) {
   return (
     <>
       {showPopup && (
-        <div className="fixed inset-0 bg-black/90 flex items-center justify-center">
+        <div className=" fixed inset-0 bg-black/90 z-40 flex items-center justify-center">
           <div className=" frame__glow rounded-lg  shadow-my_rahme max-w-md p-4">
             <button
               onClick={handleClosePopup}
@@ -51,16 +51,18 @@ export default function MenuItem(menuItem) {
               {name}
             </h2>
             <p className="font-bold text-center italic mb-2 ">{description}</p>
-            {extras?.length > 0 && beilagen?.length > 0  && drinks?.length > 0 && (
-              <div className="bg-secondary  rounded-md p-2 ">
-                <h3>Extras</h3>
-                <h3>Beilagen</h3>
-                <h3>Drinks</h3>
-                <label>
-                  <input type="radio" /> {extras.name} {extras.price}
-                </label>
-              </div>
-            )}
+            {extras?.length > 0 &&
+              beilagen?.length > 0 &&
+              drinks?.length > 0 && (
+                <div className="bg-secondary  rounded-md p-2 ">
+                  <h3>Extras</h3>
+                  <h3>Beilagen</h3>
+                  <h3>Drinks</h3>
+                  <label>
+                    <input type="radio" /> {extras.name} {extras.price}
+                  </label>
+                </div>
+              )}
           </div>
         </div>
       )}
