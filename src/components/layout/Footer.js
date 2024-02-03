@@ -117,7 +117,7 @@ export default function Footer() {
         <span className="bg-grey-500 text-grey-400 p-2 rounded-md">
           Im Projekt waren&nbsp;
           <a
-            href="https://drive.google.com/file/d/1rygJuHmjO8pjMpBUzGdaMQ0PW2RCzJtI/view?usp=sharing"
+            href="https://drive.google.com/file/d/1Q_LPBgyi9WTpV7PzPZNNIWZWjqzjLsVf/view?usp=sharing"
             target="_blank"
             className="text-primary hover:underline"
           >
