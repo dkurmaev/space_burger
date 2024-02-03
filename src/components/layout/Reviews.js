@@ -74,14 +74,14 @@ export default function TestimonialsCarousel() {
                   - {review.signature}
                 </p>
               </div>
-              <div className="flex justify-center">
+              <div className="flex justify-center ">
                 <StarRating
                   count={5}
                   value={review.rating}
                   size={24}
                   edit={true}
                   className="flex items-center justify-center text-center mt-16"
-                  activeColor="#E7F44E"
+                  activeColor="#C6C2C2"
                   emptyIcon={<FaStar />}
                   filledIcon={<FaStar />}
                 />
@@ -89,8 +89,6 @@ export default function TestimonialsCarousel() {
             </div>
           ))}
         </Slider>
-
-        
       </section>
     </div>
   );
