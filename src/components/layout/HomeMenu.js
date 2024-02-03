@@ -24,7 +24,7 @@ export default function HomeMenu() {
             
           </SectionHeaders>
         </div>
-        <div className="grid grid-cols-3 gap-4 ">
+        <div className="grid grid-cols-3 gap-8 ">
             {bestSellers?.length > 0 && bestSellers.map(item => (
                 // eslint-disable-next-line react/jsx-key
                 <MenuItem {...item} />
