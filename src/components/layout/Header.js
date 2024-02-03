@@ -37,14 +37,14 @@ export default function Header() {
             Menü
           </span>
         </Link>
-        <Link href={"/"}>
+       {/*  <Link href={"/"}>
           <span
             className=" hover:text-primary hover:border-b-2 border-primary hover:rounded-full p-2 transition-all duration-300"
             onClick={() => scrollToSection("our__story")}
           >
             Über uns
           </span>
-        </Link>
+        </Link> */}
         <Link href={"/"}>
           <span
             className=" hover:text-primary hover:border-b-2 border-primary hover:rounded-full p-2 transition-all duration-300 "
