@@ -30,37 +30,58 @@ export default function MenuItem(menuItem) {
   return (
     <>
       {showPopup && (
-        <div className=" fixed inset-0 bg-black/90 z-40 flex items-center justify-center">
-          <div className=" frame__glow rounded-lg  shadow-my_rahme max-w-md p-4">
+        <div className="fixed inset-0 bg-black/90 z-40 flex items-center justify-center">
+          <div className="frame__glow rounded-lg shadow-my_rahme p-8 overflow-x-hidden overflow-auto">
             <button
               onClick={handleClosePopup}
               style={{ backgroundColor: "transparent", border: "none" }}
-              className=" flex items-baseline justify-end ml-6 text-gray-500 hover:text-my_blue"
+              className="flex items-baseline justify-end ml-6 text-gray-500 hover:text-my_blue"
             >
               <CloseButton />
             </button>
             <Image
               src={image}
               alt={name}
-              width={530}
-              height={530}
+              width={350}
+              height={350}
               style={{ objectFit: "contain" }}
-              className="mx-auto food__image"
+              className=" mt-2 mx-auto food__image"
             />
-            <h2 className="text-xl font-bold text-center mb-4 text-gray-200">
+            <h2 className="text-xl font-bold text-center mb-4 mt-4 text-gray-200">
               {name}
             </h2>
-            <p className="font-bold text-center italic mb-2 ">{description}</p>
+            <p className="text-center italic mb-2 ml-5 mx-auto">{description}</p>
             {extras?.length > 0 &&
               beilagen?.length > 0 &&
               drinks?.length > 0 && (
-                <div className="bg-secondary  rounded-md p-2 ">
-                  <h3>Extras</h3>
-                  <h3>Beilagen</h3>
-                  <h3>Drinks</h3>
-                  <label>
-                    <input type="radio" /> {extras.name} {extras.price}
-                  </label>
+                <div className="bg-bg rounded-md p-0">
+                  <h3 className="text-primary">Extras</h3>
+                  {extras.map((extra) => (
+                    <div key={extra.name} className="p-0">
+                      <label>
+                        <input type="radio" /> {extra.name}
+                        {extra.price ? ` +${extra.price}€` : ""}
+                      </label>
+                    </div>
+                  ))}
+                  <h3 className="text-primary">Beilagen</h3>
+                  {beilagen.map((beilage) => (
+                    <div key={beilage.name} className="p-0">
+                      <label>
+                        <input type="radio" /> {beilage.name}
+                        {beilage.price ? ` +${beilage.price}€` : ""}
+                      </label>
+                    </div>
+                  ))}
+                  <h3 className="text-primary">Getränke</h3>
+                  {drinks.map((drink) => (
+                    <div key={drink.name} className="p-0">
+                      <label>
+                        <input type="radio" /> {drink.name}
+                        {drink.price ? ` +${drink.price}€` : ""}
+                      </label>
+                    </div>
+                  ))}
                 </div>
               )}
           </div>
