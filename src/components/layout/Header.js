@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useContext } from "react";
 import Logo from "@/components/icons/Logo";
 import { CartContext } from "@/components/AppContext";
+import Image from "next/image";
 
 export default function Header() {
   const session = useSession();
@@ -65,7 +66,7 @@ export default function Header() {
             </Link>
             <button
               onClick={() => signOut({ callbackUrl: "/" })}
-              className="bg-primary rounded-full text-white px-8 py-2 header-menu__link menu-link hover:text-white hover:border-b-2 border-white hover:rounded-full p-2 transition-all duration-300"
+              className="bg-primary rounded-full text-white  py-2 flex items-center justify-center header-menu__link menu-link hover:text-white hover:border-b-2 border-white hover:rounded-full p-2 transition-all duration-300"
             >
               Abmelden
             </button>
@@ -88,10 +89,10 @@ export default function Header() {
           </>
         )}
         <Link
-          className="hover:text-primary hover:border-b-2 border-primary hover:rounded-full p-2 transition-all duration-300"
+          className="hover:text-primary hover:border-b-2 flex border-primary hover:rounded-full p-2 transition-all duration-300"
           href={"/cart"}
         >
-          Warenkorb ({cartProducts.length})
+          <Image src="/img/cart.png" width={100} height={78} alt="cart" />{cartProducts.length}
         </Link>
       </nav>
     </header>
