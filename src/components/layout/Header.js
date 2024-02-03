@@ -37,7 +37,7 @@ export default function Header() {
             Menü
           </span>
         </Link>
-       {/*  <Link href={"/"}>
+        {/*  <Link href={"/"}>
           <span
             className=" hover:text-primary hover:border-b-2 border-primary hover:rounded-full p-2 transition-all duration-300"
             onClick={() => scrollToSection("our__story")}
@@ -58,7 +58,7 @@ export default function Header() {
         {status === "authenticated" && (
           <>
             <Link
-              className="text-white whitespace-nowrap glow flex  items-center hover:text-primary hover:border-b-2 border-primary hover:rounded-full p-2 transition-all duration-300"
+              className="text-my_blue whitespace-nowrap glow flex  items-center hover:text-primary hover:border-b-2 border-primary hover:rounded-full p-2 transition-all duration-300"
               href={"/profile"}
             >
               {`Hi! `}
@@ -66,7 +66,7 @@ export default function Header() {
             </Link>
             <button
               onClick={() => signOut({ callbackUrl: "/" })}
-              className="bg-primary rounded-full text-white  py-2 flex items-center justify-center header-menu__link menu-link hover:text-white hover:border-b-2 border-white hover:rounded-full p-2 transition-all duration-300"
+              className="bg-primary rounded-full text-white  py-2 flex items-center justify-center header-menu__link menu-link hover:text-my_blue hover:border-b-2 border-white hover:rounded-full p-2 transition-all duration-300"
             >
               Abmelden
             </button>

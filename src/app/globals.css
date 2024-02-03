@@ -43,7 +43,7 @@ section.hero {
 }  */
 
 .frame__glow {
-    @apply bg-bg;    
+    @apply bg-bg bg-opacity-80 shadow-md transition-transform transform translate-x-0;
     box-shadow: 0 0 10px rgba(219, 135, 38, 0.2),
         0 0 10px rgba(219, 135, 38, 0.5),
         0 0 10px rgba(219, 135, 38, 0.5),

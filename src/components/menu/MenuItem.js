@@ -35,7 +35,7 @@ export default function MenuItem(menuItem) {
             <button
               onClick={handleClosePopup}
               style={{ backgroundColor: "transparent", border: "none" }}
-              className="flex items-baseline justify-end ml-6 text-gray-500 hover:text-my_blue"
+              className="justify-end p-4"
             >
               <CloseButton />
             </button>
@@ -47,19 +47,21 @@ export default function MenuItem(menuItem) {
               style={{ objectFit: "contain" }}
               className=" mt-2 mx-auto food__image"
             />
-            <h2 className="text-xl font-bold text-center mb-4 mt-4 text-gray-200">
+            <h2 className="text-xl font-bold text-center mb-4 mt-4 text-my_blue">
               {name}
             </h2>
-            <p className="text-center italic mb-2 ml-5 mx-auto">{description}</p>
+            <p className="text-center italic mb-2 ml-5 mx-auto">
+              {description}
+            </p>
             {extras?.length > 0 &&
               beilagen?.length > 0 &&
               drinks?.length > 0 && (
-                <div className="bg-bg rounded-md p-0">
+                <div className="mt-2">
                   <h3 className="text-primary">Extras</h3>
                   {extras.map((extra) => (
-                    <div key={extra.name} className="p-0">
+                    <div key={extra.name} className="flex items-center gap-2 ">
                       <label>
-                        <input type="radio" /> {extra.name}
+                        <input type="radio" name="extras" /> {extra.name}
                         {extra.price ? ` +${extra.price}€` : ""}
                       </label>
                     </div>
@@ -68,7 +70,7 @@ export default function MenuItem(menuItem) {
                   {beilagen.map((beilage) => (
                     <div key={beilage.name} className="p-0">
                       <label>
-                        <input type="radio" /> {beilage.name}
+                        <input type="radio" name="beilagen" /> {beilage.name}
                         {beilage.price ? ` +${beilage.price}€` : ""}
                       </label>
                     </div>
@@ -77,7 +79,7 @@ export default function MenuItem(menuItem) {
                   {drinks.map((drink) => (
                     <div key={drink.name} className="p-0">
                       <label>
-                        <input type="radio" /> {drink.name}
+                        <input type="radio" name="drinks" /> {drink.name}
                         {drink.price ? ` +${drink.price}€` : ""}
                       </label>
                     </div>
