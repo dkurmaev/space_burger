@@ -116,7 +116,11 @@ export default function Footer() {
         &copy; 2024&nbsp;
         <span className="bg-grey-500 text-grey-400 p-2 rounded-md">
           Im Projekt waren&nbsp;
-          <a href="#" className="text-primary hover:underline">
+          <a
+            href="https://drive.google.com/file/d/1rygJuHmjO8pjMpBUzGdaMQ0PW2RCzJtI/view?usp=sharing"
+            target="_blank"
+            className="text-primary hover:underline"
+          >
             Danil Kurmayev
           </a>
           &nbsp;als Full-Stack-Entwickler,&nbsp;
