@@ -18,55 +18,55 @@ export default function Footer() {
             und überzeugen Sie sich selbst!
           </div>
           <div>
-            <ul className="social flex flex-wrap gap-6  ">
+            <ul className="social flex flex-wrap gap-6">
               {/* Первый ряд */}
-              <li>
-                <a href="https://www.instagram.com/">
+              <li className="group">
+                <a href="https://www.instagram.com/" target="_blank">
                   <Image
                     width={30}
                     height={30}
-                    className="mt-6 object-contain cursor-pointer hover:shadow-sm hover:shadow-primary"
-                    src="/img/instagram.png"
+                    className="mt-6 object-contain cursor-pointer group-hover:shadow-sm group-hover:shadow-primary"
+                    src="/img/instagramm_img.png"
                     alt="Instagram"
                   />
                 </a>
               </li>
-              <li>
-                <a href="https://www.facebook.com/">
+              <li className="group">
+                <a href="https://www.facebook.com/" target="_blank">
                   <Image
                     width={30}
                     height={30}
-                    className="mt-6 object-contain cursor-pointer hover:shadow-sm hover:shadow-primary"
-                    src="/img/facebook.png"
+                    className="mt-6 object-contain cursor-pointer group-hover:shadow-sm group-hover:shadow-primary"
+                    src="/img/facebook_img.png"
                     alt="facebook"
                   />
                 </a>
               </li>
-
-              <li>
-                <a href="https://www.whatsapp.com/">
+              <li className="group">
+                <a href="https://www.whatsapp.com/" target="_blank">
                   <Image
                     width={30}
                     height={30}
-                    className="mt-6 object-contain cursor-pointer hover:shadow-sm hover:shadow-primary"
-                    src="/img/whatsapp.png"
+                    className="mt-6 object-contain cursor-pointer group-hover:shadow-sm group-hover:shadow-primary"
+                    src="/img/whatsup_img.png"
                     alt="WhatsApp"
                   />
                 </a>
               </li>
-              <li>
-                <a href="https://telegram.org/">
+              {/* <li className="group">
+                <a href="https://telegram.org/" target="_blank">
                   <Image
                     width={30}
                     height={30}
-                    className="mt-6 object-contain cursor-pointer hover:shadow-sm hover:shadow-primary"
+                    className="mt-6 object-contain cursor-pointer group-hover:shadow-sm group-hover:shadow-primary"
                     src="/img/telegramm.png"
                     alt="Telegram"
                   />
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
+
           <div
             className="relative max-h-auto mt-10 mx-auto w-full h-[160px] border-t border-orange-600 items-center "
             id="contact"

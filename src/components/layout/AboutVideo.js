@@ -26,7 +26,7 @@ export default function AboutVideo() {
             <div className="text-gray-300 text-center video-title">
               Im Jahr 2023 eröffneten wir unseren familiären Burger-Anhänger in
               Bernau bei Berlin und verliebten die Stadt in den legendären&nbsp;
-              <span className="text-primary">Space Burger</span>. Wir versorgen
+              <span className="text-primary">SpaceBox Burger</span>. Wir versorgen
               die lautesten Festivals und Veranstaltungen mit unseren Bürgern.
               Unsere Burger sind eine Mischung aus mutigen Geschmäckern und
               natürlichen Zutaten. Es lohnt sich, sie einmal zu probieren, um
