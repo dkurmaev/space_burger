@@ -17,7 +17,60 @@ export default function Footer() {
             unvergessliches Genusserlebnis schaffen. Probieren Sie unsere Besten
             und überzeugen Sie sich selbst!
           </div>
-          <div className="relative max-h-auto mt-10 mx-auto w-full h-[160px] border-t border-orange-600 items-center " id="contact">
+          <div>
+            <ul className="social flex flex-wrap gap-6  ">
+              {/* Первый ряд */}
+              <li>
+                <a href="https://www.instagram.com/">
+                  <Image
+                    width={30}
+                    height={30}
+                    className="mt-6 object-contain cursor-pointer hover:shadow-sm hover:shadow-primary"
+                    src="/img/instagram.png"
+                    alt="Instagram"
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/">
+                  <Image
+                    width={30}
+                    height={30}
+                    className="mt-6 object-contain cursor-pointer hover:shadow-sm hover:shadow-primary"
+                    src="/img/facebook.png"
+                    alt="facebook"
+                  />
+                </a>
+              </li>
+
+              <li>
+                <a href="https://www.whatsapp.com/">
+                  <Image
+                    width={30}
+                    height={30}
+                    className="mt-6 object-contain cursor-pointer hover:shadow-sm hover:shadow-primary"
+                    src="/img/whatsapp.png"
+                    alt="WhatsApp"
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="https://telegram.org/">
+                  <Image
+                    width={30}
+                    height={30}
+                    className="mt-6 object-contain cursor-pointer hover:shadow-sm hover:shadow-primary"
+                    src="/img/telegramm.png"
+                    alt="Telegram"
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            className="relative max-h-auto mt-10 mx-auto w-full h-[160px] border-t border-orange-600 items-center "
+            id="contact"
+          >
             <div className="flex justify-between mt-12 items-center">
               <Link href="/">
                 <Image
@@ -30,15 +83,17 @@ export default function Footer() {
               </Link>
               <div className="flex mx-auto gap-8 text-gray-400 justify-evenly items-center ">
                 <div>
-                   <Link href={"https://www.google.com/maps/place/Schönfelder+Weg+28-31,+16321+Bernau+bei+Berlin"}
+                  <Link
+                    href={
+                      "https://www.google.com/maps/place/Schönfelder+Weg+28-31,+16321+Bernau+bei+Berlin"
+                    }
                     target="_blank"
-                    rel="noopener noreferrer">
-                   <h3 className="text-primary text-base">Adresse: </h3>
-                    
-                  </Link>  
-                    <ul>Schönfelder Weg 28 - 31 </ul>
-                    <ul>16321 Bernau bei Berlin </ul>
-                  
+                    rel="noopener noreferrer"
+                  >
+                    <h3 className="text-primary text-base">Adresse: </h3>
+                  </Link>
+                  <ul>Schönfelder Weg 28 - 31 </ul>
+                  <ul>16321 Bernau bei Berlin </ul>
                 </div>
                 <div>
                   <h3 className="text-primary text-base">Öffnungszeiten: </h3>
@@ -54,8 +109,8 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-          </div> 
-        </div>       
+          </div>
+        </div>
       </section>
       <footer className="border-t p-5 text-xs text-center text-gray-500 mt-16 border-orange-600">
         &copy; 2024&nbsp;
@@ -67,7 +122,7 @@ export default function Footer() {
           &nbsp;als Full-Stack-Entwickler,&nbsp;
           <a href="#" className="text-primary hover:underline">
             Roman Popov &nbsp;
-          </a>          
+          </a>
           &nbsp;als QA beteiligt.
         </span>
         Alle Rechte vorbehalten.

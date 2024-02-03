@@ -19,11 +19,19 @@ export default function ProfilePage() {
   useEffect(() => {
     if (status === "authenticated") {      
       fetch("/api/profile")
-        .then((response) => response.json())
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
         .then((data) => {
           setUser(data);
           setIsAdmin(data.admin);
           setProfileFetched(true);
+        })
+        .catch((error) => {
+          console.error("Error fetching profile:", error);
         });
     }
   }, [status, session]);

@@ -3,8 +3,11 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
 import * as mongoose from "mongoose";
 import {User} from '@/models/User';
+import { MongoDBAdapter } from "@auth/mongodb-adapter";
+import clientPromise from "./mongoConnect";
 
 const authOptions = {
+   /*  adapter: MongoDBAdapter(clientPromise), */
     secret: process.env.SECRET,
     providers: [
         GoogleProvider({
@@ -28,7 +31,7 @@ const authOptions = {
                     console.log('found user', user);
                 }
                 const passwordOk = user && bcrypt.compareSync(password, user.password);
-                console.log("Результат сравнения пароля:", passwordOk);
+                console.log("Result of the secret password:", passwordOk);
 
                 if (passwordOk) {
                     user.name = user.name || "Default Name";

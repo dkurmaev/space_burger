@@ -9,9 +9,9 @@ const uri = process.env.MONGO_URL
 const options = {}
 
 let client
-let clientPromise;
+let clientPromise
 
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV === "production") {
 
   if (!global._mongoClientPromise) {
     client = new MongoClient(uri, options)
@@ -24,6 +24,5 @@ if (process.env.NODE_ENV === "development") {
   clientPromise = client.connect()
 }
 
-// Export a module-scoped MongoClient promise. By doing this in a
-// separate module, the client can be shared across functions.
+
 export default clientPromise

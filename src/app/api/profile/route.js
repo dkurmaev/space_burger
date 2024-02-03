@@ -36,14 +36,20 @@ export async function GET(req) {
   if (_id) {
     filterUser ={_id}
   }else {
-    const session = await getServerSession(authOptions); // Используйте authOptions здесь
-    const email = session?.user?.email;
+    const session = await getServerSession(authOptions); 
+    const email = session && session.user && session.user.email;
     if (!email) {
       return Response.json({});
     }
     filterUser = { email };
   }
   const user = await User.findOne( filterUser ).lean();
+  if (user) {
+  // Проверяем, что user.email существует перед использованием
+  const email = user.email;
+  }else {
+    console.error("Пользователь не найден");
+  }
   const userInfo = await UserInfo.findOne({ email: user.email }).lean();
   return Response.json({ ...user, ...userInfo });
 
