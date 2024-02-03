@@ -26,7 +26,7 @@ export default function Header() {
       <Link href="/">
         <Logo />
       </Link>
-      <nav className="flex items-center mx-auto justify-center gap-8 grow text-gray-400 font-semibold text-lg">
+      <nav className="flex items-center mx-auto justify-center gap-12 grow text-gray-400 font-semibold text-lg">
         <Link href={"/"}>
           <span className=" hover:text-primary hover:border-b-2 border-primary hover:rounded-full p-2 transition-all duration-300">
             Home
