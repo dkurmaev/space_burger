@@ -89,10 +89,15 @@ export default function Header() {
           </>
         )}
         <Link
-          className="hover:text-primary hover:border-b-2 flex border-primary hover:rounded-full p-2 transition-all duration-300"
+          className="hover:text-primary hover:border-b-2 flex items-center justify-center border-primary rounded-full p-2 transition-all duration-300"
           href={"/cart"}
         >
-          <Image src="/img/cart.png" width={100} height={78} alt="cart" />{cartProducts.length}
+          <div className="relative">
+            <Image src="/img/cart.png" width={120} height={94} alt="cart" />
+            <div className="bg-my_blue text-gray-200 rounded-full ml-6 text-sm absolute top-0 right-0 w-5 h-5 flex items-center justify-center">
+              {cartProducts.length}
+            </div>
+          </div>
         </Link>
       </nav>
     </header>
