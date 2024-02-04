@@ -54,7 +54,9 @@ export default function CartPage() {
                         Getränke:&nbsp;
                         <span className="text-primary">
                           {product.drinks.name}{" "}
-                          <span className="text-my_blue">+ {product.drinks.price}€</span>
+                          <span className="text-my_blue">
+                            + {product.drinks.price}€
+                          </span>
                         </span>
                       </div>
                     )}
