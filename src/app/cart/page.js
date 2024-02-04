@@ -132,7 +132,7 @@ export default function CartPage() {
               <button
                 id="kasse"
                 type="submit"
-                className="bg-primary rounded-full justify-center text-gray-150  text-md "
+                className="bg-primary rounded-full sticky bottom-0 w-full justify-center text-gray-150  text-md "
                 disabled={!termsAccepted}
               >
                 Zur Kasse &nbsp;{total.toFixed(2)}€
