@@ -6,10 +6,28 @@ import Trash from "@/components/icons/Trash";
 import AddressInputs from "@/components/layout/AddressInputs";
 import Image from "next/image";
 import { useState, useEffect, useContext } from "react";
+import { UseProfile } from "@/components/UseProfile";
 
 export default function CartPage() {
   const { cartProducts, removeFromCart } = useContext(CartContext);
   const [termsAccepted, setTermsAccepted] = useState(false);
+  const [address, setAddress] = useState({});
+  const {data:profileData} = UseProfile();
+
+  useEffect (() => {
+    if (profileData?.city) {
+      const {phone, countryCode, country, city, plz, street } = profileData;
+      const addressFromProfile = {
+        phone,
+        countryCode,
+        country,
+        city,
+        plz,
+        street,
+      };
+      setAddress(addressFromProfile);
+    }
+  }, [profileData] );
 
   let total =0;
   for (const p of cartProducts){
@@ -21,19 +39,24 @@ export default function CartPage() {
       kasse.disabled = !termsAccepted;
     }
   }, [termsAccepted]);
+
+  function handleAddressChange(propName, value) {
+    setAddress(prevAddress => ({...prevAddress, [propName]:value}));
+    
+  }
   return (
     <section className="mt-16 w-full  mx-auto">
       <div className="text-center">
         <SectionHeaders mainHeader="Ihr Warenkorb" />
       </div>
 
-      <div className="grid grid-cols-2 gap-4 mt-16">
+      <div className="grid grid-cols-2 gap-12 mt-16">
         <div>
           {cartProducts?.length === 0 && <div>Ihr Warenkorb ist leer.</div>}
           {cartProducts?.length > 0 &&
             cartProducts.map((product, index) => (
               <div
-                className="flex gap-4 mb-4 border-b border-primary text-gray-200 py-4 items-center"
+                className="flex gap-8 mb-4 border-b border-primary text-gray-200 py-4 items-center"
                 key={product}
               >
                 <div className="w-24">
@@ -48,7 +71,7 @@ export default function CartPage() {
                   <h3 className="uppercase  italic font-semibold text-glow">
                     {product.name}
                   </h3>
-                  <div className="mt-4">
+                  {/* <div className="mt-4">
                     {product.extras && (
                       <div className="text-gray-400 text-xs">
                         Extras:&nbsp;
@@ -82,7 +105,7 @@ export default function CartPage() {
                         </span>
                       </div>
                     )}
-                  </div>
+                  </div> */}
                 </div>
                 <div className="text-lg font-semibold text-glow">
                   {cartProductPrice(product).toFixed(2)}€
@@ -110,7 +133,10 @@ export default function CartPage() {
             Bitte füllen Sie alle Felder aus!
           </h2>
           <form className="flex flex-col justify-between h-full">
-            <AddressInputs adressProps={{}} />
+            <AddressInputs 
+            adressProps={address} 
+            setAdressProps={handleAddressChange}
+            />
             <p className=" ml-2 mt-8 text-md text-gray-600">
               <input
                 className="text-submit"

@@ -121,7 +121,7 @@ export default function MenuItem(menuItem) {
                     {beilagen.map((beilage) => (
                       <div
                         key={beilage.name}
-                        className="flex  items-center gap-2 p-4  rounded-md mt-2 mb-2"
+                        className="flex  items-center gap-2 p-4  rounded-md mt-2 py-2 mb-2"
                       >
                         <label>
                           <input
