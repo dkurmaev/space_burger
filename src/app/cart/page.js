@@ -1,11 +1,11 @@
 "use client";
-
+import Image from "next/image";
+import Link from "next/link";
+import { useState, useEffect, useContext } from "react";
 import { CartContext, cartProductPrice } from "@/components/AppContext";
 import SectionHeaders from "@/components/layout/SectionHeaders";
 import Trash from "@/components/icons/Trash";
 import AddressInputs from "@/components/layout/AddressInputs";
-import Image from "next/image";
-import { useState, useEffect, useContext } from "react";
 import { UseProfile } from "@/components/UseProfile";
 
 export default function CartPage() {
@@ -29,9 +29,9 @@ export default function CartPage() {
     }
   }, [profileData]);
 
-  let total = 0;
+  let subtotal = 0;
   for (const p of cartProducts) {
-    total += cartProductPrice(p);
+    subtotal += cartProductPrice(p);
   }
   useEffect(() => {
     const kasse = document.getElementById("saveButton");
@@ -48,10 +48,29 @@ export default function CartPage() {
       <div className="text-center">
         <SectionHeaders mainHeader="Ihr Warenkorb" />
       </div>
+      <div className="mt-16">
+        {cartProducts?.length === 0 && (
+          <div className="mt-12 flex items-center justify-center">
+            <div className="bg-bg frame__glow p-8 rounded-lg  text-center">
+              <h1 className="text-3xl text-primary text-glow font-bold mb-4 items-center">
+                Ihr Warenkorb ist leer.
+              </h1>
+              <p className="text-gray-400">
+                Wählen Sie Ihre Produkte im
+                <Link href="/menu">
+                  <span className="text-my_blue underline font-semibold ml-1 hover:underline">
+                    Menü
+                  </span>
+                </Link>
+                &nbsp;aus.
+              </p>
+            </div>
+          </div>
+        )}
+      </div>
 
       <div className="grid grid-cols-2 gap-12 mt-16">
         <div>
-          {cartProducts?.length === 0 && <div>Ihr Warenkorb ist leer.</div>}
           {cartProducts?.length > 0 &&
             cartProducts.map((product, index) => (
               <div
@@ -120,51 +139,59 @@ export default function CartPage() {
                 </div>
               </div>
             ))}
-          <div className="text-right text-primary font-semibold text-glow py-4 pr-16">
-            Gesamt:&nbsp;
-            <span className="text-lg text-my_blue font-semibold">
-              &nbsp;{total.toFixed(2)}€{" "}
-            </span>
-          </div>
-        </div>
-        <div className="frame__glow rounded-lg p-4 text-gray-100 text-base flex flex-col justify-between">
-          <h2 className=" mb-4 text-center text-lg text-glow">
-            Bitte füllen Sie alle Felder aus!
-          </h2>
-          <form className="flex flex-col justify-between h-full">
-            <AddressInputs
-              adressProps={address}
-              setAdressProps={handleAddressChange}
-            />
-            <p className=" ml-2 mt-8 text-md text-gray-600">
-              <input
-                className="text-submit"
-                type="checkbox"
-                required
-                onChange={(event) => setTermsAccepted(event.target.checked)}
-              />
-              &nbsp;Indem Sie auf&nbsp;
-              <span className="text-primary" href="/#">
-                Zur Kasse
-              </span>
-              &nbsp; klicken, stimmen Sie unseren&nbsp;
-              <a href="#" className="underline text-rose-800">
-                Datenschutzerklärung
-              </a>
-              &nbsp;zu!
-            </p>
-            <div className="mt-auto ">
-              <button
-                id="kasse"
-                type="submit"
-                className="bg-primary rounded-full  justify-center text-gray-150  text-md "
-                disabled={!termsAccepted}
-              >
-                Zur Kasse &nbsp;{total.toFixed(2)}€
-              </button>
+
+          {cartProducts?.length > 0 && (
+            <div className=" text-primary font-semibold text-glow py-4 pr-16 flex justify-end items-center">
+              Gesamt:&nbsp;
+              <br />
+              Lieferung:&nbsp;
+              <div className="text-lg text-my_blue font-semibold text-right">
+                &nbsp;{subtotal.toFixed(2)}€<br />
+                &nbsp; Kostenlose
+              </div>
             </div>
-          </form>
+          )}
         </div>
+        {cartProducts?.length > 0 && (
+          <div className="frame__glow rounded-lg p-4 text-gray-100 text-base flex flex-col justify-between">
+            <h2 className=" mb-4 text-center text-lg text-glow">
+              Bitte füllen Sie alle Felder aus!
+            </h2>
+            <form className="flex flex-col justify-between h-full">
+              <AddressInputs
+                adressProps={address}
+                setAdressProps={handleAddressChange}
+              />
+              <p className=" ml-2 mt-8 text-md text-gray-600">
+                <input
+                  className="text-submit"
+                  type="checkbox"
+                  required
+                  onChange={(event) => setTermsAccepted(event.target.checked)}
+                />
+                &nbsp;Indem Sie auf&nbsp;
+                <span className="text-primary" href="/#">
+                  Zur Kasse
+                </span>
+                &nbsp; klicken, stimmen Sie unseren&nbsp;
+                <a href="#" className="underline text-rose-800">
+                  Datenschutzerklärung
+                </a>
+                &nbsp;zu!
+              </p>
+              <div className="mt-auto ">
+                <button
+                  id="kasse"
+                  type="submit"
+                  className="bg-primary rounded-full  justify-center text-gray-150  text-md "
+                  disabled={!termsAccepted}
+                >
+                  Zur Kasse &nbsp;{subtotal.toFixed(2)}€
+                </button>
+              </div>
+            </form>
+          </div>
+        )}
       </div>
     </section>
   );
