@@ -10,11 +10,12 @@ const MenuItemSchema = new Schema(
     image: { type: String },
     name: { type: String },
     description: { type: String },
-    category: { type: mongoose.Types.ObjectId },  
+    category: { type: mongoose.Types.ObjectId },
     basePrice: { type: Number },
     extras: { type: [ExtraPriceSchema] },
     beilagen: { type: [ExtraPriceSchema] },
     drinks: { type: [ExtraPriceSchema] },
+    extraIngredientPrices: { type: [ExtraPriceSchema] },
   },
   { timestamps: true }
 );

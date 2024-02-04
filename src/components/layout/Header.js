@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useContext } from "react";
 import Logo from "@/components/icons/Logo";
 import { CartContext } from "@/components/AppContext";
+import ShoppingCart from "@/components/icons/ShoppingCart";
 import Image from "next/image";
 
 export default function Header() {
@@ -92,9 +93,9 @@ export default function Header() {
           className="hover:text-primary hover:border-b-2 flex items-center justify-center border-primary rounded-full p-2 transition-all duration-300"
           href={"/cart"}
         >
-          <div className="relative">
-            <Image src="/img/cart.png" width={100} height={78} alt="cart" />
-            <div className="bg-my_blue text-gray-200 rounded-full ml-6 text-sm absolute top-0 right-0 w-5 h-5 flex items-center justify-center">
+          <div className="relative cart">
+            <ShoppingCart / >
+            <div className="bg-my_blue text-gray-800 rounded-full ml-6 text-sm absolute -top-2 -right-2 w-5 h-5 flex items-center justify-center">
               {cartProducts.length}
             </div>
           </div>

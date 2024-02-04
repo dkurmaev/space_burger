@@ -1,6 +1,6 @@
 import Right from "@/components/icons/Right";
 export default function MenuItemTile({ onAddToCart, ...item }) {
-  const { image, description, name, basePrice } = item;
+  const { image, description, name, basePrice, extras, beilagen, drinks } = item;
   
   return (
     <div className="frame__glow my-8 gap-16 p-4 rounded-lg text-center group hover:shadow-xl hover:shadow-white/20 ">
@@ -36,11 +36,22 @@ export default function MenuItemTile({ onAddToCart, ...item }) {
                   w-full
                   hover:bg-orange-600"
       >
-        Einlegen für
-        <span className="text-red-800 font-semibold">
-          {basePrice.toFixed(2)}€
-        </span>
-        <Right />
+        {extras?.length > 0 || beilagen?.length > 0 || drinks?.length > 0 ? (
+          <span>
+            Einlegen für (aus
+            <span className="text-red-800 font-semibold">
+              &nbsp;{basePrice.toFixed(2)}€
+            </span>
+            )
+          </span>
+        ) : (
+          <span>
+            Einlegen für&nbsp;
+            <span className="text-red-800 font-semibold">
+              &nbsp;{basePrice.toFixed(2)}€
+            </span>
+          </span>
+        )}
       </button>
     </div>
   );
