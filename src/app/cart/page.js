@@ -1,79 +1,145 @@
 "use client";
 
-import { CartContext } from "@/components/AppContext";
+import { CartContext, cartProductPrice } from "@/components/AppContext";
 import SectionHeaders from "@/components/layout/SectionHeaders";
+import Trash from "@/components/icons/Trash";
+import AddressInputs from "@/components/layout/AddressInputs";
 import Image from "next/image";
-import { useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 
 export default function CartPage() {
-  const { cartProducts } = useContext(CartContext);
+  const { cartProducts, removeFromCart } = useContext(CartContext);
+  const [termsAccepted, setTermsAccepted] = useState(false);
+
+  let total =0;
+  for (const p of cartProducts){
+    total += cartProductPrice(p);
+  }
+  useEffect(() => {
+    const kasse = document.getElementById("saveButton");
+    if (kasse) {
+      kasse.disabled = !termsAccepted;
+    }
+  }, [termsAccepted]);
   return (
-    <section className="mt-16 max-w-2xl mx-auto">
+    <section className="mt-16 w-full  mx-auto">
       <div className="text-center">
-        <SectionHeaders mainHeader="Ihre Warenkorb" />
+        <SectionHeaders mainHeader="Ihr Warenkorb" />
       </div>
 
       <div className="grid grid-cols-2 gap-4 mt-16">
         <div>
           {cartProducts?.length === 0 && <div>Ihr Warenkorb ist leer.</div>}
           {cartProducts?.length > 0 &&
-            cartProducts.map((product) => (
+            cartProducts.map((product, index) => (
               <div
-                className="flex gap-4 mb-4 border-b border-primary text-gray-200 text-sm uppercase italic py-4 items-center"
+                className="flex gap-4 mb-4 border-b border-primary text-gray-200 py-4 items-center"
                 key={product}
               >
                 <div className="w-24">
                   <Image
                     src={product.image}
                     alt={product.name}
-                    width={240}
-                    height={240}
+                    width={340}
+                    height={340}
                   />
                 </div>
-                <div>
-                  <h3>{product.name}</h3>
-                  <div className="text-sm mt-4">
+                <div className="grow">
+                  <h3 className="uppercase  italic font-semibold text-glow">
+                    {product.name}
+                  </h3>
+                  <div className="mt-4">
                     {product.extras && (
-                      <div className="text-gray-400 text-sm">
+                      <div className="text-gray-400 text-xs">
                         Extras:&nbsp;
-                        <span className="text-primary">
+                        <span className="text-primary text-xs">
                           {product.extras.name}
+                          <span className="text-my_blue text-xs">
+                            + {product.extras.price}€
+                          </span>
                         </span>
                       </div>
                     )}
                     {product.beilagen && (
-                      <div className="text-gray-400 text-sm">
+                      <div className="text-gray-400 text-xs">
                         Beilagen:&nbsp;
-                        <span className="text-primary">
+                        <span className="text-primary text-xs">
                           {product.beilagen.name}
+                          <span className="text-my_blue text-xs">
+                            + {product.beilagen.price}€
+                          </span>
                         </span>
                       </div>
                     )}
                     {product.drinks && (
-                      <div className="text-gray-400 text-sm">
+                      <div className="text-gray-400 text-xs">
                         Getränke:&nbsp;
-                        <span className="text-primary">
-                          {product.drinks.name}{" "}
-                          <span className="text-my_blue">
+                        <span className="text-primary text-xs">
+                          {product.drinks.name}
+                          <span className="text-my_blue text-xs">
                             + {product.drinks.price}€
                           </span>
                         </span>
                       </div>
                     )}
-                    {/* {product.extras?.length > 0 && (
-                        <div>
-                            Extras: 
-                            {product.extras.map((extra, index) => (
-                                <div key={index}>{extra.name} {extra.price}€</div>
-                            ))}
-                        </div>
-                    )} */}
                   </div>
+                </div>
+                <div className="text-lg font-semibold text-glow">
+                  {cartProductPrice(product).toFixed(2)}€
+                </div>
+                <div className="ml-2">
+                  <button
+                    type="button"
+                    onClick={() => removeFromCart(index)}
+                    className="p-2 bg-transparent "
+                  >
+                    <Trash />
+                  </button>
                 </div>
               </div>
             ))}
+          <div className="text-right text-primary font-semibold text-glow py-4 pr-16">
+            Gesamt:&nbsp;
+            <span className="text-lg text-my_blue font-semibold">
+              &nbsp;{total.toFixed(2)}€{" "}
+            </span>
+          </div>
         </div>
-        <div>right</div>
+        <div className="frame__glow rounded-lg p-4 text-gray-100 text-base">
+          <h2 className=" mb-4 text-center text-lg text-glow">
+            Bitte füllen Sie alle Felder aus!
+          </h2>
+          <form>
+            <AddressInputs adressProps={{}} />
+            <p className=" ml-2 mt-8 text-md text-gray-600">
+              <input
+                className="text-submit"
+                type="checkbox"
+                required
+                onChange={(event) => setTermsAccepted(event.target.checked)}
+              />
+              &nbsp;Indem Sie auf&nbsp;
+              <span className="text-primary" href="/#">
+                Zur Kasse
+              </span>
+              &nbsp; klicken, stimmen Sie unseren&nbsp;
+              <a href="#" className="underline text-rose-800">
+                Datenschutzerklärung
+              </a>
+              &nbsp;zu!
+            </p>
+            <div className="mt-18 ">
+              <button
+                id="kasse"
+                type="submit"
+                className="bg-primary rounded-full justify-center text-gray-150  text-md "
+                disabled={!termsAccepted}
+              >
+                Zur Kasse &nbsp;{total.toFixed(2)}€
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
   );

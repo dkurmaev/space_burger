@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 import EditableImage from "@/components/layout/EditableImage";
 import { UseProfile } from "@/components/UseProfile";
+import AddressInputs from "@/components/layout/AddressInputs";
 
 export default function UserForm({user, onSave}) {
     const [userName, setUserName] = useState(user?.name || "");
@@ -25,12 +26,23 @@ export default function UserForm({user, onSave}) {
       }
     }, [termsAccepted]);
 
+    function handleAddressChange(propName, value) {
+      if (propName === "city") setCity(value);
+      if (propName === "plz") setPlz(value);
+      if (propName === "street") setStreet(value);
+      if (propName === "phone") setPhone(value);
+      if (propName === "country") setCountry(value);
+      if (propName === "countryCode") setCountryCode(value);
+      
+    }
+
   return (
     <div className="md:flex gap-4">
       <div>
         <div className=" p-2  rounded-lg relative max-w-[320px]">
           <EditableImage link={image} setLink={setImage} />
         </div>
+
         {loggedInUserData.admin && (
           <div>
             <label
@@ -80,71 +92,18 @@ export default function UserForm({user, onSave}) {
           value={user ? user.email : ""}
           placeholder="email"
         />
-        <label>Adresse</label>
-        <input
-          type="text"
-          placeholder="Straße und Hausnummer "
-          className="avatar__btn"
-          value={street}
-          onChange={(event) => setStreet(event.target.value)}
+        <AddressInputs
+          adressProps={{
+            phone,
+            countryCode,
+            country,
+            city,
+            plz,
+            street,
+          }}
+          setAdressProps={handleAddressChange}
         />
-        <div className="flex gap-4 ">
-          <div>
-            <label>Postleitzahl</label>
-            <input
-              type="text"
-              placeholder="Postleitzahl"
-              className="avatar__btn mx-auto"
-              value={plz}
-              onChange={(event) => setPlz(event.target.value)}
-            />
-          </div>
-          <div className="grow">
-            <label>Stadt</label>
-            <input
-              type="text"
-              placeholder="Stadt"
-              className="avatar__btn"
-              value={city}
-              onChange={(event) => setCity(event.target.value)}
-            />
-          </div>
-        </div>
-        <label>Land</label>
-        <input
-          type="text"
-          placeholder="Land"
-          className="avatar__btn"
-          value={country}
-          onChange={(event) => setCountry(event.target.value)}
-        />
-        <label>Telefonnummer</label>
-        <div className="text-gray-600 flex justify-start gap-4 ">
-          <div>
-            <select
-              value={countryCode}
-              onChange={(event) => setCountryCode(event.target.value)}
-              className="avatar__btn rounded-xl bg-my_blue mx-auto px-2 h-12  text-gray-600"
-              defaultValue="+49"
-            >
-              <option value="+49">+49</option>
-              <option value="+1">+1 </option>
-              <option value="+7">+7</option>
-              <option value="+55">+55</option>
-              <option value="+86">+86</option>
-              <option value="+39">+39</option>
-            </select>
-          </div>
-          <div className="grow">
-            <input
-              type="tel"
-              placeholder="Phone Number"
-              className="avatar__btn text-gray-300  "
-              value={phone}
-              onChange={(event) => setPhone(event.target.value)}
-            />
-          </div>
-        </div>
+
         <p className=" ml-2 mt-2 text-xs text-gray-600">
           <input
             className="text-submit"

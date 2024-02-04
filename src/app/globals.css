@@ -91,6 +91,11 @@ video {
     filter: drop-shadow(0 0 10px rgb(247, 195, 135, 0.7));
 }
 
+.text-glow {
+    /* filter: drop-shadow(0 0 10px rgb(247, 195, 135, 0.7)); */
+    text-shadow: 2px 2px 4px rgba(160, 158, 155, 0.7);
+}
+
 
 .video-info {
     position: absolute;

@@ -1,4 +1,4 @@
-export default function Trash({ className = "w-6 h-6 text-primary" }) {
+export default function Trash({ className = "w-6 h-6 text-primary " }) {
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
