@@ -105,11 +105,11 @@ export default function CartPage() {
             </span>
           </div>
         </div>
-        <div className="frame__glow rounded-lg p-4 text-gray-100 text-base">
+        <div className="frame__glow rounded-lg p-4 text-gray-100 text-base flex flex-col justify-between">
           <h2 className=" mb-4 text-center text-lg text-glow">
             Bitte füllen Sie alle Felder aus!
           </h2>
-          <form>
+          <form className="flex flex-col justify-between h-full">
             <AddressInputs adressProps={{}} />
             <p className=" ml-2 mt-8 text-md text-gray-600">
               <input
@@ -128,11 +128,11 @@ export default function CartPage() {
               </a>
               &nbsp;zu!
             </p>
-            <div className="mt-18 ">
+            <div className="mt-auto ">
               <button
                 id="kasse"
                 type="submit"
-                className="bg-primary rounded-full sticky bottom-0 w-full justify-center text-gray-150  text-md "
+                className="bg-primary rounded-full  justify-center text-gray-150  text-md "
                 disabled={!termsAccepted}
               >
                 Zur Kasse &nbsp;{total.toFixed(2)}€
@@ -144,3 +144,4 @@ export default function CartPage() {
     </section>
   );
 }
+
