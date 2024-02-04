@@ -8,7 +8,7 @@ export default function AddToCartButton({
   if (!hasExtrasOrDrinkWithBeilagen) {
     return (
       <div className="flying-button-parent mt-4">
-        <FlyingButton targetTop={"5%"} targetRight={"5%"} src={image}>
+        <FlyingButton targetTop={"5%"} targetRight={"95%"} src={image}>
           <div onClick={onClick}>
             Einlegen für&nbsp;
             <span className="text-red-800 font-semibold">
@@ -20,38 +20,14 @@ export default function AddToCartButton({
     );
   }
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      className="bg-primary justify-center
-                  items-center
-                  uppercase
-                  gap-4
-                  mt-8
-                  rounded-full
-                  text-white
-                  px-4
-                  py-2
-                  text-sm
-                  w-full
-                  hover:bg-orange-600"
-    >
-      {hasExtrasOrDrinkWithBeilagen ? (
-        <span>
-          Einlegen für (aus
-          <span className="text-red-800 font-semibold">
-            &nbsp;{basePrice.toFixed(2)}€
-          </span>
-          )
+    <button type="button" onClick={onClick} className="flying-button-cart">
+      <span>
+        Einlegen für (aus
+        <span className="text-red-800 font-semibold">
+          &nbsp;{basePrice.toFixed(2)}€
         </span>
-      ) : (
-        <span>
-          Einlegen für&nbsp;
-          <span className="text-red-800 font-semibold">
-            &nbsp;{basePrice.toFixed(2)}€
-          </span>
-        </span>
-      )}
+        )
+      </span>
     </button>
   );
 }

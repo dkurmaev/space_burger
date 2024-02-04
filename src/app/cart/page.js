@@ -12,11 +12,11 @@ export default function CartPage() {
   const { cartProducts, removeFromCart } = useContext(CartContext);
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [address, setAddress] = useState({});
-  const {data:profileData} = UseProfile();
+  const { data: profileData } = UseProfile();
 
-  useEffect (() => {
+  useEffect(() => {
     if (profileData?.city) {
-      const {phone, countryCode, country, city, plz, street } = profileData;
+      const { phone, countryCode, country, city, plz, street } = profileData;
       const addressFromProfile = {
         phone,
         countryCode,
@@ -27,10 +27,10 @@ export default function CartPage() {
       };
       setAddress(addressFromProfile);
     }
-  }, [profileData] );
+  }, [profileData]);
 
-  let total =0;
-  for (const p of cartProducts){
+  let total = 0;
+  for (const p of cartProducts) {
     total += cartProductPrice(p);
   }
   useEffect(() => {
@@ -41,8 +41,7 @@ export default function CartPage() {
   }, [termsAccepted]);
 
   function handleAddressChange(propName, value) {
-    setAddress(prevAddress => ({...prevAddress, [propName]:value}));
-    
+    setAddress((prevAddress) => ({ ...prevAddress, [propName]: value }));
   }
   return (
     <section className="mt-16 w-full  mx-auto">
@@ -133,9 +132,9 @@ export default function CartPage() {
             Bitte füllen Sie alle Felder aus!
           </h2>
           <form className="flex flex-col justify-between h-full">
-            <AddressInputs 
-            adressProps={address} 
-            setAdressProps={handleAddressChange}
+            <AddressInputs
+              adressProps={address}
+              setAdressProps={handleAddressChange}
             />
             <p className=" ml-2 mt-8 text-md text-gray-600">
               <input
@@ -170,4 +169,3 @@ export default function CartPage() {
     </section>
   );
 }
-

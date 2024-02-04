@@ -12,16 +12,12 @@ export default function MenuItem(menuItem) {
     menuItem;
 
   const [selectedExtras, setSelectedExtras] = useState(extras?.[0] || null);
-  const [selectedBeilagen, setSelectedBeilagen] = useState(
-    beilagen?.[0] || null
-  );
+  const [selectedBeilagen, setSelectedBeilagen] = useState(beilagen?.[0] || null);
   const [selectedDrinks, setSelectedDrinks] = useState(drinks?.[0] || null);
-
   const [showPopup, setShowPopup] = useState(false);
-
   const { addToCart } = useContext(CartContext);
 
-  function handleAddToCartButtonClick() {
+  async function handleAddToCartButtonClick() {
     const hasOptions =
       extras.length > 0 || beilagen.length > 0 || drinks.length > 0;
       if (hasOptions && !showPopup) {
@@ -29,8 +25,11 @@ export default function MenuItem(menuItem) {
         return;
       }
       addToCart(menuItem, selectedExtras, selectedBeilagen, selectedDrinks);
+      await new Promise(resolve => setTimeout(resolve, 600));
       setShowPopup(false);
-      toast.success("Artikel zum Warenkorb hinzugefügt");
+      toast.success("Artikel zum Warenkorb hinzugefügt",{
+        position: "top-right"
+      });
     }
   
 

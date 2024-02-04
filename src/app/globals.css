@@ -55,6 +55,11 @@ section.hero {
     box-shadow: 0 1px 10px 0 #d3b28d;
 }
 
+.flying-button-cart {
+    @apply bg-primary justify-center items-center uppercase gap-4 mt-8 rounded-full text-white px-4 py-2 text-sm w-full hover:bg-orange-600;
+        box-shadow: 0 1px 10px 0 #d3b28d;
+}
+
 .review__image{
     filter: drop-shadow(0 0 10px rgba(219, 135, 38, 0.5));
 }

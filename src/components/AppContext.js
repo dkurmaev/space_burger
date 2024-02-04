@@ -66,16 +66,16 @@ export function AppProvider({ children }) {
 
   function addToCart(
     product,
-    selectedExtras,
-    selectedBeilagen,
-    selectedDrinks
+    extras = null,
+    beilagen =[],
+    drinks =[]
   ) {
     setCartProducts((prevProducts) => {
       const cartProduct = {
         ...product,
-        selectedExtras,
-        selectedBeilagen,
-        selectedDrinks,
+        extras,
+        beilagen,
+        drinks,
       };
       const newProducts = [...prevProducts, cartProduct];
       saveCartProductsToLocalStorage(newProducts);
