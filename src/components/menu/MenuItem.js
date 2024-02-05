@@ -25,7 +25,7 @@ export default function MenuItem(menuItem) {
         return;
       }
       addToCart(menuItem, selectedExtras, selectedBeilagen, selectedDrinks);
-      await new Promise(resolve => setTimeout(resolve, 600));
+      await new Promise(resolve => setTimeout(resolve, 1000));
       setShowPopup(false);
       toast.success("Artikel zum Warenkorb hinzugefügt",{
         position: "top-right"
@@ -54,10 +54,10 @@ export default function MenuItem(menuItem) {
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="frame__glow rounded-lg shadow-my_rahme p-2 max-w-md my-12 "
+            className="frame__glow rounded-lg shadow-my_rahme p-2 max-w-2xl my-12 "
           >
             <div
-              className="overflow-y-scroll p-2"
+              className="overflow-y-scroll p-1"
               style={{ maxHeight: "calc(100vh - 100px)" }}
             >
               <button
@@ -65,7 +65,6 @@ export default function MenuItem(menuItem) {
                 style={{
                   backgroundColor: "transparent",
                   border: "none",
-                  filter: "drop-shadow(0 0 25px rgb(226, 151, 65, 0.7))",
                 }}
                 className="justify-end  sticky top-0 "
               >
@@ -88,14 +87,14 @@ export default function MenuItem(menuItem) {
               {extras?.length > 0 &&
                 beilagen?.length > 0 &&
                 drinks?.length > 0 && (
-                  <div className="mt-2">
+                  <div className="mt-2 ">
                     <h3 className="text-gray-300">Extras</h3>
                     {extras.map((extra) => (
                       <div
                         key={extra.name}
-                        className="flex  items-center gap-2 p-4  rounded-md mt-2 mb-2"
+                        className="flex  items-center gap-8 p-4  rounded-md mt-2 mb-2"
                       >
-                        <label>
+                        <label className="flex items-center gap-4">
                           <input
                             type="checkbox"
                             onChange={() => {
@@ -122,9 +121,10 @@ export default function MenuItem(menuItem) {
                         key={beilage.name}
                         className="flex  items-center gap-2 p-4  rounded-md mt-2 py-2 mb-2"
                       >
-                        <label>
+                        <label className="flex items-center gap-4">
                           <input
                             type="checkbox"
+                            className="p-2 rounded-full"
                             onChange={() => {
                               if (selectedBeilagen?.name === beilage.name) {
                                 setSelectedBeilagen(null);
@@ -149,7 +149,7 @@ export default function MenuItem(menuItem) {
                         key={drink.name}
                         className="flex  items-center gap-2 p-4  rounded-md mt-2 mb-2"
                       >
-                        <label>
+                        <label className="flex items-center gap-4">
                           <input
                             type="checkbox"
                             onChange={() => {
