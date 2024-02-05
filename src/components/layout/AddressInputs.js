@@ -12,7 +12,7 @@ export default function AddressInputs({ addressProps, setAddressProps }) {
         onChange={(event) => setAddressProps("street", event.target.value)}
         required
       />
-      <p className="text-red-900 italic mt-2 ml-2 text-sx">
+      <p className="text-red-900 italic ml-2 text-xs">
         Bitte geben Sie die Anschrift ein!
       </p>
       <div className="flex gap-4 mt-8">
@@ -26,7 +26,7 @@ export default function AddressInputs({ addressProps, setAddressProps }) {
             onChange={(event) => setAddressProps("plz", event.target.value)}
             required
           />
-          <p className="text-red-900 italic mt-2 ml-2 text-sx">
+          <p className="text-red-900 italic ml-2 text-xs">
             Bitte geben Sie die Postleitzahl ein.
           </p>
         </div>
@@ -40,7 +40,7 @@ export default function AddressInputs({ addressProps, setAddressProps }) {
             onChange={(event) => setAddressProps("city", event.target.value)}
             required
           />
-          <p className="text-red-900 italic mt-2 ml-2 text-sx">
+          <p className="text-red-900 italic ml-2 text-xs">
             Bitte geben Sie die Stadt ein.
           </p>
         </div>
@@ -54,7 +54,7 @@ export default function AddressInputs({ addressProps, setAddressProps }) {
         onChange={(event) => setAddressProps("country", event.target.value)}
         required
       />
-      <p className="text-red-900 italic mt-2 ml-2 text-sx">
+      <p className="text-red-900 italic ml-2 text-xs">
         Bitte geben Sie die Land ein.
       </p>
       <label className="mt-12">Telefonnummer:*</label>
@@ -86,7 +86,7 @@ export default function AddressInputs({ addressProps, setAddressProps }) {
             onChange={(event) => setAddressProps("phone", event.target.value)}
             required
           />
-          <p className="text-red-900 mt-2 ml-2 text-sx">
+          <p className="text-red-900 italic ml-2 text-xs">
             Bitte geben Sie die Telefonnummer ein.
           </p>
         </div>
