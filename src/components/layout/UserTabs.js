@@ -6,7 +6,7 @@ export default function UserTabs({ isAdmin }) {
   const path = usePathname();
   
     return (
-      <div className="flex max-w-xl items-center mx-auto justify-between gap-6 tabs">
+      <div className="flex max-w-2xl items-center mx-auto text-gray-400 justify-between gap-8 tabs">
         <Link className={path === "/profile" ? "active" : ""} href={"/profile"}>
           Profile
         </Link>
@@ -20,7 +20,7 @@ export default function UserTabs({ isAdmin }) {
             </Link>
             <Link
               href={"/menu-items"}
-              className={/menu-items/.test(path) ? "active" : ""}
+              className={/menu-items/.test(path) ? "active" : "" }
             >
               Menüartikel
             </Link>

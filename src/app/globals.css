@@ -303,13 +303,13 @@ button[type="close"],
 
 div.tabs>* {
     @apply rounded-full px-4 py-2;
-    @apply hover:bg-primary transition-colors duration-300;
-    box-shadow: 0 2px 10px 0 #be8f58;
+    @apply hover:text-primary hover:border-b-2 border-primary hover:rounded-full p-2 transition-all duration-300;
+    /* box-shadow: 0 2px 10px 0 #be8f58; */
 }
 
 div.tabs>.active {
-    @apply bg-primary text-gray-300;
-    box-shadow: 0 2px 10px 0 #be8f58;
+    @apply border-b-2 text-primary border-primary rounded-full p-2 transition-all duration-300;
+   /*  box-shadow: 0 2px 10px 0 #be8f58; */
 }
 
 @keyframes gravitation {
