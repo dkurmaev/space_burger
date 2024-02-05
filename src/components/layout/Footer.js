@@ -90,7 +90,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <h3 className="text-primary text-base">Adresse: </h3>
+                    <h3 className="text-primary text-base">Anschrift: </h3>
                   </Link>
                   <ul>Schönfelder Weg 28 - 31 </ul>
                   <ul>16321 Bernau bei Berlin </ul>

@@ -1,5 +1,5 @@
-export default function AdressInputs({ adressProps, setAdressProps }) {
-  const { phone, countryCode, country, city, plz, street } = adressProps;
+export default function AddressInputs({ addressProps, setAddressProps }) {
+  const { phone, countryCode, country, city, plz, street } = addressProps;
 
   return (
     <>
@@ -9,7 +9,7 @@ export default function AdressInputs({ adressProps, setAdressProps }) {
         placeholder="Straße und Hausnummer"
         className="avatar__btn mx-auto mt-2"
         value={street}
-        onChange={(event) => setAdressProps("street", event.target.value)}
+        onChange={(event) => setAddressProps("street", event.target.value)}
         required
       />
       <p className="text-red-900 italic mt-2 ml-2 text-sx">
@@ -23,7 +23,7 @@ export default function AdressInputs({ adressProps, setAdressProps }) {
             placeholder="Postleitzahl"
             className="avatar__btn mx-auto mt-2"
             value={plz}
-            onChange={(event) => setAdressProps("plz", event.target.value)}
+            onChange={(event) => setAddressProps("plz", event.target.value)}
             required
           />
           <p className="text-red-900 italic mt-2 ml-2 text-sx">
@@ -37,7 +37,7 @@ export default function AdressInputs({ adressProps, setAdressProps }) {
             placeholder="Stadt"
             className="avatar__btn mx-auto mt-2"
             value={city}
-            onChange={(event) => setAdressProps("city", event.target.value)}
+            onChange={(event) => setAddressProps("city", event.target.value)}
             required
           />
           <p className="text-red-900 italic mt-2 ml-2 text-sx">
@@ -51,7 +51,7 @@ export default function AdressInputs({ adressProps, setAdressProps }) {
         placeholder="Land"
         className="avatar__btn mx-auto mt-2"
         value={country}
-        onChange={(event) => setAdressProps("country", event.target.value)}
+        onChange={(event) => setAddressProps("country", event.target.value)}
         required
       />
       <p className="text-red-900 italic mt-2 ml-2 text-sx">
@@ -63,7 +63,7 @@ export default function AdressInputs({ adressProps, setAdressProps }) {
           <select
             value={countryCode}
             onChange={(event) =>
-              setAdressProps("countryCode", event.target.value)
+              setAddressProps("countryCode", event.target.value)
             }
             className="avatar__btn rounded-xl bg-my_blue mx-auto px-2 h-12  mt-2 text-gray-600"
             defaultValue="+49"
@@ -83,7 +83,7 @@ export default function AdressInputs({ adressProps, setAdressProps }) {
             placeholder="Telefonnummer"
             className="avatar__btn mt-2 text-gray-300  "
             value={phone}
-            onChange={(event) => setAdressProps("phone", event.target.value)}
+            onChange={(event) => setAddressProps("phone", event.target.value)}
             required
           />
           <p className="text-red-900 mt-2 ml-2 text-sx">

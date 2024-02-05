@@ -93,7 +93,7 @@ export default function UserForm({user, onSave}) {
           placeholder="email"
         />
         <AddressInputs
-          adressProps={{
+          addressProps={{
             phone,
             countryCode,
             country,
@@ -101,7 +101,7 @@ export default function UserForm({user, onSave}) {
             plz,
             street,
           }}
-          setAdressProps={handleAddressChange}
+          setAddressProps={handleAddressChange}
         />
 
         <p className=" ml-2 mt-2 text-xs text-gray-600">

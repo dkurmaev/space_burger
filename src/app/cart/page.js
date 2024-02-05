@@ -43,6 +43,16 @@ export default function CartPage() {
   function handleAddressChange(propName, value) {
     setAddress((prevAddress) => ({ ...prevAddress, [propName]: value }));
   }
+  async function proceedToCheckout (event){
+   const response = await fetch ("/api/checkout", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({cartProducts, address,}),
+    });
+    const link = await response.json();
+    window.location = link;
+
+  }
   return (
     <section className="mt-16 w-full  mx-auto">
       <div className="text-center">
@@ -89,14 +99,17 @@ export default function CartPage() {
                   <h3 className="uppercase  italic font-semibold text-glow">
                     {product.name}
                   </h3>
-                  {/* <div className="mt-4">
+                  <p className="text-gray-600 text-xs italic">
+                    Basispreis: <span className="text-primary/25">{product.basePrice.toFixed(2)}€</span>
+                  </p>
+                  <div className="mt-4">
                     {product.extras && (
                       <div className="text-gray-400 text-xs">
                         Extras:&nbsp;
                         <span className="text-primary text-xs">
                           {product.extras.name}
-                          <span className="text-my_blue text-xs">
-                            + {product.extras.price}€
+                          <span className=" text-xs">
+                            &nbsp;+ {product.extras.price}€
                           </span>
                         </span>
                       </div>
@@ -106,8 +119,8 @@ export default function CartPage() {
                         Beilagen:&nbsp;
                         <span className="text-primary text-xs">
                           {product.beilagen.name}
-                          <span className="text-my_blue text-xs">
-                            + {product.beilagen.price}€
+                          <span className="text-xs">
+                            &nbsp; + {product.beilagen.price}€
                           </span>
                         </span>
                       </div>
@@ -117,13 +130,13 @@ export default function CartPage() {
                         Getränke:&nbsp;
                         <span className="text-primary text-xs">
                           {product.drinks.name}
-                          <span className="text-my_blue text-xs">
-                            + {product.drinks.price}€
+                          <span className="text-xs">
+                            &nbsp; + {product.drinks.price}€
                           </span>
                         </span>
                       </div>
                     )}
-                  </div> */}
+                  </div>
                 </div>
                 <div className="text-lg font-semibold text-glow">
                   {cartProductPrice(product).toFixed(2)}€
@@ -141,13 +154,18 @@ export default function CartPage() {
             ))}
 
           {cartProducts?.length > 0 && (
-            <div className=" text-primary font-semibold text-glow py-4 pr-16 flex justify-end items-center">
+            <div className=" text-primary font-semibold text-glow py-4 pr-16 gap-4 flex justify-end items-center">
               Gesamt:&nbsp;
               <br />
               Lieferung:&nbsp;
+              <br />
+              Insgesamt:
               <div className="text-lg text-my_blue font-semibold text-right">
-                &nbsp;{subtotal.toFixed(2)}€<br />
-                &nbsp; Kostenlose
+                <span> &nbsp;{subtotal.toFixed(2)}€</span>
+                <br />
+                <span>&nbsp; 4.90€</span>
+                <br />
+                <span>{(subtotal + 4.9).toFixed(2)}€</span>
               </div>
             </div>
           )}
@@ -157,10 +175,13 @@ export default function CartPage() {
             <h2 className=" mb-4 text-center text-lg text-glow">
               Bitte füllen Sie alle Felder aus!
             </h2>
-            <form className="flex flex-col justify-between h-full">
+            <form
+              onSubmit={proceedToCheckout}
+              className="flex flex-col justify-between h-full"
+            >
               <AddressInputs
-                adressProps={address}
-                setAdressProps={handleAddressChange}
+                addressProps={address}
+                setAddressProps={handleAddressChange}
               />
               <p className=" ml-2 mt-8 text-md text-gray-600">
                 <input
@@ -186,7 +207,7 @@ export default function CartPage() {
                   className="bg-primary rounded-full  justify-center text-gray-150  text-md "
                   disabled={!termsAccepted}
                 >
-                  Zur Kasse &nbsp;{subtotal.toFixed(2)}€
+                  Zur Kasse &nbsp;{(subtotal + 4.9).toFixed(2)}€
                 </button>
               </div>
             </form>
