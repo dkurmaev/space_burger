@@ -1,4 +1,4 @@
-export default function ShoppingCart({ className = "w-10 h-10 text-primary " }) {
+export default function ShoppingCart({ className = "w-10 h-10 text-gray-400 " }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

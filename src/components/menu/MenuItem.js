@@ -12,7 +12,9 @@ export default function MenuItem(menuItem) {
     menuItem;
 
   const [selectedExtras, setSelectedExtras] = useState(extras?.[0] || null);
-  const [selectedBeilagen, setSelectedBeilagen] = useState(beilagen?.[0] || null);
+  const [selectedBeilagen, setSelectedBeilagen] = useState(
+    beilagen?.[0] || null
+  );
   const [selectedDrinks, setSelectedDrinks] = useState(drinks?.[0] || null);
   const [showPopup, setShowPopup] = useState(false);
   const { addToCart } = useContext(CartContext);
@@ -20,18 +22,17 @@ export default function MenuItem(menuItem) {
   async function handleAddToCartButtonClick() {
     const hasOptions =
       extras.length > 0 || beilagen.length > 0 || drinks.length > 0;
-      if (hasOptions && !showPopup) {
-        setShowPopup(true);
-        return;
-      }
-      addToCart(menuItem, selectedExtras, selectedBeilagen, selectedDrinks);
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      setShowPopup(false);
-      toast.success("Artikel zum Warenkorb hinzugefügt",{
-        position: "top-right"
-      });
+    if (hasOptions && !showPopup) {
+      setShowPopup(true);
+      return;
     }
-  
+    addToCart(menuItem, selectedExtras, selectedBeilagen, selectedDrinks);
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    setShowPopup(false);
+    toast.success("Artikel zum Warenkorb hinzugefügt", {
+      position: "top-right",
+    });
+  }
 
   let selectedPrice = basePrice;
   if (selectedExtras) {
@@ -43,7 +44,6 @@ export default function MenuItem(menuItem) {
   if (selectedDrinks) {
     selectedPrice += selectedDrinks.price;
   }
-
 
   return (
     <>

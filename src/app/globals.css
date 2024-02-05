@@ -115,7 +115,19 @@ video {
 
 }
 
-
+.fixed-cart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    /* Задайте цвет фона, который соответствует вашему дизайну */
+    z-index: 1000;
+    /* Установите z-index, чтобы корзина была поверх других элементов */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Добавьте тень для выделения от фона */
+    transition: top 0.3s ease-in-out;
+    /* Добавьте анимацию для плавного появления/исчезновения */
+}
 
 .video-button {
     background: #DC8827;
