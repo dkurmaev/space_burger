@@ -137,7 +137,10 @@ export default function CartPage() {
                     {product.name}
                   </h3>
                   <p className="text-gray-600 text-xs italic">
-                    Basispreis: <span className="text-primary/25">{product.basePrice.toFixed(2)}€</span>
+                    Basispreis:{" "}
+                    <span className="text-primary/25">
+                      {product.basePrice.toFixed(2)}€
+                    </span>
                   </p>
                   <div className="mt-4">
                     {product.extras && (
@@ -222,20 +225,22 @@ export default function CartPage() {
               />
               <p className=" ml-2 mt-8 text-md text-gray-600">
                 <input
-                  className="text-submit"
+                  className="text-gray-200"
                   type="checkbox"
                   required
                   onChange={(event) => setTermsAccepted(event.target.checked)}
                 />
-                &nbsp;Indem Sie auf&nbsp;
-                <span className="text-primary" href="/#">
-                  Zur Kasse
+                <span className="text-gray-200">
+                  &nbsp;Indem Sie auf&nbsp;
+                  <span className="text-primary" href="/#">
+                    Zur Kasse
+                  </span>
+                  &nbsp; klicken, stimmen Sie unseren&nbsp;
+                  <a href="#" className="underline text-rose-800">
+                    Datenschutzerklärung
+                  </a>
+                  &nbsp;zu!
                 </span>
-                &nbsp; klicken, stimmen Sie unseren&nbsp;
-                <a href="#" className="underline text-rose-800">
-                  Datenschutzerklärung
-                </a>
-                &nbsp;zu!
               </p>
               <div className="mt-auto ">
                 <button

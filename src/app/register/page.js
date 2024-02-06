@@ -144,7 +144,7 @@ export default function RegisterPage() {
           </div>
         </div>
 
-        <p className=" ml-2 mb-2 text-xs text-gray-600">
+        <p className=" ml-2 mb-2 text-xs text-gray-300 italic">
           <input
             className="text-submit"
             type="checkbox"
