@@ -67,7 +67,7 @@ export default function RegisterPage() {
   return (
     <section className="mt-16">
       {showTermsPopup && (
-        <div>
+        <div className="fixed top-0 left-0 right-0 bg-black/90 z-40 flex items-center justify-center">
           <AGBPopup
             termsChecked={termsChecked}
             onAccept={() => {

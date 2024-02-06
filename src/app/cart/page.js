@@ -46,13 +46,16 @@ export default function CartPage() {
   async function proceedToCheckout (event){
    const response = await fetch ("/api/checkout", {
       method: "POST",
-      headers: {"Content-Type": "application/json"},
+      headers: {"Content-Type":"application/json"},
       body: JSON.stringify({cartProducts, address,}),
     });
-    const link = await response.json();
-    window.location = link;
+    /* const link = await response.json(); */
+    /* window.location = link; */
 
   }
+
+  console.log({cartProducts});
+
   return (
     <section className="mt-16 w-full  mx-auto">
       <div className="text-center">
@@ -85,7 +88,7 @@ export default function CartPage() {
             cartProducts.map((product, index) => (
               <div
                 className="flex gap-8 mb-4 border-b border-primary text-gray-200 py-4 items-center"
-                key={product}
+                key={product._id || index}
               >
                 <div className="w-24">
                   <Image

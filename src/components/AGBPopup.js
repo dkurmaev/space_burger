@@ -5,7 +5,7 @@ const AGBPopup = ({ onAccept, onDecline }) => {
   return (
     <Modal>
       <div className="popup rounded-lg text-gray-400 bg-bg overflow-auto">
-        <h2 className="text-2xl font-bold mb-4">
+        <h2 className="text-xl font-bold mb-4">
           Allgemeine Geschäftsbedingungen
         </h2>
 
@@ -78,13 +78,13 @@ const AGBPopup = ({ onAccept, onDecline }) => {
 
         <div className="flex gap-4 items-center justify-center mt-4">
           <button
-            className="submit flex justify-center text-gray-200"
+            className="submit flex justify-center text-gray-200 sticky top-0"
             onClick={onAccept}
           >
             Akzeptieren
           </button>
           <button
-            className="beenden flex justify-center text-gray-200"
+            className="beenden flex justify-center text-gray-200 sticky top-0"
             onClick={onDecline}
           >
             Ablehnen
