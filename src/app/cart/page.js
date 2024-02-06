@@ -8,11 +8,20 @@ import Trash from "@/components/icons/Trash";
 import AddressInputs from "@/components/layout/AddressInputs";
 import { UseProfile } from "@/components/UseProfile";
 
+
 export default function CartPage() {
   const { cartProducts, removeFromCart } = useContext(CartContext);
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [address, setAddress] = useState({});
   const { data: profileData } = UseProfile();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (window.location.href.includes("canceled=1")) {
+        toast.error("Payment failed 😔");
+      }
+    }
+  }, []);
 
   useEffect(() => {
     if (profileData?.city) {
@@ -43,18 +52,43 @@ export default function CartPage() {
   function handleAddressChange(propName, value) {
     setAddress((prevAddress) => ({ ...prevAddress, [propName]: value }));
   }
-  async function proceedToCheckout (event){
-   const response = await fetch ("/api/checkout", {
-      method: "POST",
-      headers: {"Content-Type":"application/json"},
-      body: JSON.stringify({cartProducts, address,}),
-    });
-    /* const link = await response.json(); */
-    /* window.location = link; */
+  async function proceedToCheckout(ev) {
+    ev.preventDefault();
+    // address and shopping cart products
 
+    const promise = new Promise((resolve, reject) => {
+      fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          address,
+          cartProducts,
+        }),
+      }).then(async (response) => {
+        if (response.ok) {
+          resolve();
+          window.location = await response.json();
+        } else {
+          reject();
+        }
+      });
+    });
+
+    await toast.promise(promise, {
+      loading: "Preparing your order...",
+      success: "Redirecting to payment...",
+      error: "Something went wrong... Please try again later",
+    });
   }
 
-  console.log({cartProducts});
+  if (cartProducts?.length === 0) {
+    return (
+      <section className="mt-8 text-center">
+        <SectionHeaders mainHeader="Cart" />
+        <p className="mt-4">Your shopping cart is empty 😔</p>
+      </section>
+    );
+  }
 
   return (
     <section className="mt-16 w-full  mx-auto">

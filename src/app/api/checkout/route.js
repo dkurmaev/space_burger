@@ -1,8 +1,9 @@
-import authOptions from "@/libs/authOptions";
+import { authOptions } from "@/libs/authOptions";
 import { MenuItem } from "@/models/MenuItem";
 import { Order } from "@/models/Order";
 import mongoose from "mongoose";
 import { getServerSession } from "next-auth";
+
 
 const stripe = require("stripe")(process.env.STRIPE_SK);
 
@@ -25,28 +26,21 @@ export async function POST(req) {
     const productInfo = await MenuItem.findById(cartProduct._id);
 
     let productPrice = productInfo.basePrice;
-
-    if (cartProduct.extras) {
-      const extras = productInfo.extra.find(
-        (extras) => extras._id.toString() === cartProduct.extras._id.toString()
+    if (cartProduct.drink) {
+      const drink = productInfo.drinks.find(
+        (drink) => drink._id.toString() === cartProduct.drink._id.toString()
       );
-      productPrice += extras.price;
+      productPrice += drink.price;
     }
-
-    if (cartProduct.beilagen) {
-      const beilagen = productInfo.beilage.find (
-        (beilagen) => beilagen._id.toString() === cartProduct.beilagen._id.toString()
-      );
-      productPrice += beilagen.price
-    }
-
-   
-
-    if (cartProduct.drinks) {
-      const drinks = productInfo.drink.find(
-        (drinks) => drinks._id.toString() === cartProduct.drinks._id.toString()
-      );
-      productPrice += drinks.price;
+    if (cartProduct.extras?.length > 0) {
+      for (const cartProductExtraThing of cartProduct.extras) {
+        const productExtras = productInfo.extraIngredientPrices;
+        const extraThingInfo = productExtras.find(
+          (extra) =>
+            extra._id.toString() === cartProductExtraThing._id.toString()
+        );
+        productPrice += extraThingInfo.price;
+      }
     }
 
     const productName = cartProduct.name;
@@ -62,10 +56,31 @@ export async function POST(req) {
       },
     });
   }
-  console.log({ stripeLineItems });
 
+  const stripeSession = await stripe.checkout.sessions.create({
+    line_items: stripeLineItems,
+    mode: "payment",
+    customer_email: userEmail,
+    success_url:
+      process.env.NEXTAUTH_URL +
+      "orders/" +
+      orderDoc._id.toString() +
+      "?clear-cart=1",
+    cancel_url: process.env.NEXTAUTH_URL + "cart?canceled=1",
+    metadata: { orderId: orderDoc._id.toString() },
+    payment_intent_data: {
+      metadata: { orderId: orderDoc._id.toString() },
+    },
+    shipping_options: [
+      {
+        shipping_rate_data: {
+          display_name: "Delivery fee",
+          type: "fixed_amount",
+          fixed_amount: { amount: 500, currency: "EUR" },
+        },
+      },
+    ],
+  });
+
+  return Response.json(stripeSession.url);
 }
-
-
-
-
