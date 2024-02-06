@@ -91,7 +91,7 @@ export default function RegisterPage() {
           Benutzer erstellt. <br />
           Jetzt können Sie sich
           <Link className="underline" href={"/login"}>
-            anmelden &raquo;
+            &nbsp;<span className="text-my_blue">anmelden &raquo;</span>&nbsp;
           </Link>
         </div>
       )}
@@ -166,6 +166,7 @@ export default function RegisterPage() {
           className="hover:shadow-md hover:shadow-white text-white bg-primary items-center justify-center"
           type="register"
           disabled={creatingUser || !termsAccepted}
+          onClick={() => setTermsAccepted(true)}
         >
           Registrieren
         </button>

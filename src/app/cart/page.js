@@ -1,13 +1,14 @@
 "use client";
-import Image from "next/image";
-import Link from "next/link";
-import { useState, useEffect, useContext } from "react";
+
 import { CartContext, cartProductPrice } from "@/components/AppContext";
-import SectionHeaders from "@/components/layout/SectionHeaders";
-import Trash from "@/components/icons/Trash";
 import AddressInputs from "@/components/layout/AddressInputs";
+import SectionHeaders from "@/components/layout/SectionHeaders";
+import CartProduct from "@/components/menu/CartProduct";
 import { UseProfile } from "@/components/UseProfile";
 
+import { useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import Link from "next/link";
 
 export default function CartPage() {
   const { cartProducts, removeFromCart } = useContext(CartContext);
@@ -18,7 +19,7 @@ export default function CartPage() {
   useEffect(() => {
     if (typeof window !== "undefined") {
       if (window.location.href.includes("canceled=1")) {
-        toast.error("Payment failed 😔");
+        toast.error("Bezahlung fehlgeschlagen 😔");
       }
     }
   }, []);
@@ -54,7 +55,6 @@ export default function CartPage() {
   }
   async function proceedToCheckout(ev) {
     ev.preventDefault();
-    // address and shopping cart products
 
     const promise = new Promise((resolve, reject) => {
       fetch("/api/checkout", {
@@ -75,18 +75,37 @@ export default function CartPage() {
     });
 
     await toast.promise(promise, {
-      loading: "Preparing your order...",
-      success: "Redirecting to payment...",
-      error: "Something went wrong... Please try again later",
+      loading: "Ihre Bestellung wird vorbereitet...",
+      success: "Weiterleitung zur Zahlung...",
+      error:
+        "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später noch einmal",
     });
   }
 
   if (cartProducts?.length === 0) {
     return (
-      <section className="mt-8 text-center">
-        <SectionHeaders mainHeader="Cart" />
-        <p className="mt-4">Your shopping cart is empty 😔</p>
-      </section>
+      <>
+        <div >
+          <SectionHeaders mainHeader="Ihr Warenkorb" />
+        </div>
+
+        <div className="mt-12 flex items-center justify-center">
+          <div className="bg-bg frame__glow p-8 rounded-lg  text-center">
+            <h1 className="text-3xl text-primary text-glow font-bold mb-4 items-center">
+              Ihr Warenkorb ist leer.😔
+            </h1>
+            <p className="text-gray-400">
+              Wählen Sie Ihre Produkte im
+              <Link href="/menu">
+                <span className="text-my_blue underline font-semibold ml-1 hover:underline">
+                  Menü
+                </span>
+              </Link>
+              &nbsp;aus.
+            </p>
+          </div>
+        </div>
+      </>
     );
   }
 
@@ -100,7 +119,7 @@ export default function CartPage() {
           <div className="mt-12 flex items-center justify-center">
             <div className="bg-bg frame__glow p-8 rounded-lg  text-center">
               <h1 className="text-3xl text-primary text-glow font-bold mb-4 items-center">
-                Ihr Warenkorb ist leer.
+                Ihr Warenkorb ist leer.😔
               </h1>
               <p className="text-gray-400">
                 Wählen Sie Ihre Produkte im
@@ -117,80 +136,14 @@ export default function CartPage() {
       </div>
 
       <div className="grid grid-cols-2 gap-12 mt-16">
-        <div>
+        <div className="grid grid-cols-2">
           {cartProducts?.length > 0 &&
             cartProducts.map((product, index) => (
-              <div
-                className="flex gap-8 mb-4 border-b border-primary text-gray-200 py-4 items-center"
-                key={product._id || index}
-              >
-                <div className="w-24">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    width={340}
-                    height={340}
-                  />
-                </div>
-                <div className="grow">
-                  <h3 className="uppercase  italic font-semibold text-glow">
-                    {product.name}
-                  </h3>
-                  <p className="text-gray-600 text-xs italic">
-                    Basispreis:{" "}
-                    <span className="text-primary/25">
-                      {product.basePrice.toFixed(2)}€
-                    </span>
-                  </p>
-                  <div className="mt-4">
-                    {product.extras && (
-                      <div className="text-gray-400 text-xs">
-                        Extras:&nbsp;
-                        <span className="text-primary text-xs">
-                          {product.extras.name}
-                          <span className=" text-xs">
-                            &nbsp;+ {product.extras.price}€
-                          </span>
-                        </span>
-                      </div>
-                    )}
-                    {product.beilagen && (
-                      <div className="text-gray-400 text-xs">
-                        Beilagen:&nbsp;
-                        <span className="text-primary text-xs">
-                          {product.beilagen.name}
-                          <span className="text-xs">
-                            &nbsp; + {product.beilagen.price}€
-                          </span>
-                        </span>
-                      </div>
-                    )}
-                    {product.drinks && (
-                      <div className="text-gray-400 text-xs">
-                        Getränke:&nbsp;
-                        <span className="text-primary text-xs">
-                          {product.drinks.name}
-                          <span className="text-xs">
-                            &nbsp; + {product.drinks.price}€
-                          </span>
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                </div>
-                <div className="text-lg font-semibold text-glow">
-                  {cartProductPrice(product).toFixed(2)}€
-                </div>
-                <div className="ml-2">
-                  <button
-                    type="button"
-                    onClick={() => removeFromCart(index)}
-                    className="p-2 bg-transparent "
-                  >
-                    <Trash />
-                  </button>
-                </div>
-              </div>
+              <CartProduct
+                key={index}
+                product={product}
+                onRemove={removeFromCart}
+              />
             ))}
 
           {cartProducts?.length > 0 && (

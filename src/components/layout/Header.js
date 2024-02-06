@@ -95,9 +95,11 @@ export default function Header() {
         >
           <div className="relative cart">
             <ShoppingCart />
-            <div className="bg-my_blue text-gray-800 rounded-full ml-6 text-sm absolute -top-2 -right-2 w-5 h-5 flex items-center justify-center">
-              {cartProducts.length}
-            </div>
+            {cartProducts?.length > 0 && (
+              <div className="bg-my_blue text-gray-800 rounded-full ml-6 text-sm absolute -top-2 -right-2 w-5 h-5 flex items-center justify-center">
+                {cartProducts.length}
+              </div>
+            )}
           </div>
         </Link>
       </nav>

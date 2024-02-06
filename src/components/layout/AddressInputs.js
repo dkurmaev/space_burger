@@ -1,10 +1,15 @@
-export default function AddressInputs({ addressProps, setAddressProps }) {
+export default function AddressInputs({
+  addressProps,
+  setAddressProps,
+  disabled = false,
+}) {
   const { phone, countryCode, country, city, plz, street } = addressProps;
 
   return (
     <>
       <label>Anschrift:*</label>
       <input
+        disabled={disabled}
         type="text"
         placeholder="Straße und Hausnummer"
         className="avatar__btn mx-auto mt-2"
@@ -19,6 +24,7 @@ export default function AddressInputs({ addressProps, setAddressProps }) {
         <div>
           <label>Postleitzahl:*</label>
           <input
+            disabled={disabled}
             type="text"
             placeholder="Postleitzahl"
             className="avatar__btn mx-auto mt-2"
@@ -33,6 +39,7 @@ export default function AddressInputs({ addressProps, setAddressProps }) {
         <div className="grow">
           <label>Stadt:*</label>
           <input
+            disabled={disabled}
             type="text"
             placeholder="Stadt"
             className="avatar__btn mx-auto mt-2"
@@ -47,6 +54,7 @@ export default function AddressInputs({ addressProps, setAddressProps }) {
       </div>
       <label>Land:*</label>
       <input
+        disabled={disabled}
         type="text"
         placeholder="Land"
         className="avatar__btn mx-auto mt-2"
@@ -68,6 +76,7 @@ export default function AddressInputs({ addressProps, setAddressProps }) {
             className="avatar__btn rounded-xl bg-my_blue mx-auto px-2 h-12  mt-2 text-gray-600"
             defaultValue="+49"
             required
+            disabled={disabled}
           >
             <option value="+49">+49</option>
             <option value="+1">+1 </option>
@@ -79,6 +88,7 @@ export default function AddressInputs({ addressProps, setAddressProps }) {
         </div>
         <div className="grow">
           <input
+            disabled={disabled}
             type="tel"
             placeholder="Telefonnummer"
             className="avatar__btn mt-2 text-gray-300  "
