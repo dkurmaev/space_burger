@@ -16,8 +16,7 @@ export default function RegisterPage() {
   const [userCreated, setUserCreated] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(false);
-  const [showTermsPopup, setShowTermsPopup] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  
 
   async function handleFormSubmit(event) {
     event.preventDefault();

@@ -1,7 +1,6 @@
 import Modal from "@/components/Modal";
-import Image from "next/image";
 
-const AGBPopup = ({ onAccept, onDecline }) => {
+const AGBPopup = ({ onAccept }) => {
   
   return (
     <Modal>
