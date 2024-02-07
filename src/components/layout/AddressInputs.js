@@ -1,5 +1,5 @@
-export default function AddressInputs({ addressProps = {}, disabled = false }) {
-  // Проверяем, определен ли объект addressProps, если нет, присваиваем значения по умолчанию
+export default function AddressInputs({ addressProps = {}, setAddressProps, disabled = false }) {
+  
   const {
     phone = "",
     countryCode = "",
@@ -17,7 +17,7 @@ export default function AddressInputs({ addressProps = {}, disabled = false }) {
         type="text"
         placeholder="Straße und Hausnummer"
         className="avatar__btn mx-auto mt-2"
-        value={street}
+        value={street || ""}
         onChange={(event) => setAddressProps("street", event.target.value)}
         required
       />
@@ -32,7 +32,7 @@ export default function AddressInputs({ addressProps = {}, disabled = false }) {
             type="text"
             placeholder="Postleitzahl"
             className="avatar__btn mx-auto mt-2"
-            value={plz}
+            value={plz || ""}
             onChange={(event) => setAddressProps("plz", event.target.value)}
             required
           />
@@ -47,7 +47,7 @@ export default function AddressInputs({ addressProps = {}, disabled = false }) {
             type="text"
             placeholder="Stadt"
             className="avatar__btn mx-auto mt-2"
-            value={city}
+            value={city || ""}
             onChange={(event) => setAddressProps("city", event.target.value)}
             required
           />
@@ -62,7 +62,7 @@ export default function AddressInputs({ addressProps = {}, disabled = false }) {
         type="text"
         placeholder="Land"
         className="avatar__btn mx-auto mt-2"
-        value={country}
+        value={country || ""}
         onChange={(event) => setAddressProps("country", event.target.value)}
         required
       />
@@ -73,7 +73,7 @@ export default function AddressInputs({ addressProps = {}, disabled = false }) {
       <div className="text-gray-600 flex justify-start gap-4  ">
         <div>
           <select
-            value={countryCode}
+            value={countryCode || "" }
             onChange={(event) =>
               setAddressProps("countryCode", event.target.value)
             }
@@ -96,7 +96,7 @@ export default function AddressInputs({ addressProps = {}, disabled = false }) {
             type="tel"
             placeholder="Telefonnummer"
             className="avatar__btn mt-2 text-gray-300  "
-            value={phone}
+            value={phone || ""}
             onChange={(event) => setAddressProps("phone", event.target.value)}
             required
           />
