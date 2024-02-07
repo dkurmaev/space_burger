@@ -95,9 +95,9 @@ export default function Footer() {
                     rel="noopener noreferrer"
                   >
                     <h3 className="text-primary text-base">Anschrift: </h3>
+                    <ul>Schönfelder Weg 28 - 31 </ul>
+                    <ul>16321 Bernau bei Berlin </ul>
                   </Link>
-                  <ul>Schönfelder Weg 28 - 31 </ul>
-                  <ul>16321 Bernau bei Berlin </ul>
                 </div>
                 <div>
                   <h3 className="text-primary text-base">Öffnungszeiten: </h3>
