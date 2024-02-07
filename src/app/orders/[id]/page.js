@@ -61,7 +61,7 @@ export default function OrderPage() {
                 key={product._id}
                 product={product}
                 index={index}
-                canRemove={false} // Передаем свойство canRemove
+                canRemove={false} 
               />
             ))}
             <div className="text-primary font-semibold text-glow py-4  gap-4 flex justify-end items-center">

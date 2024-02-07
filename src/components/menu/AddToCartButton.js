@@ -8,14 +8,14 @@ export default function AddToCartButton({
   if (!hasExtrasOrDrinkWithBeilagen) {
     return (
       <div className="flying-button-parent mt-4">
-        <FlyingButton targetTop={"5%"} targetRight={"95%"} src={image}>
-          <div onClick={onClick}>
+        <button type="button" onClick={onClick} className="flying-button-cart">
+          <span >
             Einlegen für&nbsp;
             <span className="text-red-800 font-semibold">
               &nbsp;{basePrice.toFixed(2)}€
             </span>
-          </div>
-        </FlyingButton>
+          </span>
+        </button>
       </div>
     );
   }
