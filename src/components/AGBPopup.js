@@ -2,14 +2,15 @@ import Modal from "@/components/Modal";
 import Image from "next/image";
 
 const AGBPopup = ({ onAccept, onDecline }) => {
+  
   return (
     <Modal>
-      <div className="popup rounded-lg text-gray-400 bg-bg overflow-auto">
-        <h2 className="text-xl font-bold mb-4">
-          Allgemeine Geschäftsbedingungen
+      <div className="popup rounded-lg text-gray-400 bg-bg ">
+        <h2 className="text-2xl font-bold mt-4 text-center mb-4 text-primary">
+          Unsere Allgemeine Geschäftsbedingungen
         </h2>
 
-        <p className="mb-4">
+        <p className="mb-4 mt-5">
           <strong>Allgemeine Bestimmungen</strong>
         </p>
         <p className="mb-4">
@@ -83,12 +84,12 @@ const AGBPopup = ({ onAccept, onDecline }) => {
           >
             Akzeptieren
           </button>
-          <button
+         {/*  <button
             className="beenden flex justify-center text-gray-200 sticky top-0"
             onClick={onDecline}
           >
             Ablehnen
-          </button>
+          </button> */}
         </div>
       </div>
     </Modal>

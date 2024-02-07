@@ -7,7 +7,7 @@ const Modal = ({ children }) => {
   useEffect(() => {
     const modalRoot = document.getElementById("modal-root");
 
-    // Проверяем наличие document перед использованием
+   
     if (modalRoot) {
       modalRoot.appendChild(modalContainer);
     }

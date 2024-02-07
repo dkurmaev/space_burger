@@ -251,11 +251,11 @@ button[type="close"],
 
 .popup {
     position: fixed;
-    top: 40%;
+    top: 50%;
     left: 50%;
-    overflow-y: scroll;
-    width: 450px;
-    height: 300px;
+    /* overflow-y: scroll; */
+    width: 750px;
+    height: 750px;
     transform: translate(-50%, -50%);
     background-color: #1E1E1E;
     padding: 10px;
