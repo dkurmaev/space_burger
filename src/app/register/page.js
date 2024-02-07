@@ -114,6 +114,7 @@ export default function RegisterPage() {
               <input
                 type="text"
                 placeholder="Name"
+                
                 autoComplete="name"
                 value={name}
                 disabled={creatingUser}
@@ -148,7 +149,7 @@ export default function RegisterPage() {
                 </div>
               </div>
 
-              <p className=" ml-2 mb-2 text-xs text-gray-300 italic">
+              <p className=" ml-2 mt-8 mb-2 text-md text-gray-300">
                 <input
                   className="text-submit"
                   type="checkbox"
@@ -157,14 +158,15 @@ export default function RegisterPage() {
                   onChange={(event) => setTermsChecked(event.target.checked)}
                 />
                 &nbsp;Indem Sie auf&nbsp;
-                <span className="text-primary ">Registrieren</span>
+                <span className="text-my_blue ">Registrieren</span>
                 &nbsp;klicken, stimmen Sie unseren&nbsp;
                 <span
                   onClick={() => setTermsAccepted(false)}
-                  className="underline text-rose-800 cursor-pointer"
+                  className="underline text-primary cursor-pointer"
                 >
-                  Allgemeinen Geschäftsbedingungen zu
+                  Allgemeinen Geschäftsbedingungen
                 </span>
+                &nbsp;zu
               </p>
               <button
                 className="hover:shadow-md hover:shadow-white text-white bg-primary items-center justify-center"

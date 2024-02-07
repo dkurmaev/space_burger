@@ -1,11 +1,12 @@
 const AGBPopupContent = ({ onAccept, onDecline }) => {
   return (
-    <div className="popup max-w-3xl rounded-lg text-gray-400 bg-bg">
-      <h2 className="text-2xl font-bold mt-4 text-center mb-4 text-primary">
-        Unsere Allgemeine Geschäftsbedingungen
-      </h2>
+    <div className="popup max-w-3xl rounded-lg text-gray-500 bg-bg">
+      <h1 className="text-3xl text-center mb-4  mt-4 text-primary">
+        Vor der Registrierung müssen Sie unseren Allgemeine Geschäftsbedingungen
+        zustimmen.
+      </h1>
 
-      <p className="mb-4 mt-5">
+      <p className="mb-4 mt-5 text-gray-300">
         <strong>Allgemeine Bestimmungen</strong>
       </p>
       <p className="mb-4">
@@ -19,7 +20,7 @@ const AGBPopupContent = ({ onAccept, onDecline }) => {
         Produkte erklären Sie sich mit diesen AGB einverstanden.
       </p>
 
-      <p className="mb-4">
+      <p className="mb-4 text-gray-300">
         <strong>Registrierung und Konto</strong>
       </p>
       <p className="mb-4">
@@ -32,7 +33,7 @@ const AGBPopupContent = ({ onAccept, onDecline }) => {
         Informationen müssen korrekt und aktuell sein.
       </p>
 
-      <p className="mb-4">
+      <p className="mb-4 text-gray-300">
         <strong>Vertraulichkeit</strong>
       </p>
       <p className="mb-4">
@@ -45,7 +46,7 @@ const AGBPopupContent = ({ onAccept, onDecline }) => {
         Bereitstellung von Dienstleistungen und Produkten.
       </p>
 
-      <p className="mb-4">
+      <p className="mb-4 text-gray-300">
         <strong>Nutzung von Dienstleistungen und Produkten</strong>
       </p>
       <p className="mb-4">
@@ -59,7 +60,7 @@ const AGBPopupContent = ({ onAccept, onDecline }) => {
         AGB verstoßen wird.
       </p>
 
-      <p className="mb-4">
+      <p className="mb-4 text-gray-300">
         <strong>Haftung</strong>
       </p>
       <p className="mb-4">
