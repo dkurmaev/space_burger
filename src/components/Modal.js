@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { createPortal } from "react-dom";
 
 const Modal = ({ children }) => {
@@ -7,7 +7,7 @@ const Modal = ({ children }) => {
   useEffect(() => {
     const modalRoot = document.getElementById("modal-root");
 
-   
+    
     if (modalRoot) {
       modalRoot.appendChild(modalContainer);
     }

@@ -263,6 +263,10 @@ button[type="close"],
     z-index: 1000;
 
 }
+.blur {
+    filter: blur(4px);
+    
+}
 
 .animate-gravitation {
     animation: gravitation 2.5s linear infinite alternate;
