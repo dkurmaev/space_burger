@@ -1,6 +1,6 @@
-const AGBPopupContent = (props) => {
+const AGBPopupContent = ({ onAccept, onDecline }) => {
   return (
-    <div className="popup max-w-3xl rounded-lg text-gray-400 bg-bg ">
+    <div className="popup max-w-3xl rounded-lg text-gray-400 bg-bg">
       <h2 className="text-2xl font-bold mt-4 text-center mb-4 text-primary">
         Unsere Allgemeine Geschäftsbedingungen
       </h2>
@@ -37,7 +37,7 @@ const AGBPopupContent = (props) => {
       </p>
       <p className="mb-4">
         <strong>3.1.</strong> Wir verpflichten uns, die Vertraulichkeit Ihrer
-        persönlichen Daten gemÃ¤Ã den geltenden Gesetzen einzuhalten.
+        persönlichen Daten gemäß den geltenden Gesetzen einzuhalten.
       </p>
 
       <p className="mb-4">
@@ -63,8 +63,8 @@ const AGBPopupContent = (props) => {
         <strong>Haftung</strong>
       </p>
       <p className="mb-4">
-        <strong>5.1.</strong> Wir übernehmen keine Haftung für Datenverlust
-        oder Schäden an Ihrer Ausrüstung oder Software bei der Nutzung unserer
+        <strong>5.1.</strong> Wir übernehmen keine Haftung für Datenverlust oder
+        Schäden an Ihrer Ausrüstung oder Software bei der Nutzung unserer
         Dienstleistungen.
       </p>
 
@@ -75,7 +75,7 @@ const AGBPopupContent = (props) => {
       <div className="flex gap-4 items-center justify-center mt-4">
         <button
           className="submit flex justify-center text-gray-200 sticky top-0"
-          onClick={props.onAccept}
+          onClick={onAccept}
         >
           Akzeptieren
         </button>
