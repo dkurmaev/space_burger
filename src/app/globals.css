@@ -124,9 +124,9 @@ video {
     z-index: 1000;
    
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-   
+    /* Добавьте тень для выделения от фона */
     transition: top 0.3s ease-in-out;
-    
+    /* Добавьте анимацию для плавного появления/исчезновения */
 }
 
 .video-button {
@@ -254,13 +254,12 @@ button[type="close"],
     top: 50%;
     left: 50%;
     /* overflow-y: scroll; */
-    height: 70%;
+    height: 750px;
     transform: translate(-50%, -50%);
     background-color: #1E1E1E;
     padding: 10px;
     box-shadow: 0 1px 10px 0 #d3b28d;
     z-index:1000;
-    
    
 }
 @media (max-width: 768px) {
