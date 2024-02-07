@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import Phone from "@/components/icons/Phone";
+import Email from "@/components/icons/Email";
 
 export default function Footer() {
   return (
@@ -106,8 +108,14 @@ export default function Footer() {
                   <Link href={"/"}>
                     <h3 className="text-primary text-base">Kontakt: </h3>
                   </Link>
-                  <ul>+49 (0) 176-22-99-77-56 </ul>
-                  <ul>+49 (0) 176-22-99-77-56 </ul>
+                  <div className="flex items-center">
+                    <Phone />
+                    &nbsp;<ul>+49 (0) 176-22-99-77-56 </ul>
+                  </div>
+                  <div className="flex items-center">
+                    <Email />
+                    &nbsp;<ul>info@spacebox-burger.de</ul>
+                  </div>
                 </div>
               </div>
             </div>
