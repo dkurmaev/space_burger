@@ -1,16 +1,19 @@
 "use client";
+
+import React, { useState, useEffect, useContext } from "react";
+import { useParams } from "next/navigation";
 import { CartContext, cartProductPrice } from "@/components/AppContext";
 import AddressInputs from "@/components/layout/AddressInputs";
 import SectionHeaders from "@/components/layout/SectionHeaders";
 import CartProduct from "@/components/menu/CartProduct";
-import { useParams } from "next/navigation";
-import { useContext, useEffect, useState } from "react";
 
 export default function OrderPage() {
   const { clearCart } = useContext(CartContext);
   const [order, setOrder] = useState();
   const [loadingOrder, setLoadingOrder] = useState(true);
+
   const { id } = useParams();
+
   useEffect(() => {
     if (typeof window.console !== "undefined") {
       if (window.location.href.includes("clear-cart=1")) {
@@ -52,11 +55,16 @@ export default function OrderPage() {
       )}
       <div className="grid grid-cols-2 mt-16 gap-8">
         {order && (
-          <div className="w-full ">
-            {order.cartProducts.map((product) => (
-              <CartProduct key={product._id} product={product} />
+          <div className="w-full">
+            {order.cartProducts.map((product, index) => (
+              <CartProduct
+                key={product._id}
+                product={product}
+                index={index}
+                canRemove={false} // Передаем свойство canRemove
+              />
             ))}
-            <div className=" text-primary font-semibold text-glow py-4  gap-4 flex justify-end items-center">
+            <div className="text-primary font-semibold text-glow py-4  gap-4 flex justify-end items-center">
               Gesamt:&nbsp;
               <br />
               Lieferung:&nbsp;
@@ -73,9 +81,9 @@ export default function OrderPage() {
           </div>
         )}
         {order && (
-        <div className="bg-bg frame__glow p-8 rounded-lg">
-          <AddressInputs disabled={true} addressProps={order} />
-        </div>
+          <div className="bg-bg frame__glow p-8 rounded-lg">
+            <AddressInputs disabled={true} addressProps={order} />
+          </div>
         )}
       </div>
     </section>

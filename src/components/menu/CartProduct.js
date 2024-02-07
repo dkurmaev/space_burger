@@ -1,8 +1,19 @@
-import { cartProductPrice } from "@/components/AppContext";
-import Trash from "@/components/icons/Trash";
-import Image from "next/image";
 
-export default function CartProduct({ product, onRemove }) {
+import { cartProductPrice } from "@/components/AppContext";
+import Image from "next/image";
+import { useContext } from "react";
+import { CartContext } from "@/components/AppContext";
+import Trash from "@/components/icons/Trash";
+
+export default function CartProduct({ product, index }) {
+  const { removeFromCart, isOrderPaid } = useContext(CartContext);
+
+  const handleRemoveFromCart = () => {
+    if (!isOrderPaid) {
+      removeFromCart(index);
+    }
+  };
+
   return (
     <div
       className="flex gap-8 mb-4 border-b border-primary text-gray-200 py-4 items-center"
@@ -17,7 +28,7 @@ export default function CartProduct({ product, onRemove }) {
         />
       </div>
       <div className="grow">
-        <h3 className="uppercase  italic font-semibold text-glow">
+        <h3 className="uppercase italic font-semibold text-glow">
           {product.name}
         </h3>
         <p className="text-gray-600 text-xs italic">
@@ -32,9 +43,7 @@ export default function CartProduct({ product, onRemove }) {
               Extras:&nbsp;
               <span className="text-primary text-xs">
                 {product.extras.name}
-                <span className=" text-xs">
-                  &nbsp;+ {product.extras.price}€
-                </span>
+                <span className="text-xs">&nbsp;+ {product.extras.price}€</span>
               </span>
             </div>
           )}
@@ -65,17 +74,17 @@ export default function CartProduct({ product, onRemove }) {
       <div className="text-lg font-semibold text-glow">
         {cartProductPrice(product).toFixed(2)}€
       </div>
-      {!!onRemove && (
       <div className="ml-2">
-        <button
-          type="button"
-          onClick={() => onRemove(index)}
-          className="p-2 bg-transparent "
-        >
-          <Trash />
-        </button>
+        {!isOrderPaid && ( 
+          <button
+            type="button"
+            onClick={handleRemoveFromCart}
+            className="p-2 bg-transparent"
+          >
+            <Trash />
+          </button>
+        )}
       </div>
-      )}
     </div>
   );
 }
