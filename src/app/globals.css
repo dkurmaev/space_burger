@@ -242,6 +242,27 @@ button[type="close"],
     @apply text-gray-200 hover:bg-my_blue;
 
 }
+.footer__glow {
+    @apply text-2xl;
+    animation: footer__glow-animation 3s infinite;
+}
+
+@keyframes footer__glow-animation {
+    0% {
+        color: #f00;
+       
+    }
+
+    50% {
+        color: rgb(226, 128, 36);
+       
+    }
+
+    100% {
+        color: rgb(67, 168, 185);
+       
+    }
+}
 
 
 .avatar__btn {

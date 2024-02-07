@@ -7,7 +7,9 @@ export default function Footer() {
       <section className="grid place-items-center mt-8">
         <div className="container flex flex-col items-center">
           <div className="text-center mt-2 text-gray-400 footer-info">
-            <span>DIE BESTEN BURGER IN DER STADT</span>
+            <span className="footer__glow ">
+              DIE BESTEN BURGER IN DER STADT
+            </span>
             <br />
             Unsere besten Burger in der Stadt zeichnen sich durch die höchste
             Qualität und den einzigartigen Geschmack aus. Mit handverlesenen
@@ -124,7 +126,10 @@ export default function Footer() {
             Danil Kurmayev
           </a>
           &nbsp;als Full-Stack-Entwickler,&nbsp;
-          <a href="#" className="text-primary hover:underline">
+          <a
+            href="https://www.facebook.com/profile.php?id=100088022222981"
+            className="text-primary hover:underline"
+          >
             Roman Popov &nbsp;
           </a>
           &nbsp;als QA beteiligt.
