@@ -72,9 +72,11 @@ export default function OrderPage() {
             </div>
           </div>
         )}
+        {order && (
         <div className="bg-bg frame__glow p-8 rounded-lg">
           <AddressInputs disabled={true} addressProps={order} />
         </div>
+        )}
       </div>
     </section>
   );

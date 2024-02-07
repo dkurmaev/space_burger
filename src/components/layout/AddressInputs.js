@@ -1,9 +1,13 @@
-export default function AddressInputs({
-  addressProps,
-  setAddressProps,
-  disabled = false,
-}) {
-  const { phone, countryCode, country, city, plz, street } = addressProps;
+export default function AddressInputs({ addressProps = {}, disabled = false }) {
+  // Проверяем, определен ли объект addressProps, если нет, присваиваем значения по умолчанию
+  const {
+    phone = "",
+    countryCode = "",
+    country = "",
+    city = "",
+    plz = "",
+    street = "",
+  } = addressProps;
 
   return (
     <>

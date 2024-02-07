@@ -97,7 +97,7 @@ video {
 
 
 .cart {
-    filter: drop-shadow(0 0 10px rgb(247, 195, 135, 0.7));
+    filter: drop-shadow(0 0 10px rgba(33, 144, 172, 0.7));
 }
 
 .text-glow {

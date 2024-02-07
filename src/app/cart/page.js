@@ -85,7 +85,7 @@ export default function CartPage() {
   if (cartProducts?.length === 0) {
     return (
       <>
-        <div >
+        <div className="text-center mt-16 mx-auto max-w-2xl">
           <SectionHeaders mainHeader="Ihr Warenkorb" />
         </div>
 
@@ -136,7 +136,7 @@ export default function CartPage() {
       </div>
 
       <div className="grid grid-cols-2 gap-12 mt-16">
-        <div className="grid grid-cols-2">
+        <div className="">
           {cartProducts?.length > 0 &&
             cartProducts.map((product, index) => (
               <CartProduct
