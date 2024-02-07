@@ -277,7 +277,7 @@ button[type="close"],
     top: 50%;
     left: 50%;
     overflow-y: scroll;
-    height: 250px;
+    height: 350px;
     transform: translate(-50%, -50%);
     background-color: #1E1E1E;
     padding: 10px;
