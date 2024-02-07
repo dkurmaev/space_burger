@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
-import AGBPopupContent from "@/components/AGBPopup";
+import AGBPopup from "@/components/AGBPopup";
 
 export default function RegisterPage() {
   const [name, setName] = useState("");
@@ -62,16 +62,16 @@ export default function RegisterPage() {
 
   return (
     <section className="mt-16">
-      <div style={{ filter: showModal ? "blur(4px)" : "none" }}>
+      <div style={{ filter: showModal ? 'blur(4px)' : 'none' }}>
         {!termsAccepted && (
           <div className="fixed top-0 left-0 right-0 bg-black/90 z-40 flex items-center justify-center">
-            <AGBPopupContent
+            <AGBPopup
               termsChecked={termsChecked}
               onAccept={() => {
                 setTermsAccepted(true);
                 setTermsChecked(true);
-                setShowModal(false);
-              }}
+                setShowModal(false); 
+              }}           
             />
           </div>
         )}
@@ -80,108 +80,108 @@ export default function RegisterPage() {
             className="block max-w-sm mx-auto text-white"
             onSubmit={handleFormSubmit}
           >
-            <h1 className="text-center text-primary text-5xl font-bold mb-8">
-              Register
-            </h1>
-            {userCreated && (
-              <div className="my-4 text-center">
-                Benutzer erstellt. <br />
-                Jetzt können Sie sich
-                <Link className="underline" href={"/login"}>
-                  &nbsp;<span className="text-my_blue">anmelden &raquo;</span>
-                  &nbsp;
-                </Link>
-              </div>
-            )}
-            {error && (
-              <div className="my-4 text-center">
-                {typeof error === "string"
-                  ? error
-                  : "Fehler beim Erstellen des Benutzers. Versuchen Sie es später erneut"}
-              </div>
-            )}
-
-            <input
-              type="text"
-              placeholder="Name"
-              autoComplete="name"
-              value={name}
-              disabled={creatingUser}
-              onChange={(event) => setName(event.target.value)}
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              autoComplete="email"
-              value={email}
-              disabled={creatingUser}
-              onChange={(event) => setEmail(event.target.value)}
-            />
-            <div className="relative">
-              <input
-                type={showPassword ? "text" : "password"}
-                placeholder="Password"
-                autoComplete="current-password"
-                value={password}
-                disabled={creatingUser}
-                onChange={(event) => setPassword(event.target.value)}
-                className="pr-10"
-              />
-              <div className="absolute inset-y-0 right-0 pr-3 flex justify-end items-center">
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className=" text-my_blue pr-3 "
-                >
-                  {showPassword ? <FiEyeOff /> : <FiEye />}
-                </button>
-              </div>
+          <h1 className="text-center text-primary text-5xl font-bold mb-8">
+            Register
+          </h1>
+          {userCreated && (
+            <div className="my-4 text-center">
+              Benutzer erstellt. <br />
+              Jetzt können Sie sich
+              <Link className="underline" href={"/login"}>
+                &nbsp;<span className="text-my_blue">anmelden &raquo;</span>
+                &nbsp;
+              </Link>
             </div>
+          )}
+          {error && (
+            <div className="my-4 text-center">
+              {typeof error === "string"
+                ? error
+                : "Fehler beim Erstellen des Benutzers. Versuchen Sie es später erneut"}
+            </div>
+          )}
 
-            <p className=" ml-2 mb-2 text-xs text-gray-300 italic">
-              <input
-                className="text-submit"
-                type="checkbox"
-                checked={termsChecked}
-                required
-                onChange={(event) => setTermsChecked(event.target.checked)}
-              />
-              &nbsp;Indem Sie auf&nbsp;
-              <span className="text-primary ">Registrieren</span>
-              &nbsp;klicken, stimmen Sie unseren&nbsp;
-              <span
-                onClick={() => setTermsAccepted(false)}
-                className="underline text-rose-800 cursor-pointer"
+          <input
+            type="text"
+            placeholder="Name"
+            autoComplete="name"
+            value={name}
+            disabled={creatingUser}
+            onChange={(event) => setName(event.target.value)}
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            autoComplete="email"
+            value={email}
+            disabled={creatingUser}
+            onChange={(event) => setEmail(event.target.value)}
+          />
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              autoComplete="current-password"
+              value={password}
+              disabled={creatingUser}
+              onChange={(event) => setPassword(event.target.value)}
+              className="pr-10"
+            />
+            <div className="absolute inset-y-0 right-0 pr-3 flex justify-end items-center">
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className=" text-my_blue pr-3 "
               >
-                Allgemeinen Geschäftsbedingungen zu
-              </span>
-            </p>
-            <button
-              className="hover:shadow-md hover:shadow-white text-white bg-primary items-center justify-center"
-              type="register"
-              disabled={creatingUser || !termsAccepted}
-              onClick={handleFormSubmit}
-            >
-              Registrieren
-            </button>
-
-            <div className="my-4 text-center text-gray-500">
-              oder beim Anbieter anmelden
+                {showPassword ? <FiEyeOff /> : <FiEye />}
+              </button>
             </div>
-            <button
-              onClick={() => signIn("google", { callbackUrl: "/" })}
-              className="flex gap-4 justify-center hover:shadow-md hover:shadow-primary"
+          </div>
+
+          <p className=" ml-2 mb-2 text-xs text-gray-300 italic">
+            <input
+              className="text-submit"
+              type="checkbox"
+              checked={termsChecked}
+              required
+              onChange={(event) => setTermsChecked(event.target.checked)}
+            />
+            &nbsp;Indem Sie auf&nbsp;
+            <span className="text-primary ">Registrieren</span>
+            &nbsp;klicken, stimmen Sie unseren&nbsp;
+            <span
+              onClick={() => setTermsAccepted(false)}
+              className="underline text-rose-800 cursor-pointer"
             >
-              <Image
-                src={"/img/google.png"}
-                width={32}
-                height={32}
-                alt={"google"}
-              />
-              Mit Google anmelden
-            </button>
-          </form>
-        )}
+              Allgemeinen Geschäftsbedingungen zu
+            </span>
+          </p>
+          <button
+            className="hover:shadow-md hover:shadow-white text-white bg-primary items-center justify-center"
+            type="register"
+            disabled={creatingUser || !termsAccepted}
+            onClick={handleFormSubmit}
+          >
+            Registrieren
+          </button>
+
+          <div className="my-4 text-center text-gray-500">
+            oder beim Anbieter anmelden
+          </div>
+          <button
+            onClick={() => signIn("google", { callbackUrl: "/" })}
+            className="flex gap-4 justify-center hover:shadow-md hover:shadow-primary"
+          >
+            <Image
+              src={"/img/google.png"}
+              width={32}
+              height={32}
+              alt={"google"}
+            />
+            Mit Google anmelden
+          </button>
+        </form>
+      )}
       </div>
     </section>
   );

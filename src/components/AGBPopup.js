@@ -1,6 +1,6 @@
 const AGBPopupContent = (props) => {
   return (
-    <div className="popup rounded-lg text-gray-400 bg-bg ">
+    <div className="popup max-w-3xl rounded-lg text-gray-400 bg-bg ">
       <h2 className="text-2xl font-bold mt-4 text-center mb-4 text-primary">
         Unsere Allgemeine Geschäftsbedingungen
       </h2>
