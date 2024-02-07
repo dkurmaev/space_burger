@@ -16,7 +16,6 @@ export default function RegisterPage() {
   const [userCreated, setUserCreated] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(false);
-  
 
   async function handleFormSubmit(event) {
     event.preventDefault();
@@ -36,8 +35,7 @@ export default function RegisterPage() {
       return;
     }
     if (!termsAccepted) {
-      setShowTermsPopup(true);
-      setCreatingUser(false);
+      setTermsAccepted(false);
       return;
     }
 
@@ -69,12 +67,10 @@ export default function RegisterPage() {
             onAccept={() => {
               setTermsAccepted(true);
               setTermsChecked(true);
-              setShowTermsPopup(false);
             }}
             onDecline={() => {
-              setTermsAccepted(false); // Set termsAccepted to false
+              setTermsAccepted(false);
               setTermsChecked(false);
-              setShowTermsPopup(false);
             }}
           />
         </div>
@@ -154,7 +150,7 @@ export default function RegisterPage() {
             <span className="text-primary ">Registrieren</span>
             &nbsp;klicken, stimmen Sie unseren&nbsp;
             <span
-              onClick={() => setShowTermsPopup(true)}
+              onClick={() => setTermsAccepted(false)}
               className="underline text-rose-800 cursor-pointer"
             >
               Allgemeinen Geschäftsbedingungen zu
@@ -164,7 +160,7 @@ export default function RegisterPage() {
             className="hover:shadow-md hover:shadow-white text-white bg-primary items-center justify-center"
             type="register"
             disabled={creatingUser || !termsAccepted}
-            onClick={() => setTermsAccepted(true)}
+            onClick={handleFormSubmit}
           >
             Registrieren
           </button>
