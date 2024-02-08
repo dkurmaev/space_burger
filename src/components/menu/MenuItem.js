@@ -50,16 +50,13 @@ export default function MenuItem(menuItem) {
       {showPopup && (
         <div
           onClick={() => setShowPopup(false)}
-          className="fixed top-0 left-0 right-0 bg-black/90 z-40 flex items-center justify-center"
+          className="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black bg-opacity-90 z-50"
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="frame__glow rounded-lg shadow-my_rahme p-2 max-w-2xl my-12 "
+            className="frame__glow rounded-lg shadow-my_rahme p-2 popup_menu"
           >
-            <div
-              className="overflow-y-scroll p-1"
-              style={{ maxHeight: "calc(100vh - 100px)" }}
-            >
+            <div className=" ">
               <button
                 onClick={() => setShowPopup(false)}
                 style={{

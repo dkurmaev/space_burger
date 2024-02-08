@@ -305,6 +305,8 @@ button[type="close"],
 
 }
 
+
+
 @media (max-width: 768px) {
     .popup {
         top: 50%;
@@ -314,6 +316,32 @@ button[type="close"],
         overflow-y: scroll;
     }
 }
+
+.popup_menu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    overflow-y: scroll;
+    width: 450px;
+    height: 650px;
+    transform: translate(-50%, -50%);
+    background-color: #1E1E1E;
+    padding: 10px;
+    box-shadow: 0 1px 10px 0 #d3b28d;
+    z-index: 1000;
+
+}
+@media (max-width: 768px) {
+    .popup_menu {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 90%;
+        width: 70%;
+        overflow-y: scroll;
+    }
+}
+
 
 
 .blur {

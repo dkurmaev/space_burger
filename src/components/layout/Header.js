@@ -2,13 +2,15 @@
 
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Logo from "@/components/icons/Logo";
 import { CartContext } from "@/components/AppContext";
 import ShoppingCart from "@/components/icons/ShoppingCart";
+import Hamburger from "@/components/icons/Hamburger";
 import Image from "next/image";
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
   const session = useSession();
   const status = session?.status;
   const userData = session.data?.user;
@@ -21,9 +23,42 @@ export default function Header() {
   function scrollToSection(id) {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   }
+  const toggleMenu = () => {
+    setIsOpen((prev) => !prev);
+  };
 
   return (
-    <header >
+    <header>
+      <div className="flex items-center justify-between md:hidden">
+        <Link href="/">
+          <Logo
+           
+          />
+        </Link>
+        <div className="flex gap-2 items-center">
+          <button
+            className={`p-2 bg-transparent ${isOpen ? "rotate-90" : ""}`}
+            onClick={toggleMenu}
+          >
+            <Hamburger
+              className={`w-10 h-10 text-gray-400 ${isOpen ? "text-my_blue" : ""}`}
+            />
+          </button>
+          <Link
+            className="hover:text-primary hover:border-b-2 flex items-center justify-center border-primary rounded-full p-2 transition-all duration-300"
+            href={"/cart"}
+          >
+            <div className="relative cart">
+              <ShoppingCart />
+              {cartProducts?.length > 0 && (
+                <div className="bg-primary text-gray-200 rounded-full ml-6 text-sm absolute -top-2 -right-2 w-5 h-5 flex items-center justify-center">
+                  {cartProducts.length}
+                </div>
+              )}
+            </div>
+          </Link>
+        </div>
+      </div>
       <div className="hidden md:flex items-center justify-between">
         <Link href="/">
           <Logo />
