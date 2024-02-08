@@ -35,9 +35,9 @@ export default function OrdersPage() {
           orders.map((order) => (
             <div
               key={order.id}
-              className=" frame__glow mb-8 p-4 gap-14 rounded-lg flex justify-between items-center"
+              className=" frame__glow mb-8 p-4 gap-14 rounded-lg flex flex-col md:flex-row justify-between items-center"
             >
-              <div className="grow flex gap-14  items-center">
+              <div className="grow flex flex-col md:flex-row gap-14 items-center">
                 <div>
                   <div
                     className={

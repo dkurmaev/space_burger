@@ -8,18 +8,20 @@ export default function Footer() {
     <>
       <section className="grid place-items-center mt-8">
         <div className="container flex flex-col items-center">
-          <div className="text-center mt-2 text-gray-400 footer-info">
+          <div className="text-center mt-2 text-gray-400 footer-info ">
             <span className="footer__glow ">
               DIE BESTEN BURGER IN DER STADT
             </span>
             <br />
-            Unsere besten Burger in der Stadt zeichnen sich durch die höchste
-            Qualität und den einzigartigen Geschmack aus. Mit handverlesenen
-            Zutaten und raffinierten Rezepten bieten wir nicht nur einen Burger,
-            sondern ein unvergleichliches kulinarisches Erlebnis. Jeder Bissen
-            ist eine Fusion aus Aromen, die die Sinne ansprechen und ein
-            unvergessliches Genusserlebnis schaffen. Probieren Sie unsere Besten
-            und überzeugen Sie sich selbst!
+            <div className="hidden md:block">
+              Unsere besten Burger in der Stadt zeichnen sich durch die höchste
+              Qualität und den einzigartigen Geschmack aus. Mit handverlesenen
+              Zutaten und raffinierten Rezepten bieten wir nicht nur einen
+              Burger, sondern ein unvergleichliches kulinarisches Erlebnis.
+              Jeder Bissen ist eine Fusion aus Aromen, die die Sinne ansprechen
+              und ein unvergessliches Genusserlebnis schaffen. Probieren Sie
+              unsere Besten und überzeugen Sie sich selbst!
+            </div>
           </div>
           <div>
             <ul className="social flex flex-wrap gap-6">
@@ -72,21 +74,21 @@ export default function Footer() {
           </div>
 
           <div
-            className="relative max-h-auto mt-10 mx-auto w-full h-[160px] border-t border-orange-600 items-center "
+            className="relative max-h-auto mt-10  mx-auto w-full h-[160px] border-t border-orange-600 items-center hidden md:block "
             id="contact"
           >
-            <div className="flex justify-between mt-12 items-center">
+            <div className="md:flex justify-between mt-12 items-center">
               <Link href="/">
                 <Image
                   src="/img/Logo_full.png"
                   width={350}
                   height={350}
-                  className="mt-6 object-contain cursor-pointer"
+                  className="md:mt-6 object-contain cursor-pointer"
                   alt="footer_logo"
                 />
               </Link>
-              <div className="flex mx-auto gap-8 text-gray-400 justify-evenly items-center ">
-                <div>
+              <div className="flex  mx-auto gap-8 text-gray-400 justify-evenly items-center  ">
+                <div className="">
                   <Link
                     href={
                       "https://www.google.com/maps/place/Schönfelder+Weg+28-31,+16321+Bernau+bei+Berlin"
@@ -124,7 +126,7 @@ export default function Footer() {
       </section>
       <footer className="border-t p-5 text-xs text-center text-gray-500 mt-16 border-orange-600">
         Copyright &copy; &nbsp;2023-2024&nbsp;
-        <span className="bg-grey-500 text-grey-400 p-2 rounded-md">
+        <span className="md:bg-grey-500 text-grey-400 p-2 rounded-md">
           Im Projekt waren&nbsp;
           <a
             href="https://drive.google.com/file/d/1Q_LPBgyi9WTpV7PzPZNNIWZWjqzjLsVf/view?usp=sharing"

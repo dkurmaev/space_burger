@@ -55,11 +55,16 @@ export default function OrderPage() {
           <span className="flex justify-center mx-auto mt-16 loader-profile"></span>
         </div>
       )}
-      <div className="grid grid-cols-2 mt-16 gap-8">
+      <div className="grid md:grid-cols-2 md:mt-16 gap-8">
         {order && (
           <div className="w-full">
             {order.cartProducts.map((product, index) => (
-              <CartProduct key={product._id} product={product} index={index} isTrashDisabled={true} />
+              <CartProduct
+                key={product._id}
+                product={product}
+                index={index}
+                isTrashDisabled={true}
+              />
             ))}
             <div className="text-primary font-semibold text-glow py-4  gap-4 flex justify-end items-center">
               Gesamt:&nbsp;

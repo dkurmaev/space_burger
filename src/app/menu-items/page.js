@@ -59,7 +59,7 @@ export default function MenuItems() {
         <h2 className="mt-8 px-3 text-sm text-gray-400 ml-14 ">
           Artikel bearbeiten:
         </h2>
-        <div className="grid grid-cols-3 gap-4 mt-2 ml-14">
+        <div className="grid md:grid-cols-3 gap-4 mt-2 ml-14">
           {menuItems?.length > 0 &&
             menuItems.map((item) => (
               <Link

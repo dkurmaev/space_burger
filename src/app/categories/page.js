@@ -105,7 +105,7 @@ export default function CategoriesPage() {
     <section className="mt-16 max-w-2xl mx-auto">
       <UserTabs isAdmin={true} />
       <form className="mt-16 ml-14" onSubmit={handleCategorySubmit}>
-        <div className="flex gap-4 items-end ">
+        <div className="md:flex gap-4 items-end ">
           <div className="grow ">
             <label className="text-gray-400 px-2">
               {editedCategory
@@ -148,24 +148,26 @@ export default function CategoriesPage() {
           categories.map((c) => (
             <div
               key={c._id}
-              className="bg-submit rounded-xl p-2 px-4 flex gap-4 mb-1 ml-14 items-center "
+              className="md:bg-submit rounded-xl p-2 px-4 flex gap-4 mb-1 ml-14 items-center "
             >
-              <div className="text-gray-300 grow ">{c.name}</div>
-              <div className="flex items-center gap-3 my-auto">
-                <button
-                  className="avatar__btn flex text-sm mx-auto justify-center gap-3 items-center hover:shadow-md hover:shadow-white"
-                  type="cancel"
-                  onClick={() => {
-                    setEditedCategory(c);
-                    setCategoryName(c.name);
-                  }}
-                >
-                  Bearbeiten
-                </button>
-                <DeleteButton
-                  label="Löschen"
-                  onDelete={() => handleDeleteClick(c._id)}
-                />
+              <div className="grow">
+                <div className="md:text-gray-300  ">{c.name}</div>
+                <div className="flex items-center gap-6 ">
+                  <button
+                    className="avatar__btn flex text-sm mx-auto justify-center gap-3 items-center hover:shadow-md hover:shadow-white"
+                    type="cancel"
+                    onClick={() => {
+                      setEditedCategory(c);
+                      setCategoryName(c.name);
+                    }}
+                  >
+                    Bearbeiten
+                  </button>
+                  <DeleteButton
+                    label="Löschen"
+                    onDelete={() => handleDeleteClick(c._id)}
+                  />
+                </div>
               </div>
             </div>
           ))}

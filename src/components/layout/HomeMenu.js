@@ -18,13 +18,13 @@ export default function HomeMenu() {
 
     return (
       <section className="ml-3">
-        <div className="text-center">
+        <div className="text-center mt-8">
           <SectionHeaders subHeader={"check out"}
                           mainHeader={"spacebox bestsellers"}>
             
           </SectionHeaders>
         </div>
-        <div className="grid grid-cols-3 gap-8 ">
+        <div className="grid md:grid-cols-3 gap-8 ">
             {bestSellers?.length > 0 && bestSellers.map(item => (
                 // eslint-disable-next-line react/jsx-key
                 <MenuItem {...item} />

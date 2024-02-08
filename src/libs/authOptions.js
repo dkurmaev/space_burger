@@ -3,6 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
 import * as mongoose from "mongoose";
 import {User} from '@/models/User';
+import { UserInfo } from "@/models/UserInfo";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import clientPromise from "./mongoConnect";
 
@@ -27,17 +28,10 @@ const authOptions = {
 
                 mongoose.connect(process.env.MONGO_URL);
                 const user = await User.findOne({email});
-                if (user) {
-                    console.log('found user', user);
-                }
                 const passwordOk = user && bcrypt.compareSync(password, user.password);
-                console.log("Result of the secret password:", passwordOk);
+                
 
                 if (passwordOk) {
-                    user.name = user.name || "Default Name";
-                    user.email = user.email || "default@example.com";
-                    /*user.isAdmin = await isAdmin;*/
-
                     return user;
                 }
 
@@ -46,5 +40,7 @@ const authOptions = {
         })
     ],
 };
+
+
 
 export default authOptions;

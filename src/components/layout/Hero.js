@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="hero ">
+    <section className="hero mt-4 ">
       <div className=" pt-16 pb-1 ">
         <h1 className="text-2xl font-semibold mt-2 text-center leading-normal">
           SAFTIGSTE&nbsp;
@@ -43,7 +43,7 @@ export default function Hero() {
           </Link>
         </div>
       </div>
-      <div className="relative pt-16 pb-1 hover:scale-110 transform transition-transform duration-300 ease-in-out">
+      <div className="relative pt-16 pb-1 hover:scale-110 transform transition-transform duration-300 ease-in-out hidden md:block">
         <Image
           className="animate-gravitation"
           src={"/img/space.png"}

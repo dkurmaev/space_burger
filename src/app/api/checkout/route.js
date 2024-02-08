@@ -11,7 +11,7 @@ export async function POST(req) {
 
   const { cartProducts, address } = await req.json();
   const session = await getServerSession(authOptions);
-  const userEmail = session?.user?.email; 
+  const userEmail = session?.user?.email;
 
   const orderDoc = await Order.create({
     userEmail,
@@ -20,7 +20,7 @@ export async function POST(req) {
     paid: false,
   });
 
-  let subtotal = 0; 
+  let subtotal = 0;
 
   const stripeLineItems = [];
   for (const cartProduct of cartProducts) {
@@ -28,7 +28,6 @@ export async function POST(req) {
 
     let productPrice = productInfo.basePrice;
 
-    
     if (cartProduct.extras?.length > 0) {
       for (const extra of cartProduct.extras) {
         const extraInfo = productInfo.extras.find(
@@ -38,7 +37,6 @@ export async function POST(req) {
       }
     }
 
-    
     if (cartProduct.drink) {
       const drink = productInfo.drinks.find(
         (d) => d._id.toString() === cartProduct.drink._id.toString()
@@ -46,7 +44,6 @@ export async function POST(req) {
       productPrice += drink.price;
     }
 
-    
     if (cartProduct.beilage) {
       const beilage = productInfo.beilagen.find(
         (b) => b._id.toString() === cartProduct.beilage._id.toString()
@@ -56,7 +53,6 @@ export async function POST(req) {
 
     const productName = cartProduct.name;
 
-    
     subtotal += productPrice;
 
     stripeLineItems.push({
@@ -66,19 +62,21 @@ export async function POST(req) {
         product_data: {
           name: productName,
         },
-        unit_amount: productPrice * 100, 
+        unit_amount: productPrice * 100,
       },
     });
   }
 
-  
-  const shippingPrice = 4.9; 
-  subtotal += shippingPrice; 
+  const shippingPrice = 4.9;
+  subtotal += shippingPrice;
   const stripeSession = await stripe.checkout.sessions.create({
     line_items: stripeLineItems,
     mode: "payment",
     customer_email: userEmail,
-    success_url: "http://localhost:3000/orders/" + orderDoc._id.toString() + "?clear-cart=1",
+    success_url:
+      "http://localhost:3000/orders/" +
+      orderDoc._id.toString() +
+      "?clear-cart=1",
     cancel_url: "http://localhost:3000/cart?canceled=1",
     metadata: { orderId: orderDoc._id.toString() },
     payment_intent_data: {
@@ -95,11 +93,10 @@ export async function POST(req) {
     ],
   });
 
-  
   await Order.findByIdAndUpdate(orderDoc._id, {
     totalAmount: subtotal,
     shippingCost: shippingPrice,
-    userId: session.user.id, 
+    userId: session.user.id,
   });
 
   return Response.json(stripeSession.url);

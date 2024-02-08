@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { getServerSession } from "next-auth";
 import authOptions from "@/libs/authOptions";
 import { UserInfo } from "@/models/UserInfo";
-import {Order} from "@/models/Order";
+import { Order } from "@/models/Order";
 
 export async function GET(req) {
   mongoose.connect(process.env.MONGO_URL);
@@ -28,6 +28,6 @@ export async function GET(req) {
   }
 
   if (userEmail) {
-    return Response.json(await Order.find({userEmail}));
+    return Response.json(await Order.find({ userEmail }));
   }
 }

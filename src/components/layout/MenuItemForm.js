@@ -42,13 +42,13 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
       className="mt-8 mx-w-2xl mx-auto"
     >
       <div
-        className="grid gap-6 items-start "
+        className="md:grid gap-6 items-start "
         style={{ gridTemplateColumns: ".3fr .7fr" }}
       >
         <div>
           <EditableImage link={image} setLink={setImage} />
         </div>
-        <div className="grow">
+        <div className="grow mt-8">
           <label className="text-gray-400 px-2">Artikel Name</label>
           <input
             className="text-white"

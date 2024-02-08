@@ -20,18 +20,16 @@ export default function EditUserPage() {
       });
     });
   }, [id]);
- async function handleSaveButtonClick(event, data) {
+  async function handleSaveButtonClick(event, data) {
     event.preventDefault();
     const promise = new Promise(async (resolve, reject) => {
-    const response = await fetch("/api/profile", {
+      const response = await fetch("/api/profile", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...data, _id: id }),
       });
-      if (response.ok) 
-        resolve();
-      else
-        reject();     
+      if (response.ok) resolve();
+      else reject();
     });
 
     await toast.promise(promise, {

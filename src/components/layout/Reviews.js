@@ -54,7 +54,7 @@ export default function TestimonialsCarousel() {
     reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length;
 
   return (
-    <div className="text-center max-w-3xl mx-auto">
+    <div className="text-center max-w-3xl mx-auto hidden md:block">
       <section className=" mt-24 ">
         <Slider {...settings}>
           {reviews.map((review, index) => (
@@ -89,8 +89,6 @@ export default function TestimonialsCarousel() {
             </div>
           ))}
         </Slider>
-
-        
       </section>
     </div>
   );

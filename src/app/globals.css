@@ -35,6 +35,10 @@ section.hero {
     @apply grid;
     grid-template-columns: .9fr .8fr;
     justify-content: end;
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    
+   }
 }
 
 /* .planet {

@@ -7,7 +7,6 @@ import { UseProfile } from "@/components/UseProfile";
 import DeleteButton from "@/components/DeleteButton";
 import Link from "next/link";
 
-
 export default function UsersPage() {
   const [users, setUsers] = useState([]);
   const { loading: profileLoading, data: profileData } = UseProfile();
@@ -54,22 +53,24 @@ export default function UsersPage() {
               key={user.id}
               className="bg-submit rounded-xl p-4 mb-2 flex items-center"
             >
-              <div className="text-gray-300 grid grid-cols-2 md:grid-cols-3 grow gap-4">
+              <div className="text-gray-300 grid md:grid-cols-3 grow gap-2">
                 <div className="text-gray-300">
                   {!!user.name && <span>{user.name}</span>}
                   {!user.name && <span className="italic">NoName</span>}
                 </div>
-                <span className="text-my_blue/50 italic text-sm flex items-center">{user.email}</span>
+                <span className="text-my_blue/50 italic text-sm flex items-center">
+                  {user.email}
+                </span>
               </div>
-              <div className="flex items-center gap-3 my-auto">
+              <div className="flex items-center gap-3 ">
                 <Link
                   href={"/users/" + user._id}
-                  className="cancel w-full rounded-xl bg-submit px-6 py-2 flex text-sm mx-auto justify-center gap-3 items-center hover:shadow-md hover:shadow-white"
+                  className="cancel w-full rounded-xl bg-submit px-6 py-2 flex text-sm md:mx-auto justify-center gap-3 items-center hover:shadow-md hover:shadow-white"
                   type="cancel"
                 >
                   Bearbeiten
                 </Link>
-                {/* <DeleteButton label="Löschen" /> */}
+                
               </div>
             </div>
           ))}
