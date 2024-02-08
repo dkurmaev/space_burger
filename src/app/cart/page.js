@@ -135,7 +135,7 @@ export default function CartPage() {
         )}
       </div>
 
-      <div className="grid grid-cols-2 gap-12 mt-16">
+      <div className="grid md:grid-cols-2 gap-12 mt-16">
         <div className="">
           {cartProducts?.length > 0 &&
             cartProducts.map((product, index) => (
