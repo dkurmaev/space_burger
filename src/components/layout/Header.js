@@ -15,7 +15,13 @@ function AuthLinks({ status, userName }) {
   if (status === "authenticated") {
     return (
       <>
-        
+        <Link
+          className="text-my_blue glow  hover:text-primary hover:border-b-2 border-primary hover:rounded-full p-2 transition-all duration-300"
+          href={"/profile"}
+        >
+          {`Hi! `}
+          {userName}
+        </Link>
         <button
           onClick={() => signOut({ callbackUrl: "/" })}
           className="bg-primary rounded-full text-white  py-2 flex items-center justify-center header-menu__link menu-link hover:text-my_blue hover:border-b-2 border-white hover:rounded-full p-2 transition-all duration-300"
