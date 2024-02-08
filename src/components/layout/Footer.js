@@ -24,10 +24,13 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <ul className="social flex flex-wrap gap-6">
-              {/* Первый ряд */}
+            <ul className="social flex mt-6 gap-6">
+             
               <li className="group">
-                <a href="https://www.instagram.com/" target="_blank">
+                <a
+                  href="https://www.instagram.com/spaceboxburger_ia?igsh=MWh5ZGpnZzV0aGNoOA=="
+                  target="_blank"
+                >
                   <Image
                     width={30}
                     height={30}

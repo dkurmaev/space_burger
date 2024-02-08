@@ -6,8 +6,8 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="hero mt-4 ">
-      <div className=" pt-16 pb-1 ">
+    <section className="hero md:mt-4 ">
+      <div className=" py-8 md:py-12 ">
         <h1 className="text-2xl font-semibold mt-2 text-center leading-normal">
           SAFTIGSTE&nbsp;
           <br />

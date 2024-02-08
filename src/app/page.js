@@ -13,7 +13,7 @@ export default function Home() {
         <Hero />
         <HomeMenu />
 
-        <section className="text-center my-16">
+        <section className="text-center my-16 hidden md:block">
           <SectionHeaders
             subHeader={"Rezensionen Über Uns"}
             mainHeader={"Kontaktieren Sie mit uns"}
@@ -21,13 +21,11 @@ export default function Home() {
         </section>
 
         <section className="text-center my-16 gap-2" id="our__story">
-          {/* <SectionHeaders subHeader={"Reviews"}
-                                mainHeader={"Rezensionen Über Uns"}
-                /> */}
-
           {/* <AboutVideo/> */}
         </section>
-        <Reviews />
+        <section>
+          <Reviews />
+        </section>
       </>
     );
 }

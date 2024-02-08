@@ -1,4 +1,4 @@
-export default function Hamburger({ className = "w-6 h-6 text-my_blue" }) {
+export default function Hamburger({ className = "w-6 h-6 text-my_blue hamburger" }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
