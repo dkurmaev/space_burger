@@ -171,7 +171,7 @@ export default function CartPage() {
             </h2>
             <form
               onSubmit={proceedToCheckout}
-              className="flex flex-col justify-between h-full"
+              className="md:flex flex-col justify-between h-full"
             >
               <AddressInputs
                 addressProps={address}

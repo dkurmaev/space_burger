@@ -66,7 +66,6 @@ export default function Header() {
   function scrollToSection(id) {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   }
-  
 
   return (
     <header>
