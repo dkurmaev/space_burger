@@ -8,10 +8,10 @@ export default function SectionHeaders({ subHeader, mainHeader }) {
 
   return (
     <>
-      <h3 className="uppercase text-bl font-semibold leading-4">
+      <h3 className="md:uppercase text-xs font-semibold leading-4">
         {subHeader}
       </h3>
-      <h2 className="font-bold text-6xl uppercase">
+      <h2 className="font-bold md:text-6xl uppercase">
         <span
           style={{
             color: "#F1B347",
