@@ -4,24 +4,18 @@ import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useContext, useState } from "react";
 import Logo from "@/components/icons/Logo";
+import LogoSmall from "@/components/icons/LogoSmall";
+
 import { CartContext } from "@/components/AppContext";
 import ShoppingCart from "@/components/icons/ShoppingCart";
 import Hamburger from "@/components/icons/Hamburger";
-import Phone from "@/components/icons/Phone";
-import Email from "@/components/icons/Email";
-import Image from "next/image";
+
 
 function AuthLinks({ status, userName }) {
   if (status === "authenticated") {
     return (
       <>
-        <Link
-          className="text-my_blue glow  hover:text-primary hover:border-b-2 border-primary hover:rounded-full p-2 transition-all duration-300"
-          href={"/profile"}
-        >
-          {`Hi! `}
-          {userName}
-        </Link>
+        
         <button
           onClick={() => signOut({ callbackUrl: "/" })}
           className="bg-primary rounded-full text-white  py-2 flex items-center justify-center header-menu__link menu-link hover:text-my_blue hover:border-b-2 border-white hover:rounded-full p-2 transition-all duration-300"
@@ -66,13 +60,24 @@ export default function Header() {
   function scrollToSection(id) {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   }
+  
 
   return (
     <header>
       <div className="flex items-center justify-between md:hidden">
-        <Link href="/">
-          <Logo />
-        </Link>
+        <div className="flex gap-12 justify-center items-center">
+          <Link href="/">
+            <LogoSmall />
+          </Link>
+          <Link
+            className="text-my_blue glow  hover:text-primary hover:border-b-2 border-primary hover:rounded-full p-2 transition-all duration-300"
+            href={"/profile"}
+          >
+            {`Hi! `}
+            {userName}
+          </Link>
+        </div>
+
         <div className="flex gap-2 items-center">
           <Link
             className="hover:text-primary hover:border-b-2 flex items-center justify-center border-primary rounded-full p-2 transition-all duration-300"
