@@ -123,7 +123,7 @@ export default function Footer() {
         </div>
       </section>
       <footer className="border-t p-5 text-xs text-center text-gray-500 mt-16 border-orange-600">
-        &copy; 2024&nbsp;
+        Copyright &copy; &nbsp;2023-2024&nbsp;
         <span className="bg-grey-500 text-grey-400 p-2 rounded-md">
           Im Projekt waren&nbsp;
           <a
@@ -142,7 +142,8 @@ export default function Footer() {
           </a>
           &nbsp;als QA beteiligt.
         </span>
-        Alle Rechte vorbehalten.
+        Alle Rechte vorbehalten. Impressum, AGB, Datenschutzerklärung, Erklärung
+        zur Verwendung von Payments Terms of Use und Cookies
       </footer>
     </>
   );

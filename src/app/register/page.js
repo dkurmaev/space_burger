@@ -92,8 +92,16 @@ export default function RegisterPage() {
               <h1 className="text-center text-primary text-5xl font-bold mb-8">
                 Register
               </h1>
+              <h3 className="text-center mb-4 ">
+                Oder sie haben bereits registriert, dann können Sie
+                <Link href="/login">
+                  <span className="text-my_blue underline">
+                    &nbsp;einloggen.
+                  </span>
+                </Link>
+              </h3>
               {userCreated && (
-                <div className="my-4 text-center">
+                <div className="my-4  text-center">
                   Benutzer erstellt. <br />
                   Jetzt können Sie sich
                   <Link className="underline" href={"/login"}>
@@ -114,7 +122,6 @@ export default function RegisterPage() {
               <input
                 type="text"
                 placeholder="Name"
-                
                 autoComplete="name"
                 value={name}
                 disabled={creatingUser}
@@ -157,16 +164,18 @@ export default function RegisterPage() {
                   required
                   onChange={(event) => setTermsChecked(event.target.checked)}
                 />
-                &nbsp;Indem Sie auf&nbsp;
-                <span className="text-my_blue ">Registrieren</span>
-                &nbsp;klicken, stimmen Sie unseren&nbsp;
+                &nbsp;Mit dem &nbsp;
+                <span className="text-my_blue ">
+                  Erstellen eines privaten Kontos
+                </span>
+                &nbsp;erklären Sie, dass Sie unsere &nbsp;
                 <span
                   onClick={() => setTermsAccepted(false)}
                   className="underline text-primary cursor-pointer"
                 >
                   Allgemeinen Geschäftsbedingungen
                 </span>
-                &nbsp;zu
+                &nbsp;zur Kenntnis genommen haben.
               </p>
               <button
                 className="hover:shadow-md hover:shadow-white text-white bg-primary items-center justify-center"
@@ -178,7 +187,9 @@ export default function RegisterPage() {
               </button>
 
               <div className="my-4 text-center text-gray-500">
-                oder beim Anbieter anmelden
+                <span className=" text-sm">
+                  --------------- oder weiter mit ---------------
+                </span>
               </div>
               <button
                 onClick={() => signIn("google", { callbackUrl: "/" })}

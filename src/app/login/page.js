@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import Link from "next/link";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -14,7 +15,6 @@ export default function LoginPage() {
   async function handleFormSubmit(event) {
     event.preventDefault();
     setLoginInProgress(true);
-   
 
     await signIn("credentials", { email, password, callbackUrl: "/" });
 
@@ -26,8 +26,14 @@ export default function LoginPage() {
       <h1 className="text-center text-primary text-5xl font-bold mb-8">
         Einloggen
       </h1>
+      <h3 className="text-center ">
+        Bei SpaceBox Burger einloggen oder{" "}
+        <Link href="/register">
+          <span className="text-my_blue underline">Konto erstellen</span>
+        </Link>
+      </h3>
       <form
-        className="block max-w-sm mx-auto text-white"
+        className="block max-w-sm mx-auto mt-4 text-white"
         onSubmit={handleFormSubmit}
       >
         <input
@@ -67,7 +73,11 @@ export default function LoginPage() {
         >
           Einloggen
         </button>
-        <div className="my-4 text-center text-gray-500 uppercase">oder</div>
+        <div className="my-4 text-center text-gray-500">
+          <span className=" text-sm">
+            --------------- oder weiter mit ---------------
+          </span>
+        </div>
         <button
           type="button"
           onClick={() => signIn("google", { callbackUrl: "/" })}

@@ -1,5 +1,7 @@
 "use client";
 
+// OrderPage.js
+
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "next/navigation";
 import { CartContext, cartProductPrice } from "@/components/AppContext";
@@ -49,7 +51,7 @@ export default function OrderPage() {
       </div>
       {loadingOrder && (
         <div>
-          <p className="text-center mt-16">Wird geladen...</p>
+          <p className="text-center mt-16">Order wird geladen...</p>
           <span className="flex justify-center mx-auto mt-16 loader-profile"></span>
         </div>
       )}
@@ -57,12 +59,7 @@ export default function OrderPage() {
         {order && (
           <div className="w-full">
             {order.cartProducts.map((product, index) => (
-              <CartProduct
-                key={product._id}
-                product={product}
-                index={index}
-                canRemove={false} 
-              />
+              <CartProduct key={product._id} product={product} index={index} isTrashDisabled={true} />
             ))}
             <div className="text-primary font-semibold text-glow py-4  gap-4 flex justify-end items-center">
               Gesamt:&nbsp;

@@ -1,11 +1,15 @@
 
-import { cartProductPrice } from "@/components/AppContext";
+
+import React, { useContext } from "react";
+import { CartContext, cartProductPrice } from "@/components/AppContext";
 import Image from "next/image";
-import { useContext } from "react";
-import { CartContext } from "@/components/AppContext";
 import Trash from "@/components/icons/Trash";
 
-export default function CartProduct({ product, index }) {
+export default function CartProduct({
+  product,
+  index,
+  isTrashDisabled = false,
+}) {
   const { removeFromCart, isOrderPaid } = useContext(CartContext);
 
   const handleRemoveFromCart = () => {
@@ -75,11 +79,12 @@ export default function CartProduct({ product, index }) {
         {cartProductPrice(product).toFixed(2)}€
       </div>
       <div className="ml-2">
-        {!isOrderPaid && ( 
+        {!isOrderPaid && (
           <button
             type="button"
             onClick={handleRemoveFromCart}
             className="p-2 bg-transparent"
+            disabled={isTrashDisabled}
           >
             <Trash />
           </button>

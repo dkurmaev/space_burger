@@ -22,7 +22,7 @@ export default function OrdersPage() {
   if (profileLoading) {
     return (
       <>
-        <p className="text-center mt-16">Info werden geladen...</p>
+        <p className="text-center mt-16">Bestellung werden geladen...</p>
         <span className="flex justify-center mx-auto mt-16 loader-profile"></span>
       </>
     );
@@ -35,25 +35,40 @@ export default function OrdersPage() {
           orders.map((order) => (
             <div
               key={order.id}
-              className=" frame__glow mb-8 p-4 gap-8 rounded-lg flex justify-between items-center"
+              className=" frame__glow mb-8 p-4 gap-14 rounded-lg flex justify-between items-center"
             >
-              <div>
-                <span
-                  className={
-                    (order.paid ? "bg-my_blue " : "bg-red-400 ") +
-                    "p-2 rounded-md text-white"
-                  }
-                >
-                  {order.paid ? "Bezahlt" : "Nicht bezahlt"}
-                </span>
+              <div className="grow flex gap-14  items-center">
+                <div>
+                  <div
+                    className={
+                      (order.paid ? "bg-my_blue " : "bg-red-400 ") +
+                      "p-2 rounded-md text-white w-36 text-center "
+                    }
+                  >
+                    {order.paid ? "Bezahlt" : "Nicht bezahlt"}
+                  </div>
+                </div>
+                <div className="grow">
+                  <div className="flex gap-8 items-center mb-2">
+                    <div className="text-my_blue grow">{order.userEmail}</div>
+                    <div className="text-gray-500">
+                      {dbTimeForHuman(order.createdAt)}
+                    </div>
+                  </div>
+
+                  <div className="text-sm italic">
+                    {order.cartProducts.map((p) => p.name).join(", ")}
+                  </div>
+                </div>
               </div>
-              <div className="">
-                <div className="text-my_blue ">{order.userEmail}</div>
-                <div className="text-sm italic">{order.cartProducts.map((p) => p.name).join (", ")}</div>
-              </div>
+
               <div className="flex justify-end gap-8 items-center text-primary ">
-                {dbTimeForHuman(order.createdAt)}
-                <Link href= {"/orders/" + order._id} className="button">View</Link> 
+                <Link
+                  href={"/orders/" + order._id}
+                  className="order rounded-lg justify-center flex items-center"
+                >
+                  Bestellung anzeigen
+                </Link>
               </div>
             </div>
           ))}
