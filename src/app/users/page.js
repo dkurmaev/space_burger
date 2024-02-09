@@ -50,7 +50,7 @@ export default function UsersPage() {
         {users?.length > 0 &&
           users.map((user) => (
             <div
-              key={user.id}
+              key={user._id}
               className="bg-submit rounded-xl p-4 mb-2 flex items-center"
             >
               <div className="text-gray-300 grid md:grid-cols-3 grow gap-2">

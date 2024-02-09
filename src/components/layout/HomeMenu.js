@@ -27,7 +27,7 @@ export default function HomeMenu() {
         <div className="grid md:grid-cols-3 gap-8 ">
             {bestSellers?.length > 0 && bestSellers.map(item => (
                 
-                <MenuItem key= {item.id} {...item} />
+                <MenuItem key= {item._id} {...item} />
             ))}
         </div>
       </section>

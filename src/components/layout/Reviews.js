@@ -58,7 +58,7 @@ export default function TestimonialsCarousel() {
       <section className="mt-24">
         <Slider {...settings}>
           {reviews.map((review, index) => (
-            <div key={review.id} className="carousel-item">
+            <div key={review._id} className="carousel-item">
               <div className="review__image-container flex items-center justify-center text-center rounded-full overflow-hidden">
                 <Image
                   className="review__image flex justify-center"

@@ -41,7 +41,7 @@ function AuthLinks({ status, userName }) {
         </Link>
         <Link
           href={"/register"}
-          className="bg-primary rounded-full text-white px-8 py-2 header-menu__link menu-link hover:text-my_blue hover:border-b-2 border-white hover:rounded-full p-2 transition-all duration-300 "
+          className="bg-primary rounded-full text-white px-5 py-2 header-menu__link menu-link hover:text-my_blue hover:border-b-2 border-white hover:rounded-full p-2 transition-all duration-300 "
         >
           Registrieren
         </Link>
@@ -144,7 +144,7 @@ export default function Header() {
         </div>
       )}
 
-      <div className="hidden md:flex items-center justify-between">
+      <div className="hidden md:flex items-center mx-auto justify-center gap-10 grow text-gray-400 font-semibold text-lg">
         <Link href="/">
           <Logo />
         </Link>
@@ -169,22 +169,22 @@ export default function Header() {
             </span>
           </Link>
         </nav>
-        <nav className="grid grid-cols-3  items-center gap-4 text-gray-400 font-semi-bold text-base ">
+        <nav className="grid grid-cols-2 text-center justify-center items-center gap-4 text-gray-400 text-base ">
           <AuthLinks status={status} userName={userName} />
-          <Link
-            className="hover:text-primary hover:border-b-2 flex items-center justify-center border-primary rounded-full p-2 transition-all duration-300"
-            href={"/cart"}
-          >
-            <div className="relative cart">
-              <ShoppingCart />
-              {cartProducts?.length > 0 && (
-                <div className="bg-primary text-gray-200 rounded-full ml-6 text-sm absolute -top-2 -right-2 w-5 h-5 flex items-center justify-center">
-                  {cartProducts.length}
-                </div>
-              )}
-            </div>
-          </Link>
         </nav>
+        <Link
+          className="hover:text-primary hover:border-b-2 flex items-center justify-center border-primary rounded-full p-2 transition-all duration-300"
+          href={"/cart"}
+        >
+          <div className="relative cart">
+            <ShoppingCart />
+            {cartProducts?.length > 0 && (
+              <div className="bg-primary text-gray-200 rounded-full ml-6 text-sm absolute -top-2 -right-2 w-5 h-5 flex items-center justify-center">
+                {cartProducts.length}
+              </div>
+            )}
+          </div>
+        </Link>
       </div>
     </header>
   );

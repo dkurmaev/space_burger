@@ -93,7 +93,7 @@ export default function Footer() {
                 <div>
                   <Link
                     href={
-                      "https://www.google.com/maps/place/SchÃ¶nfelder+Weg+28-31,+16321+Bernau+bei+Berlin"
+                      "https://www.google.com/maps/place/Schönfelder+Weg+28-31,+16321+Bernau+bei+Berlin"
                     }
                     target="_blank"
                     rel="noopener noreferrer"
