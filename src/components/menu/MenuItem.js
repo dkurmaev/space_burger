@@ -88,7 +88,7 @@ export default function MenuItem(menuItem) {
                     <h3 className="text-gray-300">Extras</h3>
                     {extras.map((extra) => (
                       <div
-                        key={extra.name}
+                        key={extra._id}
                         className="flex  items-center gap-8 p-4  rounded-md mt-2 mb-2"
                       >
                         <label className="flex items-center gap-4">
@@ -115,7 +115,7 @@ export default function MenuItem(menuItem) {
                     <h3 className="text-gray-300">Beilagen</h3>
                     {beilagen.map((beilage) => (
                       <div
-                        key={beilage.name}
+                        key={beilage._id}
                         className="flex  items-center gap-2 p-4  rounded-md mt-2 py-2 mb-2"
                       >
                         <label className="flex items-center gap-4">
@@ -143,7 +143,7 @@ export default function MenuItem(menuItem) {
                     <h3 className="text-gray-300">Getränke</h3>
                     {drinks.map((drink) => (
                       <div
-                        key={drink.name}
+                        key={drink._id}
                         className="flex  items-center gap-2 p-4  rounded-md mt-2 mb-2"
                       >
                         <label className="flex items-center gap-4">
