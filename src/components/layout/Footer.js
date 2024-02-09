@@ -146,7 +146,7 @@ export default function Footer() {
           </a>
           &nbsp;als QA beteiligt.
         </span>
-        Alle Rechte vorbehalten. Impressum, AGB, DatenschutzerklÃ¤rung, ErklÃ¤rung
+        Alle Rechte vorbehalten. Impressum, AGB, Datenschutzerklärung, Erklärung
         zur Verwendung von Payments Terms of Use und Cookies
       </footer>
     </>
