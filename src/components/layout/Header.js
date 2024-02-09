@@ -10,7 +10,6 @@ import { CartContext } from "@/components/AppContext";
 import ShoppingCart from "@/components/icons/ShoppingCart";
 import Hamburger from "@/components/icons/Hamburger";
 
-
 function AuthLinks({ status, userName }) {
   if (status === "authenticated") {
     return (
@@ -66,7 +65,6 @@ export default function Header() {
   function scrollToSection(id) {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   }
-  
 
   return (
     <header>

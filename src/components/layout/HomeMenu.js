@@ -26,8 +26,8 @@ export default function HomeMenu() {
         </div>
         <div className="grid md:grid-cols-3 gap-8 ">
             {bestSellers?.length > 0 && bestSellers.map(item => (
-                // eslint-disable-next-line react/jsx-key
-                <MenuItem {...item} />
+                
+                <MenuItem key= {item.id} {...item} />
             ))}
         </div>
       </section>

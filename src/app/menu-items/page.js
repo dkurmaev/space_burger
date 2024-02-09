@@ -65,7 +65,7 @@ export default function MenuItems() {
               <Link
                 href={"/menu-items/edit/" + item._id}
                 className="rounded-lg text-gray-400  grid content-between p-2 transition-all hover:shadow-xl hover:shadow-white/20 card"
-                key={item.id}
+                key={item._id}
               >
                 <div className="relative w-full">
                   <Image

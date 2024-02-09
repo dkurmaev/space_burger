@@ -156,7 +156,7 @@ export default function RegisterPage() {
                 </div>
               </div>
 
-              <p className=" ml-2 mt-8 mb-2 text-md text-gray-300">
+              <div className=" md:text-sm text-gray-300">
                 <input
                   className="text-submit"
                   type="checkbox"
@@ -166,7 +166,7 @@ export default function RegisterPage() {
                 />
                 &nbsp;Mit dem &nbsp;
                 <span className="text-my_blue ">
-                  Erstellen eines privaten Kontos
+                  Erstellen eines Kontos
                 </span>
                 &nbsp;erklären Sie, dass Sie unsere &nbsp;
                 <span
@@ -176,7 +176,7 @@ export default function RegisterPage() {
                   Allgemeinen Geschäftsbedingungen
                 </span>
                 &nbsp;zur Kenntnis genommen haben.
-              </p>
+              </div>
               <button
                 className="hover:shadow-md hover:shadow-white text-white bg-primary items-center justify-center"
                 type="register"
