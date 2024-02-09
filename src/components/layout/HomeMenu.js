@@ -19,16 +19,14 @@ export default function HomeMenu() {
     return (
       <section className="ml-3">
         <div className="text-center mt-8">
-          <SectionHeaders subHeader={"check out"}
-                          mainHeader={"spacebox bestsellers"}>
-            
-          </SectionHeaders>
+          <SectionHeaders
+            subHeader={"check out"}
+            mainHeader={"spacebox bestsellers"}
+          ></SectionHeaders>
         </div>
-        <div className="grid md:grid-cols-3 gap-8 ">
-            {bestSellers?.length > 0 && bestSellers.map(item => (
-                
-                <MenuItem key= {item._id} {...item} />
-            ))}
+        <div className="md:grid mr-3 grid-cols-3 gap-8 ">
+          {bestSellers?.length > 0 &&
+            bestSellers.map((item) => <MenuItem key={item._id} {...item} />)}
         </div>
       </section>
     );

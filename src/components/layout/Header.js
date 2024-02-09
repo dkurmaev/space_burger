@@ -1,11 +1,9 @@
 "use client";
-
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Logo from "@/components/icons/Logo";
 import LogoSmall from "@/components/icons/LogoSmall";
-
 import { CartContext } from "@/components/AppContext";
 import ShoppingCart from "@/components/icons/ShoppingCart";
 import Hamburger from "@/components/icons/Hamburger";
@@ -56,8 +54,28 @@ export default function Header() {
   const status = session?.status;
   const userData = session.data?.user;
   let userName = userData?.name || userData?.email;
-  const { cartProducts } = useContext(CartContext);
+  const { cartProducts, setCartProducts } = useContext(CartContext);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+
+  useEffect(() => {
+    // Очистить корзину при выходе из аккаунта
+    if (status === "unauthenticated") {
+      setCartProducts([]);
+    }
+  }, [status]);
+
+  useEffect(() => {
+   
+    if (status === "authenticated") {
+     
+     
+      const unpaidProducts = []; // Замените это на ваш запрос к API
+
+      
+      setCartProducts(unpaidProducts);
+    }
+  }, [status]);
+
   if (userName && typeof userName === "string" && userName.includes(" ")) {
     userName = userName.split(" ")[0];
   }
