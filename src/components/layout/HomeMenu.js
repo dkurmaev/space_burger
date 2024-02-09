@@ -24,7 +24,7 @@ export default function HomeMenu() {
             mainHeader={"spacebox bestsellers"}
           ></SectionHeaders>
         </div>
-        <div className="md:grid mr-3 grid-cols-3 gap-8 ">
+        <div className="md:grid mr-4 grid-cols-3 gap-8 ">
           {bestSellers?.length > 0 &&
             bestSellers.map((item) => <MenuItem key={item._id} {...item} />)}
         </div>
