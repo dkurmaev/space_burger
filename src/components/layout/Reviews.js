@@ -55,13 +55,13 @@ export default function TestimonialsCarousel() {
 
   return (
     <div className="text-center max-w-3xl mx-auto hidden md:block">
-      <section className=" mt-24 ">
+      <section className="mt-24">
         <Slider {...settings}>
           {reviews.map((review, index) => (
             <div key={review.id} className="carousel-item">
-              <div className="review__image-container flex items-center justify-center text-center rounded-full overflow-hidden ">
+              <div className="review__image-container flex items-center justify-center text-center rounded-full overflow-hidden">
                 <Image
-                  className="review__image flex justify-center "
+                  className="review__image flex justify-center"
                   width={200}
                   height={200}
                   src={review.imageUrl}
@@ -79,7 +79,7 @@ export default function TestimonialsCarousel() {
                   count={5}
                   value={review.rating}
                   size={24}
-                  edit={true}
+                  edit={false}
                   className="flex items-center justify-center text-center mt-16"
                   activeColor="#ffd700"
                   emptyIcon={<FaStar />}
