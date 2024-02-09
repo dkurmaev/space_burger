@@ -75,22 +75,22 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div
-            className="relative max-h-auto mt-10 mx-auto w-full h-[160px] border-t border-orange-600 items-center hidden md:block"
+           <div
+            className="relative max-h-auto mt-10  mx-auto w-full h-[160px] border-t border-orange-600 items-center hidden md:block "
             id="contact"
           >
-            <div className="flex justify-between mt-12 items-center">
+            <div className="md:flex justify-between mt-12 items-center">
               <Link href="/">
                 <Image
                   src="/img/Logo_full.png"
-                  width={350}
-                  height={350}
-                  className="mt-6 object-contain cursor-pointer"
+                  width={250}
+                  height={250}
+                  className="md:mt-6 object-contain cursor-pointer"
                   alt="footer_logo"
                 />
               </Link>
-              <div className="flex mx-auto gap-8 text-gray-400 justify-evenly items-center ">
-                <div>
+              <div className="flex  mx-auto gap-8 text-gray-400 justify-evenly items-center  ">
+                <div className="">
                   <Link
                     href={
                       "https://www.google.com/maps/place/Schönfelder+Weg+28-31,+16321+Bernau+bei+Berlin"
@@ -99,9 +99,9 @@ export default function Footer() {
                     rel="noopener noreferrer"
                   >
                     <h3 className="text-primary text-base">Anschrift: </h3>
+                    <ul>Schönfelder Weg 28 - 31 </ul>
+                    <ul>16321 Bernau bei Berlin </ul>
                   </Link>
-                  <ul>Schönfelder Weg 28 - 31 </ul>
-                  <ul>16321 Bernau bei Berlin </ul>
                 </div>
                 <div>
                   <h3 className="text-primary text-base">Öffnungszeiten: </h3>
@@ -112,8 +112,14 @@ export default function Footer() {
                   <Link href={"/"}>
                     <h3 className="text-primary text-base">Kontakt: </h3>
                   </Link>
-                  <ul>+49 (0) 176-22-99-77-56 </ul>
-                  <ul>+49 (0) 176-22-99-77-56 </ul>
+                  <div className="flex items-center">
+                    <Phone />
+                    &nbsp;<ul>+49 (0) 176-22-99-77-56 </ul>
+                  </div>
+                  <div className="flex items-center">
+                    <Email />
+                    &nbsp;<ul>info@spacebox-burger.de</ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -140,11 +146,10 @@ export default function Footer() {
           </a>
           &nbsp;als QA beteiligt.
         </span>
-        <span className="hidden md:block mt-4">
-          Alle Rechte vorbehalten. AGB, Datenschutzerklärung, Erklärung zur
-          Verwendung von Payments Terms of Use und Cookies.
-        </span>
+        Alle Rechte vorbehalten. Impressum, AGB, DatenschutzerklÃ¤rung, ErklÃ¤rung
+        zur Verwendung von Payments Terms of Use und Cookies
       </footer>
     </>
   );
 }
+
