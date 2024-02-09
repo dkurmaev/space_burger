@@ -140,8 +140,10 @@ export default function Footer() {
           </a>
           &nbsp;als QA beteiligt.
         </span>
-        Alle Rechte vorbehalten. AGB, Datenschutzerklärung,
-        Erklärung zur Verwendung von Payments Terms of Use und Cookies.
+        <span className="hidden md:block mt-4">
+          Alle Rechte vorbehalten. AGB, Datenschutzerklärung, Erklärung zur
+          Verwendung von Payments Terms of Use und Cookies.
+        </span>
       </footer>
     </>
   );
