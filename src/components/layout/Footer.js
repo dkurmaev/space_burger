@@ -25,7 +25,6 @@ export default function Footer() {
           </div>
           <div>
             <ul className="social flex mt-6 gap-6">
-             
               <li className="group">
                 <a
                   href="https://www.instagram.com/spaceboxburger_ia?igsh=MWh5ZGpnZzV0aGNoOA=="
@@ -77,32 +76,32 @@ export default function Footer() {
           </div>
 
           <div
-            className="relative max-h-auto mt-10  mx-auto w-full h-[160px] border-t border-orange-600 items-center hidden md:block "
+            className="relative max-h-auto mt-10 mx-auto w-full h-[160px] border-t border-orange-600 items-center hidden md:block"
             id="contact"
           >
-            <div className="md:flex justify-between mt-12 items-center">
+            <div className="flex justify-between mt-12 items-center">
               <Link href="/">
                 <Image
                   src="/img/Logo_full.png"
                   width={350}
                   height={350}
-                  className="md:mt-6 object-contain cursor-pointer"
+                  className="mt-6 object-contain cursor-pointer"
                   alt="footer_logo"
                 />
               </Link>
-              <div className="flex  mx-auto gap-8 text-gray-400 justify-evenly items-center  ">
-                <div className="">
+              <div className="flex mx-auto gap-8 text-gray-400 justify-evenly items-center ">
+                <div>
                   <Link
                     href={
-                      "https://www.google.com/maps/place/Schönfelder+Weg+28-31,+16321+Bernau+bei+Berlin"
+                      "https://www.google.com/maps/place/SchÃ¶nfelder+Weg+28-31,+16321+Bernau+bei+Berlin"
                     }
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <h3 className="text-primary text-base">Anschrift: </h3>
-                    <ul>Schönfelder Weg 28 - 31 </ul>
-                    <ul>16321 Bernau bei Berlin </ul>
                   </Link>
+                  <ul>Schönfelder Weg 28 - 31 </ul>
+                  <ul>16321 Bernau bei Berlin </ul>
                 </div>
                 <div>
                   <h3 className="text-primary text-base">Öffnungszeiten: </h3>
@@ -113,14 +112,8 @@ export default function Footer() {
                   <Link href={"/"}>
                     <h3 className="text-primary text-base">Kontakt: </h3>
                   </Link>
-                  <div className="flex items-center">
-                    <Phone />
-                    &nbsp;<ul>+49 (0) 176-22-99-77-56 </ul>
-                  </div>
-                  <div className="flex items-center">
-                    <Email />
-                    &nbsp;<ul>info@spacebox-burger.de</ul>
-                  </div>
+                  <ul>+49 (0) 176-22-99-77-56 </ul>
+                  <ul>+49 (0) 176-22-99-77-56 </ul>
                 </div>
               </div>
             </div>
@@ -147,8 +140,8 @@ export default function Footer() {
           </a>
           &nbsp;als QA beteiligt.
         </span>
-        Alle Rechte vorbehalten. Impressum, AGB, Datenschutzerklärung, Erklärung
-        zur Verwendung von Payments Terms of Use und Cookies
+        Alle Rechte vorbehalten. AGB, Datenschutzerklärung,
+        Erklärung zur Verwendung von Payments Terms of Use und Cookies.
       </footer>
     </>
   );
