@@ -35,10 +35,27 @@ section.hero {
     @apply grid;
     grid-template-columns: .9fr .8fr;
     justify-content: end;
+
     @media (max-width: 768px) {
         grid-template-columns: 1fr;
-    
-   }
+
+    }
+}
+
+.logo_small {
+    @apply cursor-pointer;
+    max-width: 90px;
+    max-height: 60px;
+    width: auto;
+    height: auto
+}
+
+.logo {
+    @apply cursor-pointer;
+    max-width: 250px;
+    max-height: 67px;
+    width: auto;
+    height: auto;
 }
 
 /* .planet {
@@ -283,11 +300,11 @@ button[type="close"],
 
 .vLine {
     background-color: #ccc;
-        width: 1px;
-        margin: auto;
-        display: block;
-        height: 100%;
-    }
+    width: 1px;
+    margin: auto;
+    display: block;
+    height: 100%;
+}
 
 
 
@@ -331,6 +348,7 @@ button[type="close"],
     z-index: 1000;
 
 }
+
 @media (max-width: 768px) {
     .popup_menu {
         top: 50%;
@@ -345,7 +363,7 @@ button[type="close"],
 .hamburger:hover {
     transition: transform 0.3s ease-in-out;
     transform: scale(1.2);
-   
+
 }
 
 
@@ -360,7 +378,7 @@ button[type="close"],
 }
 
 .glow {
-    text-shadow: 0 0 10px rgba(51, 174, 223, 0.8);    
+    text-shadow: 0 0 10px rgba(51, 174, 223, 0.8);
 
     filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
 

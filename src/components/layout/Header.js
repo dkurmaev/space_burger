@@ -58,7 +58,7 @@ export default function Header() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   useEffect(() => {
-    // Очистить корзину при выходе из аккаунта
+    
     if (status === "unauthenticated") {
       setCartProducts([]);
     }
@@ -69,8 +69,7 @@ export default function Header() {
     if (status === "authenticated") {
      
      
-      const unpaidProducts = []; // Замените это на ваш запрос к API
-
+      const unpaidProducts = []; 
       
       setCartProducts(unpaidProducts);
     }
@@ -89,7 +88,7 @@ export default function Header() {
       <div className="flex items-center justify-between md:hidden">
         <div className="flex gap-12 justify-center items-center">
           <Link href="/">
-            <LogoSmall />
+            <LogoSmall className="logo_small" />
           </Link>
           <Link
             className="text-my_blue glow  hover:text-primary hover:border-b-2 border-primary hover:rounded-full p-2 transition-all duration-300"
@@ -164,7 +163,7 @@ export default function Header() {
 
       <div className="hidden md:flex items-center mx-auto justify-center gap-10 grow text-gray-400 font-semibold text-lg">
         <Link href="/">
-          <Logo />
+          <Logo className="logo" />
         </Link>
         <nav className="flex items-center mx-auto justify-center gap-12 grow text-gray-400 font-semibold text-lg">
           <Link href={"/"}>

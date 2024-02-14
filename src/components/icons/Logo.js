@@ -2,7 +2,7 @@ import Image from "next/image";
 export default function Logo() {
   return (
     <Image
-      className="cursor-pointer"
+      className="logo"
       src={"/img/Logo_full.png"}
       width={260}
       height={260}
