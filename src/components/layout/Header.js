@@ -15,12 +15,14 @@ function AuthLinks({ status, userName }) {
         <Link
           className="text-my_blue glow  hover:text-primary hover:border-b-2 border-primary hover:rounded-full p-2 transition-all duration-300"
           href={"/profile"}
+          aria-label={`Profile ${userName}`}
         >
           {`Hi! `}
           {userName}
         </Link>
         <button
           onClick={() => signOut({ callbackUrl: "/" })}
+          aria-label="SignOut"
           className="bg-primary rounded-full text-white  py-2 flex items-center justify-center header-menu__link menu-link hover:text-my_blue hover:border-b-2 border-white hover:rounded-full p-2 transition-all duration-300"
         >
           Abmelden
@@ -33,12 +35,14 @@ function AuthLinks({ status, userName }) {
       <>
         <Link
           href={"/login"}
+          aria-label="Login"
           className="bg-my_blue rounded-full text-white px-8 py-2 hover:text-primary hover:border-b-2 border-primary hover:rounded-full p-2 transition-all duration-300"
         >
           Anmelden
         </Link>
         <Link
           href={"/register"}
+          aria-label="Register"
           className="bg-primary rounded-full text-white px-5 py-2 header-menu__link menu-link hover:text-my_blue hover:border-b-2 border-white hover:rounded-full p-2 transition-all duration-300 "
         >
           Registrieren
@@ -62,7 +66,7 @@ export default function Header() {
     if (status === "unauthenticated") {
       setCartProducts([]);
     }
-  }, [status]);
+  }, [status, setCartProducts]);
 
   useEffect(() => {
    
@@ -73,7 +77,7 @@ export default function Header() {
       
       setCartProducts(unpaidProducts);
     }
-  }, [status]);
+  }, [status, setCartProducts]);
 
   if (userName && typeof userName === "string" && userName.includes(" ")) {
     userName = userName.split(" ")[0];
@@ -88,11 +92,12 @@ export default function Header() {
       <div className="flex items-center justify-between md:hidden">
         <div className="flex gap-12 justify-center items-center">
           <Link href="/">
-            <LogoSmall className="logo_small" />
+            <LogoSmall className="logo_small" aria-label="Home" />
           </Link>
           <Link
             className="text-my_blue glow  hover:text-primary hover:border-b-2 border-primary hover:rounded-full p-2 transition-all duration-300"
             href={"/profile"}
+            aria-label={`Profile ${userName}`}
           >
             {`Hi! `}
             {userName}
@@ -103,6 +108,7 @@ export default function Header() {
           <Link
             className="hover:text-primary hover:border-b-2 flex items-center justify-center border-primary rounded-full p-2 transition-all duration-300"
             href={"/cart"}
+            aria-label="Cart"
           >
             <div className="relative cart">
               <ShoppingCart />
@@ -118,6 +124,7 @@ export default function Header() {
               isOpen ? "rotate-90" : ""
             } hamburger`}
             onClick={() => setMobileNavOpen((prev) => !prev)}
+            aria-label="Mobile Menu"
           >
             <Hamburger
               className={`w-10 h-10 text-gray-400 ${
@@ -163,7 +170,8 @@ export default function Header() {
 
       <div className="hidden md:flex items-center mx-auto justify-center gap-10 grow text-gray-400 font-semibold text-lg">
         <Link href="/">
-          <Logo className="logo" />
+          <Logo className="logo" 
+          aria-label="Home"/>
         </Link>
         <nav className="flex items-center mx-auto justify-center gap-12 grow text-gray-400 font-semibold text-lg">
           <Link href={"/"}>
@@ -192,6 +200,7 @@ export default function Header() {
         <Link
           className="hover:text-primary hover:border-b-2 flex items-center justify-center border-primary rounded-full p-2 transition-all duration-300"
           href={"/cart"}
+          aria-label="Cart"
         >
           <div className="relative cart">
             <ShoppingCart />
