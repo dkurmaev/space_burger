@@ -75,7 +75,7 @@ export default function Footer() {
             </ul>
           </div>
 
-           <div
+          <div
             className="relative max-h-auto mt-10  mx-auto w-full h-[160px] border-t border-orange-600 items-center hidden md:block "
             id="contact"
           >
@@ -152,4 +152,3 @@ export default function Footer() {
     </>
   );
 }
-

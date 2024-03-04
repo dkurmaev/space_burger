@@ -14,14 +14,14 @@ export default function Home() {
         <HomeMenu />
 
         <section className="text-center my-16 hidden md:block">
-          <SectionHeaders subHeader={""} mainHeader={"Rezensionen Über Uns"} />
+          <SectionHeaders subHeader={"Feedback"} mainHeader={"Rezensionen Über Uns"} />
         </section>
 
         <section className="text-center my-16 gap-2" id="our__story">
           {/* <AboutVideo/> */}
         </section>
         <section
-          subHeader={"Rezensionen Über Uns"}
+          subHeader={"Haben Sie Fragen? Wir sind hier, um Ihnen zu helfen!"}
           mainHeader={"Kontaktieren Sie mit uns"}
         >
           <Reviews />

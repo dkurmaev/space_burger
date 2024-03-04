@@ -485,3 +485,7 @@ div.tabs>.active {
         box-shadow: .2em -.2em 0 0 currentcolor;
     }
 }
+
+.cookies {
+    z-index: 1;
+}
