@@ -114,7 +114,7 @@ export default function Footer() {
                   </Link>
                   <div className="flex items-center">
                     <Phone />
-                    &nbsp;<ul>+49 (0) 176-22-99-77-56 </ul>
+                    &nbsp;<ul>+49 (0) 176-xx-xx-xx-xx </ul>
                   </div>
                   <div className="flex items-center">
                     <Email />
