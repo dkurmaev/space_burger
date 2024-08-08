@@ -156,7 +156,7 @@ export default function Header() {
             </span>
             <div className="grid text-sm text-primary border-b-2 border-primary rounded-full p-2 transition-all duration-300 justify-center">
               <span>
-                &nbsp;<ul>+49 (0) 176-22-99-77-56 </ul>
+                &nbsp;<ul>+49 (0) 176-xx-xx-xx-xx </ul>
               </span>
               <span>
                 &nbsp;<ul>info@spacebox-burger.de</ul>
